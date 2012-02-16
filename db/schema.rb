@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216015654) do
+ActiveRecord::Schema.define(:version => 20120216020915) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20120216015654) do
     t.boolean  "is_admin"
     t.boolean  "can_read"
     t.boolean  "can_write"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "announcements", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "study_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,20 @@
 Studycache::Application.routes.draw do
+  get "priviledges/create"
+
+  get "priviledges/edit"
+
+  get "priviledges/delete"
+
+  get "data_entry/index"
+
+  get "data_entry/create"
+
+  get "data_entry/edit"
+
+  get "data_entry/delete"
+
+  get "dashboard/index"
+
   devise_for :users
 
   root :to => "home#index"
