@@ -1,0 +1,11 @@
+<h2>Create Study</h2>
+
+<%= form_for(@study) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br/>
+    <br/>
+    <%= f.label :description %>
+    <%= f.text_area :description, :size => "60x12" %>
+    <%= f.submit "Create" %>
+<% end %>

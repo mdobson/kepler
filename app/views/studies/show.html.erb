@@ -1,0 +1,9 @@
+<%= @study.title  %>
+<br/>
+<%= @study.description %>
+<br/>
+<%= @study.user.email %>
+<br/>
+<% if @acl.is_admin %>
+<h5>An Admin!</h5>
+<% end %>

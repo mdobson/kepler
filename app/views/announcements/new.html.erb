@@ -1,0 +1,12 @@
+<%= form_for @post, :url => study_announcements_path do |postForm| %>
+    <%=  postForm.label :title %>
+    <%=  postForm.text_field :title %>
+    <br/>
+    <br/>
+    <%=  postForm.label :content %>
+    <%=  postForm.text_area :content, :size => "60x12" %>
+    <br/>
+    <br/>
+    <%= postForm.submit "Create" %>
+
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216020915) do
+ActiveRecord::Schema.define(:version => 20120217014716) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(:version => 20120216020915) do
   create_table "studies", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "creator"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
