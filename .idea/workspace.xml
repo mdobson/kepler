@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd937c59-b654-4983-88e7-1a5345e56dd3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/announcements/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/studies/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/access_control.rb" afterPath="$PROJECT_DIR$/app/models/access_control.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/announcements.rb" afterPath="$PROJECT_DIR$/app/models/announcements.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/study.rb" afterPath="$PROJECT_DIR$/app/models/study.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-    </list>
+    <list default="true" id="fd937c59-b654-4983-88e7-1a5345e56dd3" name="Default" comment="" />
     <ignored path="studycache.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
