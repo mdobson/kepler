@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217014716) do
+ActiveRecord::Schema.define(:version => 20120218195043) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20120217014716) do
     t.datetime "updated_at"
   end
 
+  add_index "access_controls", ["study_id", "user_id"], :name => "index_access_controls_on_study_id_and_user_id"
+
   create_table "announcements", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -31,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20120217014716) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "announcements", ["study_id", "user_id"], :name => "index_announcements_on_study_id_and_user_id"
 
   create_table "example_subjects", :force => true do |t|
     t.boolean  "locked"
@@ -55,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20120217014716) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "studies", ["id"], :name => "index_studies_on_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

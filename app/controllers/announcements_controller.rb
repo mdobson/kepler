@@ -1,6 +1,10 @@
 class AnnouncementsController < ApplicationController
   def index
         @announcements = Announcements.posts_by_study(params[:study_id])
+        respond_to do |format|
+          format.html
+          format.json { render json: @announcements }
+        end
   end
   
   def new
@@ -24,6 +28,10 @@ class AnnouncementsController < ApplicationController
 
   def show
       @post = Announcements.post_by_study_and_id(params[:study_id], params[:id]).first
+      respond_to do |format|
+        format.html
+        format.json { render json: @post }
+      end
   end
 
 end

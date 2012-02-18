@@ -12,4 +12,7 @@ class User < ActiveRecord::Base
   has_many :announcements
   has_many :example_subjects
   
+  scope :get_user_id_from_email, lambda { |email|
+    where("email = ?", email)
+  }
 end
