@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_many :access_controls
   has_many :announcements
   has_many :example_subjects
+  
 end
