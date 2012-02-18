@@ -7,6 +7,7 @@ Studycache::Application.routes.draw do
   resources :studies  do
     resources :announcements
     resources :dashboard
+    resources :access_controls
   end
 
   # The priority is based upon order of creation:
