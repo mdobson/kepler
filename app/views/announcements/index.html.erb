@@ -1,0 +1,7 @@
+<h1>Here are some announcements</h1>
+<% @announcements.each do |announcement| %>
+	<h4><%= announcement.title %></h4>
+	<br/>
+	<br/>
+	<p><%= announcement.content %></p>
+<% end %>

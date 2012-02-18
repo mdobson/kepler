@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if acl.count == 0
        :root
     else
-       "/studies/#{acl.first.study_id}/dashboard" 
+       "/studies/#{acl.first.study_id}/announcements" 
     end
   end
   

@@ -1,4 +1,8 @@
 class AnnouncementsController < ApplicationController
+  def index
+        @announcements = Announcements.posts_by_study(params[:study_id])
+  end
+  
   def new
       @post = Announcements.new
       @study = Study.find(params[:study_id])
