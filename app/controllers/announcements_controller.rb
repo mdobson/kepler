@@ -1,4 +1,5 @@
 class AnnouncementsController < ApplicationController
+  layout 'with_links'
   def index
         @announcements = Announcements.posts_by_study(params[:study_id])
         respond_to do |format|

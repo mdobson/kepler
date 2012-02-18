@@ -1,2 +1,12 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1>Dashboard</h1>
+<% @users_in_study.each do |acl| %>
+	<%= acl.user.email %>
+	<br/>
+	<%= acl.is_admin %>
+	<br/>
+	<%= acl.can_read %>
+	<br/>
+	<%= acl.can_write %>
+	<br/>
+	<br/>
+<% end %>

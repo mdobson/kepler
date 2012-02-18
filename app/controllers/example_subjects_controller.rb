@@ -1,5 +1,8 @@
-class DataEntryController < ApplicationController
+class ExampleSubjectsController < ApplicationController
   def index
+  end
+
+  def show
   end
 
   def create
