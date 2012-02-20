@@ -6,6 +6,10 @@ class Study < ActiveRecord::Base
 	has_many :example_subjects
 	has_many :announcements
 
+#	def to_param
+#		"#{id}-#{title.parameterize}"
+#	end
+
   def create_admin_of_study
     @acl = AccessControl.new
     @acl.study_id = self.id
