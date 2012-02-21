@@ -1,5 +1,5 @@
 Studycache::Application.routes.draw do
-  
+
   devise_for :users
 
   root :to => "home#index"
@@ -9,6 +9,8 @@ Studycache::Application.routes.draw do
     resources :dashboard
     resources :access_controls
     resources :example_subjects
+    resources :questions
+    resources :answers
   end
 
   # The priority is based upon order of creation:

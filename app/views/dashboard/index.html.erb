@@ -1,12 +1,33 @@
+<br/>
 <h1>Dashboard</h1>
-<% @users_in_study.each do |acl| %>
-	<%= acl.user.email %>
+<br/>
+<h3>Users</h3>
+<%= link_to "Add a User", new_study_access_control_path %>
+<table>
+	<tr>
+		<td>Email</td>
+		<td>Is Admin?</td>
+		<td>Can Read?</td>
+		<td>Can Write?</td>
+	</tr>
+	<% @users_in_study.each do |acl| %>
+		<tr>
+			<td><%= acl.user.email %></td>
+			<td><%= acl.is_admin %></td>
+			<td><%= acl.can_read %></td>
+			<td><%= acl.can_write %></td>
+		</tr>
+	<% end %>
+</table>
+
+<br/>
+<br/>
+<h3>Announcements</h3>
+<br/>
+<%= link_to "Create An Announcement", new_study_announcement_path %>
+<br/>
+<% @posts.each do |p| %>
+	<%= p.title %>
 	<br/>
-	<%= acl.is_admin %>
-	<br/>
-	<%= acl.can_read %>
-	<br/>
-	<%= acl.can_write %>
-	<br/>
-	<br/>
+	By: <%= p.user.email %>
 <% end %>

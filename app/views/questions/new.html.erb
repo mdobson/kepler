@@ -1,0 +1,8 @@
+<h1>New Question</h1>
+<%= form_for @question, :url => study_questions_path do |q| %>
+	<%= q.label :question %>
+	<%= q.text_area :question, :size => "60x12" %>
+	<br/>
+	<br/>
+	<%= q.submit "Create" %>
+<% end %>

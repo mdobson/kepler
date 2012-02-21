@@ -6,24 +6,28 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
--<body style="padding-top:40px;">
--    <div class="topbar">
--        <div class="topbar-inner">
--            <div class="container">
--                <a class="brand" href="/">StudyCache</a>
--                <ul class="nav">
--                    <%= yield :links %>
--                </ul>
--            </div>
--        </div>
--    </div>        
-+<body>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-+<%= yield :links %>
- <br/>
- <%= yield %>
-
+<body>
+   <div class="navbar navbar-fixed-top">
+       <div class="navbar-inner">
+           <div class="container">
+               <a class="brand" href="/">StudyCache</a>
+               	<ul class="nav">
+                   <%= yield :links %>
+               	</ul>
+           </div>
+       </div>
+    </div>        
+<body>
+ <div class="container">
+ 	<br/>
+ 	<br/>
+ 	<% flash.each do |key,msg| %>
+		<div>
+			<div class="alert alert-success"><%= msg %></div>
+		</div>
+	<% end %>
+ 	<%= yield %>
+ </div>
 
 </body>
 </html>

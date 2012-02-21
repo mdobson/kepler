@@ -1,0 +1,10 @@
+<h1>Questions</h1>
+<p>Here are some current questions on the study</p>
+<br/>
+<br/>
+<% @questions.each do |q| %>
+	<%= q.question %>
+	<br/>
+	<%= q.user.email %>
+	<br/><br/><br/>
+<% end %>

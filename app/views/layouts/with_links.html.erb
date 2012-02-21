@@ -1,8 +1,8 @@
 <% content_for(:links) do %>
 
-		<li><%= link_to "dashboard", study_dashboard_index_path %></li>
-		<li><%= link_to "announcements", study_announcements_path %></li>
-
+		<li><%= link_to "Dashboard", study_dashboard_index_path %></li>
+		<li><%= link_to "Announcements", study_announcements_path %></li>
+		<li><a href="/users/sign_out">Logout</a></li>
 <% end %>
 
 <%= render :file => "layouts/application" %>

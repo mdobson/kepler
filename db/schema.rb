@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218195043) do
+ActiveRecord::Schema.define(:version => 20120221021358) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(:version => 20120218195043) do
 
   add_index "announcements", ["study_id", "user_id"], :name => "index_announcements_on_study_id_and_user_id"
 
+  create_table "answers", :force => true do |t|
+    t.text     "answer"
+    t.integer  "study_id"
+    t.integer  "user_id"
+    t.boolean  "correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["study_id", "user_id"], :name => "index_answers_on_study_id_and_user_id"
+
   create_table "example_subjects", :force => true do |t|
     t.boolean  "locked"
     t.integer  "study_id"
@@ -51,6 +62,17 @@ ActiveRecord::Schema.define(:version => 20120218195043) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "questions", :force => true do |t|
+    t.text     "question"
+    t.integer  "study_id"
+    t.integer  "user_id"
+    t.boolean  "correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["study_id", "user_id"], :name => "index_questions_on_study_id_and_user_id"
 
   create_table "studies", :force => true do |t|
     t.string   "title"

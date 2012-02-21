@@ -1,0 +1,7 @@
+<h1>New Answer</h1>
+
+<%= form_for @answer, :url => study_answer do |a| %>
+	<%= a.label :answer %>
+	<%= a.text_area :answer, :size => "12x50" %>
+<% end %>
+

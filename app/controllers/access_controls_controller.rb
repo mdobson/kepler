@@ -26,7 +26,7 @@ class AccessControlsController < ApplicationController
     @acl = createAcl(userId, params)
     respond_to do |format|
       if @acl.save
-        format.html { redirect_to "/studies/#{params[:study_id]}/access_controls/#{@acl.id}", notice: 'Access Control was successfully created.'}
+        format.html { redirect_to "/studies/#{params[:study_id]}/dashboard", notice: 'Access Control was successfully created.'}
       end
     end
   end

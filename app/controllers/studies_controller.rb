@@ -16,7 +16,7 @@ class StudiesController < ApplicationController
       @study.user_id = current_user.id
       respond_to do |format|
         if @study.save
-          format.html { redirect_to "/studies/#{@study.id}/", notice: 'Study was successfully created.' }
+          format.html { redirect_to "/studies/#{@study.id}/announcements", notice: 'Study was successfully created.' }
         end
       end
   end
