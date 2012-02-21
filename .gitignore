@@ -3,5 +3,3 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
-
-app/assets/stylesheets/application.css
