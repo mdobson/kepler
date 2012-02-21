@@ -3,7 +3,7 @@
 <br/>
 <br/>
 <% @questions.each do |q| %>
-	<%= q.question %>
+	<a href="/studies/<%= q.study_id %>/questions/<%= q.id %>"><%= q.question %></a>
 	<br/>
 	<%= q.user.email %>
 	<br/><br/><br/>

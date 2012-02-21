@@ -1,2 +1,22 @@
-<h1>Question#show</h1>
-<p>Find me in app/views/question/show.html.erb</p>
+<h1>Question</h1>
+<br/>
+<%= @question.question %>
+
+<br/><br/>
+<h5>Answers</h5>
+<% @question.answers.each do |answer| %>
+	<%= answer.answer %>
+	<br/>
+	<%= answer.user.email %>
+	<br/><br/>
+<% end %>
+
+<h1>New Answer</h1>
+
+<%= form_for [@question.study,@answer] do |a| %>
+	<%= a.label :answer %>
+	<%= a.text_area :answer, :size => "50x12" %>
+	<%= a.hidden_field :question_id, :value=>params[:id] %>
+	<%= a.submit "Create" %>
+<% end %>
+
