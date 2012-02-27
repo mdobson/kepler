@@ -60,7 +60,7 @@ Studycache::Application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'high-mist-5348.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'studycache.heroku.com' }
   ActionMailer::Base.smtp_settings = {
     :address    => "smtp.sendgrid.net",
     :port       => 25,
