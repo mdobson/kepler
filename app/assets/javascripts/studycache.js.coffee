@@ -3,7 +3,7 @@ window.Studycache =
   Collections: {}
   Views: {}
   Routers: {}
-  init: -> return
+  init: -> alert "Hello from backbone"
 
 $(document).ready ->
   Studycache.init()
