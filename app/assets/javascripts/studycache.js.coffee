@@ -3,7 +3,9 @@ window.Studycache =
   Collections: {}
   Views: {}
   Routers: {}
-  init: -> alert "Hello from backbone"
+  init: -> 
+  	new Studycache.Routers.Forms()
+  	Backbone.history.start()
 
 $(document).ready ->
   Studycache.init()
