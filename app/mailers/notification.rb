@@ -8,7 +8,7 @@ class Notification < ActionMailer::Base
   #
   def study(accessControl)
     mail to: accessControl.user.email
-    @acl = accessControl
+    #@acl = accessControl
     mail(:to => accessControl.user.email, :subject =>"You've been added to #{accessControl.study.title}") 
   end
 end
