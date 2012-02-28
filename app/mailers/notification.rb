@@ -7,9 +7,8 @@ class Notification < ActionMailer::Base
   #   en.notification.study.subject
   #
   def study(accessControl)
-    subject     "You've been added to #{accessControl.study.title}"
-    sent_on     Time.now
-
     mail to: accessControl.user.email
+    @acl = accessControl
+    mail(:to => accessControl.user.email, :subject =>"You've been added to #{accessControl.study.title}") 
   end
 end
