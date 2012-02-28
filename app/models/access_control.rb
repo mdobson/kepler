@@ -18,7 +18,7 @@ class AccessControl < ActiveRecord::Base
   }
   
   def notify_user
-    Notification.deliver_study(self)
+    Notification.study(self)
   end
 
 end
