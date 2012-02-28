@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  after_create :registration
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
@@ -15,4 +17,9 @@ class User < ActiveRecord::Base
   scope :get_user_id_from_email, lambda { |email|
     where("email = ?", email)
   }
+
+
+  def registration(self)
+    Notification.registration(self).deliver
+  end
 end
