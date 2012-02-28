@@ -17,8 +17,13 @@ class AccessControl < ActiveRecord::Base
 	  where("study_id = ?", study_id)
   }
   
-  #def notify_user
-  #  Notification.deliver_study(self)
-  #end
+
+
+  def notify_user
+    Notification.study(self).deliver
+  end
+
+
+
 
 end

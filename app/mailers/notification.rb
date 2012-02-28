@@ -14,4 +14,5 @@ class Notification < ActionMailer::Base
   def registration(user)
     mail(:to => user.email, :subject =>"Thanks for registering at StudyCache!")
   end
+
 end
