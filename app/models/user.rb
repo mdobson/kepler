@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
 
 
-  def notify_user(self)
+  def notify_user
     Notification.registration(self).deliver
   end
 end
