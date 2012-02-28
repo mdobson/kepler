@@ -4,6 +4,5 @@ class StudyNotifier < ActionMailer::Base
   	from 			"StudyCache Team"
   	subject 		"You've been added to #{accessControl.study.title}"
   	sent_on 		Time.now
-  	body 			"Greetings #{accessControl.user.email}! You've been added to #{accessControl.study.title}! Please check with your study administrator on what your responsibilities are."
-  end
+  	body 			{ :email => accessControl.user.email, :study => accessControl.study.title }
 end
