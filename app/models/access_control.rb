@@ -1,6 +1,7 @@
 class AccessControl < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :study
+  after_create :notify_user
 
 	validates_uniqueness_of :user_id, :scope => :study_id
 
@@ -16,4 +17,8 @@ class AccessControl < ActiveRecord::Base
 	  where("study_id = ?", study_id)
   }
   
+  def notify_user
+    study_notifier.addition_to_study_notification(self)
+  end
+
 end
