@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :registration
+  after_create :notify_user
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   }
 
 
-  def registration(self)
+  def notify_user(self)
     Notification.registration(self).deliver
   end
 end
