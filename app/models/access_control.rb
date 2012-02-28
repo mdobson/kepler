@@ -22,6 +22,4 @@ class AccessControl < ActiveRecord::Base
     Notification.study(self).deliver
   end
 
-
-
 end
