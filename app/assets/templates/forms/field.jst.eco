@@ -1,0 +1,16 @@
+<h5>Here are details about this particular field <%= @id %></h5>
+<label for="question">Question:</label>
+<input type="text" id="question" name="question" />
+<br/><br/>
+<label for="helptext">Help Text:</label>
+<input type="text" id="question" name="helptext" />
+<br/><br/>
+<label for="datatype">Data Type:</label>
+<input type="text" id="question" name="datatype" />
+<br/><br/>
+<label for="blank">Can this field be blank?:</label>
+<input type="text" id="question" name="blank" />
+<br/>
+<br/>
+<input type="button" value="Save" id="saveField"/>
+

@@ -1,1 +1,1 @@
-<div class="field">Field</div>
+<div class="alert alert-block field" id="<%= @id %>"><a href="#">Field</a></div><br/><br/>
