@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  layout 'with_links'
   def new
     @question = Question.new
   end

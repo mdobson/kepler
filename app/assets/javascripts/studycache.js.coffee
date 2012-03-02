@@ -4,6 +4,7 @@ window.Studycache =
   Views: {}
   Routers: {}
   init: -> 
+  	new Studycache.Routers.Apps()
   	new Studycache.Routers.Forms()
   	Backbone.history.start()
 

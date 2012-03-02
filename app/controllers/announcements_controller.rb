@@ -22,7 +22,7 @@ class AnnouncementsController < ApplicationController
     @post.study_id = params[:study_id]
     respond_to do |format|
       if @post.save
-        format.html { redirect_to "/studies/#{@post.study_id}/announcements/dashboard", notice: 'Announcement was successfully created.' }
+        format.html { redirect_to "/studies/#{@post.study_id}/dashboard", notice: 'Announcement was successfully created.' }
       end
     end
   end

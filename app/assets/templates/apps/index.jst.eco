@@ -1,0 +1,13 @@
+<br/>
+<h4>Your Forms</h4>
+
+<input type="button" value="New Form" class="btn" id="newFormBtn"/>
+
+<br/>
+<br/>
+
+<div id="FormContent"></div>
+
+<br/>
+<br/>
+<input type="button" value="Save Form" class="btn" id="saveFormBtn"/>
