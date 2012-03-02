@@ -1,10 +1,12 @@
 <h1>Questions</h1>
 <p>Here are some current questions on the study</p>
 <br/>
+<%= link_to "Ask One Here", new_study_question_path %>
+<br/>
 <br/>
 <% @questions.each do |q| %>
-	<a href="/studies/<%= q.study_id %>/questions/<%= q.id %>"><%= q.question %></a>
+	<h3><a href="/studies/<%= q.study_id %>/questions/<%= q.id %>"><%= q.question %></a></h3>
 	<br/>
-	<%= q.user.email %>
+	<h5>By:</h5><%= q.user.email %>
 	<br/><br/><br/>
 <% end %>

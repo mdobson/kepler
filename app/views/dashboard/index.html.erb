@@ -3,13 +3,16 @@
 <br/>
 <h3>Users</h3>
 <%= link_to "Add a User", new_study_access_control_path %>
-<table>
-	<tr>
-		<td>Email</td>
-		<td>Is Admin?</td>
-		<td>Can Read?</td>
-		<td>Can Write?</td>
-	</tr>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>Is Admin?</th>
+			<th>Can Read?</th>
+			<th>Can Write?</th>
+		</tr>
+	</thead>
+	<tbody>
 	<% @users_in_study.each do |acl| %>
 		<tr>
 			<td><%= acl.user.email %></td>
@@ -18,6 +21,7 @@
 			<td><%= acl.can_write %></td>
 		</tr>
 	<% end %>
+	</tbody>
 </table>
 
 <br/>
@@ -26,8 +30,20 @@
 <br/>
 <%= link_to "Create An Announcement", new_study_announcement_path %>
 <br/>
-<% @posts.each do |p| %>
-	<%= p.title %>
-	<br/>
-	By: <%= p.user.email %>
-<% end %>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>By</th>
+		</tr>
+	</thead>
+	<tbody>
+
+	<% @posts.each do |p| %>
+		<tr>
+			<td><%= p.title %></td>
+			<td><%= p.user.email %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
