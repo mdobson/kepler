@@ -1,1 +1,6 @@
-<div class="alert alert-block field" id="<%= @id %>"><a href="#">Field</a></div><br/><br/>
+<% for entry in @form.models: %>
+	<div class="alert alert-success field" id="<%= entry.get("id") %>">
+		<a href="#"><%= entry.get("name") %></a>
+	</div>
+	<br/><br/>
+<% end %>

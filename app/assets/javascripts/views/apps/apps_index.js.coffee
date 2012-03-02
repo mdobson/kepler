@@ -7,8 +7,12 @@ class Studycache.Views.AppsIndex extends Backbone.View
   	@
 
   events: () ->
-  	"click #newFormBtn":"newForm"
+  	"click #newFormBtn":"newForm",
+  	"click #saveFormBtn":"saveForm"
 
   newForm: () ->
-  	view = new Studycache.Views.FormsIndex()
-  	$("#FormContent").html(view.render().el)
+  	@formview = new Studycache.Views.FormsIndex()
+  	$("#FormContent").html(@formview.render().el)
+
+  saveForm: () ->
+  	alert JSON.stringify @formview.form
