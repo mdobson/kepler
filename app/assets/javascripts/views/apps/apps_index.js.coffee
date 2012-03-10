@@ -15,4 +15,5 @@ class Studycache.Views.AppsIndex extends Backbone.View
   	$("#FormContent").html(@formview.render().el)
 
   saveForm: () ->
-  	alert JSON.stringify @formview.form
+  	#alert @formview.form.url()
+    @formview.form.save()

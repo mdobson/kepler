@@ -43,6 +43,6 @@ class Studycache.Views.FormsIndex extends Backbone.View
     nullableText = $("#nullable").val()
     @currentField.set(name: questionText, help: helpText, type: typeText, nullable: nullableText)
     $("#fields").html(@view.render(@form).el)
-    alert JSON.stringify @currentField
+    alert @currentField.url()
 
     
