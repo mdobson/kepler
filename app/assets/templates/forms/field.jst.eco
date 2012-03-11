@@ -1,15 +1,15 @@
 <h5>Here are details about this particular field <%= @field.get("id") %></h5>
 <label for="question">Question:</label>
-<input type="text" id="question" name="question" value="<%= @field.get("name") %>" />
+<input type="text" id="question" name="question" value="<%= @field.get("question") %>" />
 <br/><br/>
 <label for="helptext">Help Text:</label>
-<input type="text" id="help" name="helptext" value="<%= @field.get("help") %>" />
+<input type="text" id="help" name="helptext" value="<%= @field.get("helptext") %>" />
 <br/><br/>
 <label for="datatype">Data Type:</label>
-<input type="text" id="type" name="datatype" value="<%= @field.get("type") %>"/>
+<input type="text" id="type" name="datatype" value="<%= @field.get("datatype") %>"/>
 <br/><br/>
 <label for="blank">Can this field be blank?:</label>
-<input type="text" id="nullable" name="blank" value="<%= @field.get("nullable") %>"/>
+<input type="text" id="nullable" name="blank" value="<%= @field.get("blank") %>"/>
 <br/>
 <br/>
 <input type="button" value="Save" id="saveField" />

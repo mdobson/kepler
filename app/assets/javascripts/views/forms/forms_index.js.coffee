@@ -41,8 +41,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
     helpText = $("#help").val()
     typeText = $("#type").val()
     nullableText = $("#nullable").val()
-    @currentField.set(name: questionText, help: helpText, type: typeText, nullable: nullableText)
+    @currentField.set(question: questionText, helptext: helpText, datatype: typeText, blank: nullableText)
     $("#fields").html(@view.render(@form).el)
-    alert @currentField.url()
 
     

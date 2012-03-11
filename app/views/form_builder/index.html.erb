@@ -1,2 +1,9 @@
-<%= javascript_include_tag "application" %>
-<div id="container">Loading...</div>
+<br/>
+<br/>
+<% @forms["forms"][0]["fields"].each do |field| %>
+	<h4>Field</h4><br/>
+	<%= field["question"] %><br/>
+	<%= field["helptext"] %><br/>
+	<%= field["datatype"] %><br/>
+	<%= field["blank"] %><br/><br/>
+<% end %>
