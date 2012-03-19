@@ -6,10 +6,16 @@
 <input type="text" id="help" name="helptext" value="<%= @field.get("helptext") %>" />
 <br/><br/>
 <label for="datatype">Data Type:</label>
-<input type="text" id="type" name="datatype" value="<%= @field.get("datatype") %>"/>
+<select id="type" name="datatype">
+	<option><%= @field.get("datatype") %></option>
+	<option>Check Box</option>
+	<option>Text</option>
+	<option>Number</option>
+	<option>Select</option>
+</select>
 <br/><br/>
 <label for="blank">Can this field be blank?:</label>
-<input type="text" id="nullable" name="blank" value="<%= @field.get("blank") %>"/>
+<input type="checkbox" id="nullable" name="blank" <%= @field.get("blank") %>/>
 <br/>
 <br/>
 <input type="button" value="Save" id="saveField" />
