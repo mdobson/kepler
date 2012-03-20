@@ -4,7 +4,6 @@ class FormBuilderController < ApplicationController
   respond_to :json
 
   def index
-  	@forms = Form.all(params[:study_id])
   end
 
   def create

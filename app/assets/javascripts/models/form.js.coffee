@@ -1,3 +1,4 @@
 class Studycache.Models.Form extends Backbone.Model
-	url: () ->
+	url:() ->
 		window.location
+		

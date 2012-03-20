@@ -1,0 +1,9 @@
+<br/>
+<br/>
+<% @forms["forms"][0]["fields"].each do |field| %>
+	<h4>Field</h4><br/>
+	<%= field["question"] %><br/>
+	<%= field["helptext"] %><br/>
+	<%= get_form_field(field) %><br/><br/>
+	
+<% end %>
