@@ -18,4 +18,3 @@ class Studycache.Views.AppsIndex extends Backbone.View
   	alert JSON.stringify @formview.form
   	#alert @formview.form.url()
     @formview.form.save()
-

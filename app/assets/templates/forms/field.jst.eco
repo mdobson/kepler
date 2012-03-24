@@ -1,6 +1,7 @@
 <h5>Here are details about this particular field <%= @field.get("id") %></h5>
 <label for="question">Question:</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <input type="text" id="question" name="question" value="<%= @field.get("name") %>" />
 <br/><br/>
 <label for="helptext">Help Text:</label>
@@ -12,6 +13,8 @@
 <label for="blank">Can this field be blank?:</label>
 <input type="text" id="nullable" name="blank" value="<%= @field.get("nullable") %>"/>
 =======
+=======
+>>>>>>> Backbonejs
 <input type="text" id="question" name="question" value="<%= @field.get("question") %>" />
 <br/><br/>
 <label for="helptext">Help Text:</label>
@@ -28,6 +31,9 @@
 <br/><br/>
 <label for="blank">Can this field be blank?:</label>
 <input type="checkbox" id="nullable" name="blank" <%= @field.get("blank") %>/>
+<<<<<<< HEAD
+>>>>>>> Backbonejs
+=======
 >>>>>>> Backbonejs
 <br/>
 <br/>

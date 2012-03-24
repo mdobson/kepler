@@ -1,11 +1,7 @@
 class FormBuilderController < ApplicationController
   layout 'with_links'
-<<<<<<< HEAD
-=======
-
   respond_to :json
 
->>>>>>> Backbonejs
   def index
   end
 
