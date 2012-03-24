@@ -17,7 +17,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
 
   addField: () -> 
-    field = new Studycache.Models.Field({name : "new field", id : @form.length + 1})
+    field = new Studycache.Models.Field({name : "new field", id : @form.length + 1, blank:""})
     @currentField = field
     @infoView = new Studycache.Views.FieldsDetail(parent : @)
     @form.add(field)
@@ -44,5 +44,12 @@ class Studycache.Views.FormsIndex extends Backbone.View
     @currentField.set(name: questionText, help: helpText, type: typeText, nullable: nullableText)
     $("#fields").html(@view.render(@form).el)
     alert JSON.stringify @currentField
+    if $("#nullable").is(":checked")
+        nullableText = "checked"
+    else
+        nullableText = ""
+    @currentField.set({question: questionText, helptext: helpText, datatype: typeText, blank: nullableText})
+    alert JSON.stringify @currentField
+    $("#fields").html(@view.render(@form).el)
 
     

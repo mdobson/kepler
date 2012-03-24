@@ -1,5 +1,6 @@
 <h5>Here are details about this particular field <%= @field.get("id") %></h5>
 <label for="question">Question:</label>
+<<<<<<< HEAD
 <input type="text" id="question" name="question" value="<%= @field.get("name") %>" />
 <br/><br/>
 <label for="helptext">Help Text:</label>
@@ -10,6 +11,24 @@
 <br/><br/>
 <label for="blank">Can this field be blank?:</label>
 <input type="text" id="nullable" name="blank" value="<%= @field.get("nullable") %>"/>
+=======
+<input type="text" id="question" name="question" value="<%= @field.get("question") %>" />
+<br/><br/>
+<label for="helptext">Help Text:</label>
+<input type="text" id="help" name="helptext" value="<%= @field.get("helptext") %>" />
+<br/><br/>
+<label for="datatype">Data Type:</label>
+<select id="type" name="datatype">
+	<option><%= @field.get("datatype") %></option>
+	<option>Check Box</option>
+	<option>Text</option>
+	<option>Number</option>
+	<option>Select</option>
+</select>
+<br/><br/>
+<label for="blank">Can this field be blank?:</label>
+<input type="checkbox" id="nullable" name="blank" <%= @field.get("blank") %>/>
+>>>>>>> Backbonejs
 <br/>
 <br/>
 <input type="button" value="Save" id="saveField" />

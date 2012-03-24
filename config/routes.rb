@@ -11,7 +11,8 @@ Studycache::Application.routes.draw do
     resources :example_subjects
     resources :questions
     resources :answers
-    resources :form_builder, :only => [:index]
+    resources :form_builder, :only => [:index, :new, :create]
+    resources :form, :only => [:index, :show]
   end
 
   # The priority is based upon order of creation:
