@@ -1,11 +1,22 @@
-<h2>Create Study</h2>
+<fieldset class="span10">
+	<legend>Create a Study</legend>
+<%= form_for @study, :html=>{:class=>"form-horizontal well"} do |postForm| %>
+<div class="control-group">
+  <%= postForm.label :title, :class=>"control-label" %>
+  <div class="controls">
+  	<%= postForm.text_field :title %>
+  </div>
+</div>
 
-<%= form_for(@study) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br/>
-    <br/>
-    <%= f.label :description %>
-    <%= f.text_area :description, :size => "60x12" %>
-    <%= f.submit "Create" %>
+<div class="control-group">
+	<%=  postForm.label :description, :class=>"control-label" %>
+	<div class="controls">
+		<%=  postForm.text_area :description, :size => "400x8", :style=>"width:461px;" %>
+	</div>
+</div>
+<div class="form-actions">
+  <%= postForm.submit "Create", :class => "btn btn-info" %>
+</div>
+
 <% end %>
+</fieldset>

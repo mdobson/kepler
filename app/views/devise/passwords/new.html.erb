@@ -1,12 +1,20 @@
-<h2>Forgot your password?</h2>
+<fieldset class="span7">
+	<legend>Forgot your password?</legend>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class=>"form-horizontal well" }) do |f| %>
   <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+  <div class="control-group">
+  <%= f.label :email, :class=>"control-label" %>
+  <div class="controls">
+  	<%= f.email_field :email %>
+  </div>
+</div>
 
-  <p><%= f.submit "Send me reset password instructions" %></p>
+<div class="form-actions">
+  <%= f.submit "Send me reset instructions", :class => "btn btn-info" %>
+</div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+</fieldset>

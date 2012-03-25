@@ -1,12 +1,22 @@
-<%= form_for @post, :url => study_announcements_path do |postForm| %>
-    <%=  postForm.label :title %>
-    <%=  postForm.text_field :title %>
-    <br/>
-    <br/>
-    <%=  postForm.label :content %>
-    <%=  postForm.text_area :content, :size => "60x12" %>
-    <br/>
-    <br/>
-    <%= postForm.submit "Create" %>
+<fieldset class="span10">
+	<legend>Create an Announcement</legend>
+<%= form_for @post, :html=>{:class=>"form-horizontal well"}, :url => study_announcements_path do |postForm| %>
+<div class="control-group">
+  <%= postForm.label :title, :class=>"control-label" %>
+  <div class="controls">
+  	<%= postForm.text_field :title %>
+  </div>
+</div>
+
+<div class="control-group">
+	<%=  postForm.label :content, :class=>"control-label" %>
+	<div class="controls">
+		<%=  postForm.text_area :content, :size => "400x8", :style=>"width:461px;" %>
+	</div>
+</div>
+<div class="form-actions">
+  <%= postForm.submit "Create", :class => "btn btn-info" %>
+</div>
 
 <% end %>
+</fieldset>

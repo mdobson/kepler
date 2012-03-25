@@ -1,24 +1,45 @@
-<h1>Create a new access control</h1>
+<fieldset class="span7">
+<legend>Create a new access control</legend>
+<%= form_for @acl,:html=>{:class=>"form-horizontal well"}, :url => study_access_controls_path do |newAcl| %>
 
-<%= form_for @acl, :url => study_access_controls_path do |newAcl| %>
+  <div class="control-group">
+  <%= newAcl.label :user_id, :class=>"control-label" %>
+  <div class="controls">
+  	<%= newAcl.text_field :user_id %>
+  </div>
+</div>
 
-<%= newAcl.label :user_id %>
-<%= newAcl.text_field :user_id %>
-<br/>
-<br/>
 
-<%= newAcl.label :is_admin %>
-<%= newAcl.check_box :is_admin %>
-<br/>
-<br/>
-<%= newAcl.label :can_read %>
-<%= newAcl.check_box :can_read %>
-<br/>
-<br/>
-<%= newAcl.label :can_write %>
-<%= newAcl.check_box :can_write %>
-<br/>
-<br/>
-<%= newAcl.submit "Create" %>
+<div class="control-group">
+ 
+    <%= newAcl.label :is_admin, :class=>"control-label" %>
+    <div class="controls">
+    <%= newAcl.check_box :is_admin %>
+    </div>
+
+</div>
+
+<div class="control-group">
+  
+    <%= newAcl.label :can_read, :class=>"control-label" %>
+    <div class="controls">
+    <%= newAcl.check_box :can_read %>
+    </div>
+
+</div>
+
+<div class="control-group">
+  
+    <%= newAcl.label :can_write, :class=>"control-label" %>
+    <div class="controls">
+    <%= newAcl.check_box :can_write %>
+    </div>
+ 
+</div>
+
+<div class="form-actions">
+  <%= newAcl.submit "Create", :class => "btn btn-info" %>
+</div>
 
 <% end %>
+</fieldset>
