@@ -2,7 +2,7 @@ class ExampleSubjectsController < ApplicationController
   layout "with_links"
   def index
     @study = Study.find(params[:study_id])
-    @subjs = ExampleSubject.all
+    @subjs = ExampleSubject.where("study_id = ?", params[:study_id])
   end
 
   def show
