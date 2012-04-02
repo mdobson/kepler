@@ -1,5 +1,5 @@
 class ExampleSubjectsController < ApplicationController
-  layout "with_links"
+  layout "with_links", :except => [:print]
   def index
     @study = Study.find(params[:study_id])
     @subjs = ExampleSubject.where("study_id = ?", params[:study_id])
@@ -52,4 +52,15 @@ class ExampleSubjectsController < ApplicationController
     end
   end
 
+  def print
+    @study = Study.find(params[:study_id])
+    if(params.has_key?(:id))
+      @subj = ExampleSubject.retrieve_by_study_and_identifier(params[:study_id], params[:id]).first
+      @header = "Example Subject #{params[:id]}"
+    else
+      @subj = ExampleSubject.new
+      @header = "Example Subject Form"
+    end
+    render :layout => "printout"
+  end
 end

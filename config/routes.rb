@@ -8,7 +8,10 @@ Studycache::Application.routes.draw do
     resources :announcements
     resources :dashboard
     resources :access_controls
-    resources :example_subjects
+    resources :example_subjects do
+      get 'print', :on => :collection
+      get 'print', :on => :member
+    end
     resources :questions
     resources :answers
     resources :form_builder, :only => [:index, :new, :create]

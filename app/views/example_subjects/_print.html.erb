@@ -1,0 +1,48 @@
+<style type="text/css">
+tr > td
+{
+  padding-bottom: 8px;
+}
+</style>
+
+<%= form_for [@study, @subj],:html=>{:class=>"form-horizontal well"} do |newAcl| %>
+<table>
+  <tr>
+  <td><%= newAcl.label :identifier, :class=>"control-label" %>&nbsp;</td>
+  <td>	<%= newAcl.text_field :identifier %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :height, :class=>"control-label" %>&nbsp;</td>
+   <td> <%= newAcl.text_field :height %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :height_units, :class=>"control-label" %>&nbsp;</td>
+   <td> <%= newAcl.text_field :height_units %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :weight, :class=>"control-label" %>&nbsp;</td>
+   <td> <%= newAcl.text_field :weight %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :weight_units, :class=>"control-label" %>&nbsp;</td>
+   <td> <%= newAcl.text_field :weight_units %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :heart_rate, :class=>"control-label" %>&nbsp;</td>
+   <td> <%= newAcl.text_field :heart_rate %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :blood_pressure_diastolic, :class=>"control-label" %>&nbsp;</td>
+  <td>  <%= newAcl.text_field :blood_pressure_diastolic %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :blood_pressure_systolic, :class=>"control-label" %>&nbsp;</td>
+  <td>  <%= newAcl.text_field :blood_pressure_systolic %></td>
+  </tr>
+  <tr>
+  <td><%= newAcl.label :pulse_ox, :class=>"control-label" %>&nbsp;</td>
+  <td>  <%= newAcl.text_field :pulse_ox %></td>
+  </tr>
+<table>
+<% end %>
+
