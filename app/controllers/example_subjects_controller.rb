@@ -80,11 +80,17 @@ class ExampleSubjectsController < ApplicationController
     ext = options[:document_type].to_sym
     
     response = DocRaptor.create(options)
-    #logger.debug "Doc: #{response}"
     if response.code == 200
       send_data response, :filename => "#{options[:name]}.#{ext}", :type => ext
     else
       render :inline => response.body, :status => response.code
+    end
+  end
+
+  def printall
+    @subjects = ExampleSubject.where("study_id = ?", params[:study_id])
+    respond_to do |format|
+      format.xls {doc_raptor_send}
     end
   end
 end

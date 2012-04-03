@@ -11,6 +11,7 @@ Studycache::Application.routes.draw do
     resources :example_subjects do
       get 'print', :on => :collection
       get 'print', :on => :member
+      get 'printall', :on => :collection
     end
     resources :questions
     resources :answers
