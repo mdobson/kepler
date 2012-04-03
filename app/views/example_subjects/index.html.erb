@@ -2,6 +2,8 @@
 	<h1>Current Subjects</h1>
 </div>
 <%= link_to "New Subject", new_study_example_subject_path, :class => "btn btn-info" %>
+&nbsp;&nbsp;
+<%= link_to "Print a blank form", print_study_example_subjects_path(:format => :pdf), :class => "btn btn-info" %>
 <br/>
 <br/>
 <table class="table table-bordered table-striped">
@@ -13,6 +15,7 @@
 			<th>Edit Link</th>
 			<th>Delete Link</th>
 			<th>Entered On</th>
+			<th>PDF Link</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,13 +24,14 @@
 			<th><%= subj.id %></th>
 			<th><%= subj.identifier %></th>
 			<th><%= subj.email %></th>
-			<th><%= link_to "Edit Subject", edit_study_example_subject_path(@study,subj) %></th>
+			<th><%= link_to "Edit Subject", edit_study_example_subject_path(@study,subj), :class => "btn btn-info" %></th>
 			<th>
 				<%= form_for [@study, subj] , :html => {:method => :delete} do |f| %>
 					 <%= f.submit "Delete", :class => "btn btn-info" %>
 				<% end %>
 			</th>
 			<th><%= subj.created_at %></th>
+			<th><%= link_to "Print", print_study_example_subjects_path(@study,:id => subj.id ,:format => :pdf), :class => "btn btn-info" %></th>
 		</tr>
 	<% end %>
 	</tbody>
