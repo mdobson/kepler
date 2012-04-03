@@ -1,3 +1,5 @@
 <h1><%= @header %></h1>
 <br/>
 <%= render "print" %>
+
+<%= link_to "Print", print_study_example_subjects_path(:format => :pdf) %>

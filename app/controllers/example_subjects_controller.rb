@@ -61,6 +61,30 @@ class ExampleSubjectsController < ApplicationController
       @subj = ExampleSubject.new
       @header = "Example Subject Form"
     end
-    render :layout => "printout"
+
+    respond_to do |format|
+      format.html {render :layout => "printout"}
+      format.pdf {doc_raptor_send}
+    end
+  end
+
+  def doc_raptor_send(options = {})
+    default_options ={
+      :name => controller_name,
+      :document_type => request.format.to_sym,
+      :test => true
+    }
+
+    options = default_options.merge(options)
+    options[:document_content] ||= render_to_string
+    ext = options[:document_type].to_sym
+    
+    response = DocRaptor.create(options)
+    #logger.debug "Doc: #{response}"
+    if response.code == 200
+      send_data response, :filename => "#{options[:name]}.#{ext}", :type => ext
+    else
+      render :inline => response.body, :status => response.code
+    end
   end
 end
