@@ -1,8 +1,14 @@
 class ExampleSubjectsController < ApplicationController
+
+
   layout "with_links", :except => [:print]
+  
+  respond_to :json, :html
+
   def index
     @study = Study.find(params[:study_id])
     @subjs = ExampleSubject.where("study_id = ?", params[:study_id])
+    respond_with @subjs
   end
 
   def show
