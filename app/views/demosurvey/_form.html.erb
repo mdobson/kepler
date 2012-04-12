@@ -1,0 +1,107 @@
+<%= form_for [@study,@demo],:html=>{:class=>"form-horizontal well"}, :url => study_demosurvey_index_path do |field| %>
+
+    <div class="control-group">
+        <%= field.label :franchise_num, "Franchise Number", :class=>"control-label" %>
+        <div class="controls">
+        	<%= field.text_field :franchise_num, :id =>"franchise" %>
+    	</div>
+    </div>
+    <div class="control-group">
+    	<%= field.label :marketing_materials, "Marketing Materials", :class=>"control-label" %>
+    	<div class="controls">
+
+        	<label class="checkbox inline">
+        	1 &nbsp;
+        	<%= field.radio_button :marketing_materials, 	"1" %>
+    		</label>
+        	<label class="checkbox inline">
+        		2 &nbsp;
+        	<%= field.radio_button :marketing_materials, 	"2" %>
+        	</label>
+        	
+        	<label class="checkbox inline">
+        		3 &nbsp;
+        	<%= field.radio_button :marketing_materials, 	"3" %>
+        	</label>
+        	
+        	<label class="checkbox inline">
+        	4 &nbsp;
+        	<%= field.radio_button :marketing_materials, 	"4" %>
+        	</label>
+        	
+        	<label class="checkbox inline">
+        	5 &nbsp;
+        	<%= field.radio_button :marketing_materials, 	"5" %>
+    		</label>
+    		<p class="help-block">How satisfied are you with the marketing materials we provide you?<br/> 1 - Not Helpful to 5 - Extremely Helpful</p>
+    	</div>
+
+	</div>
+    <div class="control-group">
+        <%= field.label :training_materials, "Training Materials", :class=>"control-label" %>
+        <div class="controls">
+        	<label class="checkbox inline">
+        	1 &nbsp;
+        	<%= field.radio_button :training_materials, 	"1" %>
+    		</label>
+        	<label class="checkbox inline">
+        		2 &nbsp;
+        	<%= field.radio_button :training_materials, 	"2" %>
+        	</label>
+        	
+        	<label class="checkbox inline">
+        		3 &nbsp;
+        	<%= field.radio_button :training_materials, 	"3" %>
+        	</label>
+        	
+        	<label class="checkbox inline">
+        	4 &nbsp;
+        	<%= field.radio_button :training_materials, 	"4" %>
+        	</label>
+        	
+        	<label class="checkbox inline">
+        	5 &nbsp;
+        	<%= field.radio_button :training_materials, 	"5" %>
+    		</label>
+    		<p class="help-block">How satisfied are you with the training materials we provide?<br/> 1 - Not Helpful to 5 - Extremely Helpful</p>
+    	</div>
+    </div>
+    <div class="control-group">
+        <%= field.label :new_system, "New Employees", :class=>"control-label" %>
+        <div class="controls">
+        	<p class="help-block">New employees learn the system quickly:</p>
+        	<%= field.select :new_system, ["True","False"] %>
+    	</div>
+    </div>
+    <div class="control-group">
+        <%= field.label :greatest_benefit, :class=>"control-label" %>
+        <div class="controls">
+        	<p class="help-block">The greatest benefit we provide you is:</p>
+        	<label class="checkbox">
+        	<%= field.radio_button :greatest_benefit, 	"A" %> A ). Training
+    		</label>
+        	<label class="checkbox">
+        	<%= field.radio_button :greatest_benefit, 	"B" %> B ). Marketing
+        	</label>
+        	
+        	<label class="checkbox">
+        	
+        	<%= field.radio_button :greatest_benefit, 	"C" %> C ). Name Recognition
+        	</label>
+        	
+        	<label class="checkbox">
+        	
+        	<%= field.radio_button :greatest_benefit, 	"D" %> D ). None of the above
+        	</label>
+    	</div>
+    </div>
+    <div class="control-group">
+        <%= field.label :commentary, "Other Comments?", :class=>"control-label" %>
+        <div class="controls">
+        	<%= field.text_area :commentary, :size => "400x8", :style=>"width:461px;" %>
+    	</div>
+    </div>
+    <div class="form-actions">
+        <%= field.submit "Submit", :class => "btn btn-info"%>
+    </div>
+<% end %>
