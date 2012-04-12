@@ -1,7 +1,7 @@
 class DemosurveyController < ApplicationController
   
   #this is for devise to say we don't want to authenticate on these routes!
-  before_filter :authenticate_user!, :except => [:new, :create]
+  before_filter :authenticate_user!, :except => [:new, :create, :thankyou]
 
   def index
   end
