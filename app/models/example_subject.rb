@@ -6,4 +6,6 @@ class ExampleSubject < ActiveRecord::Base
 
 	scope :retrieve_by_study_and_identifier, lambda{|study_id, subj_id| 
 		where("study_id = ? and id = ?", study_id, subj_id)}
+
+	scope :retrieve_by_study, lambda { |study_id| where("study_id = ?", study_id) }
 end

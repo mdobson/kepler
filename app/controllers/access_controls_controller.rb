@@ -1,3 +1,4 @@
+
 class AccessControlsController < ApplicationController
   layout "with_links"
   def index
@@ -18,7 +19,13 @@ class AccessControlsController < ApplicationController
   def edit
   end
 
-  def delete
+  def destroy
+    @acl = AccessControl.for_user_in_study(params[:access_control_id], params[:study_id]).first
+    @acl.destroy
+
+    respond_to do |format|
+      format.html { redirect_to study_dashboard_index_url }
+    end
   end
 
   def create

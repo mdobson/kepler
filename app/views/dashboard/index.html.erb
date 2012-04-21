@@ -10,6 +10,7 @@
 			<th>Is Admin?</th>
 			<th>Can Read?</th>
 			<th>Can Write?</th>
+			<th>Delete</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -19,6 +20,14 @@
 			<td><%= acl.is_admin %></td>
 			<td><%= acl.can_read %></td>
 			<td><%= acl.can_write %></td>
+			<td>
+				<% if current_user.id != acl.user_id %>	
+					<%= form_for [@study,acl] , :html => {:method => :delete} do |f| %>
+						<%= hidden_field_tag "access_control_id", acl.user_id %>
+						<%= f.submit "Delete", :class=> "btn btn-info" %>
+					<% end %>
+				<% end %>
+			</td>
 		</tr>
 	<% end %>
 	</tbody>
@@ -47,3 +56,9 @@
 	<% end %>
 	</tbody>
 </table>
+<br/>
+<br/>
+<h3>Form Analytics</h3>
+<br/>
+<h5>Number of Forms filled out:</h5>
+<%= @subjects.count %>
