@@ -6,12 +6,12 @@ class FormBuilderController < ApplicationController
   end
 
   def create
-  	@form = Form.new
-  	response = Form.create(params[:data], params[:study_id])
+    response = params[:data]
   	render :json => response
   end
 
   def new
+    @form = Form.new
   end
 
 end
