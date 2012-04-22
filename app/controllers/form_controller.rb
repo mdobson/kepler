@@ -1,9 +1,6 @@
 class FormController < ApplicationController
   def index
-  	@forms = Form.all(params[:study_id])
-  end
-
-  def show
+  	 @forms = Form.get_forms_by_study_id(params[:study_id])
   end
 
 end

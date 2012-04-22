@@ -1,5 +1,8 @@
 <h5>Here is your new form</h5>
 <br/>
+	<label for="form-name">Form Name:</label>
+	<input type="text" name="form-name" id="form-name"/>
+	<br/>
 	<input type="button" class="btn" id="addFieldBtn" value="Add a Field" />
 <br/>
 <br/>
