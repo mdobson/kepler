@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412003031) do
+ActiveRecord::Schema.define(:version => 20120422173352) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -77,6 +77,23 @@ ActiveRecord::Schema.define(:version => 20120412003031) do
     t.integer  "user_id"
   end
 
+  create_table "fields", :force => true do |t|
+    t.integer  "form_id"
+    t.string   "field_name"
+    t.string   "field_type"
+    t.string   "field_helptext"
+    t.boolean  "field_isnull"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forms", :force => true do |t|
+    t.integer  "study_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", :force => true do |t|
     t.text     "question"
     t.integer  "study_id"
@@ -88,29 +105,6 @@ ActiveRecord::Schema.define(:version => 20120412003031) do
 
   add_index "questions", ["study_id", "user_id"], :name => "index_questions_on_study_id_and_user_id"
 
-  create_table "responses", :force => true do |t|
-    t.string   "demographic_setting"
-    t.string   "demographic_origin"
-    t.string   "demographic_current_country"
-    t.string   "demographic_highest_degree"
-    t.string   "demographic_employment_setting"
-    t.string   "demographic_age"
-    t.string   "demographic_gender"
-    t.string   "demographic_race"
-    t.string   "questions_cultural_competence"
-    t.boolean  "questions_advanced_practice"
-    t.boolean  "questions_academic_institution"
-    t.boolean  "questions_healthcare_organization"
-    t.boolean  "questions_community"
-    t.boolean  "questions_research"
-    t.boolean  "questions_administration"
-    t.boolean  "questions_other"
-    t.string   "questions_other_response"
-    t.text     "questions_ideas_for_advancing"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "studies", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -120,29 +114,6 @@ ActiveRecord::Schema.define(:version => 20120412003031) do
   end
 
   add_index "studies", ["id"], :name => "index_studies_on_id"
-
-  create_table "surveys", :force => true do |t|
-    t.string   "aud_age"
-    t.boolean  "aud_best_in_country"
-    t.boolean  "edu_attend_college"
-    t.boolean  "edu_post_grad"
-    t.boolean  "edu_jazz_edu_imp"
-    t.boolean  "life_buy_cd"
-    t.boolean  "life_consume_wine"
-    t.boolean  "life_consume_beer"
-    t.boolean  "life_intl_travel"
-    t.string   "eth_gender"
-    t.string   "eth_ethnicity"
-    t.boolean  "fest_spec_out_of_state"
-    t.boolean  "fest_spec_travel_by_air"
-    t.boolean  "fest_spec_intl_visit"
-    t.boolean  "fest_spec_area_hotel"
-    t.string   "avg_hh_income"
-    t.string   "zipcode"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
