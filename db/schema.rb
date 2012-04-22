@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422173352) do
+ActiveRecord::Schema.define(:version => 20120422181753) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -87,12 +87,17 @@ ActiveRecord::Schema.define(:version => 20120422173352) do
     t.datetime "updated_at"
   end
 
+  add_index "fields", ["form_id"], :name => "index_fields_on_form_id"
+
   create_table "forms", :force => true do |t|
     t.integer  "study_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
+
+  add_index "forms", ["study_id", "user_id"], :name => "index_forms_on_study_id_and_user_id"
 
   create_table "questions", :force => true do |t|
     t.text     "question"
