@@ -1,0 +1,2 @@
+module VideoSurveyHelper
+end
