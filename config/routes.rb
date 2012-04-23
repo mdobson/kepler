@@ -1,5 +1,4 @@
 Studycache::Application.routes.draw do
-
   devise_for :users
 
   root :to => "home#index"
@@ -15,6 +14,7 @@ Studycache::Application.routes.draw do
     end
     resources :questions
     resources :answers
+    resources :data_explorer, :only => [:index]
     resources :form_builder, :only => [:index, :new, :create]
     resources :form, :only => [:index, :show]
     resources :demosurvey, :only => [:index, :create, :new] do
