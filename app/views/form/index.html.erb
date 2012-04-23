@@ -1,0 +1,10 @@
+
+<% @forms.each do |form| %>
+	<h3><%=form.name %></h3>
+	<br/><br/>
+	<% form.fields.each do |field|%>
+		<%= field.field_question %><br/>
+		<%= field.field_helptext %><br/>
+		<%= field.field_name %><br/><br/>
+	<% end %>
+<% end %>

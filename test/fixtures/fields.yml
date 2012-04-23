@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  form_id: 1
+  field_name: MyString
+  field_type: MyString
+  field_helptext: MyString
+  field_isnull: false
+
+two:
+  form_id: 1
+  field_name: MyString
+  field_type: MyString
+  field_helptext: MyString
+  field_isnull: false
