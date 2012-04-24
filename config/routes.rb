@@ -16,7 +16,7 @@ Studycache::Application.routes.draw do
     resources :answers
     resources :data_explorer, :only => [:index]
     resources :form_builder, :only => [:index, :new, :create]
-    resources :form, :only => [:index, :show]
+    resources :form, :only => [:index, :create]
     resources :demosurvey, :only => [:index, :create, :new] do
       get 'thankyou', :on => :collection
     end
