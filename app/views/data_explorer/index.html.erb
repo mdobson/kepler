@@ -12,4 +12,21 @@
 <%= javascript_include_tag "jquery.event.drag-2.0.min.js" %>
 <%= javascript_include_tag "slick.core.js" %>
 <%= javascript_include_tag "slick.grid.js" %>
-<%= javascript_include_tag "data_explorer.js" %>
+<!--<%= javascript_include_tag "data_explorer.js" %>-->
+<script>
+	var grid;
+	var columns_text = '<%= get_data_column(@form.fields).html_safe %>';
+	var columns = JSON.parse(columns_text);
+	var options = {
+	enableCellNavigation:true,
+	enableColumnReorder:false
+}
+
+$(function(){
+	var data = [];
+	
+
+	grid = new Slick.Grid("#explorer", data, columns, options);
+
+	});
+</script>
