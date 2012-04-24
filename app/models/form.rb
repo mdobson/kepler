@@ -6,4 +6,8 @@ class Form < ActiveRecord::Base
 	scope :get_forms_by_study_id, lambda {|study_id|
 		where("study_id = ?", study_id)
 	}
+
+	scope :get_form_by_form_id, lambda{|id|
+		where("id = ?", id)
+	}
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422214156) do
+ActiveRecord::Schema.define(:version => 20120424021249) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(:version => 20120422214156) do
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
   add_index "answers", ["study_id", "user_id"], :name => "index_answers_on_study_id_and_user_id"
+
+  create_table "data", :force => true do |t|
+    t.integer  "study_id"
+    t.integer  "form_id"
+    t.integer  "field_id"
+    t.string   "data_point"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "demosurveys", :force => true do |t|
     t.integer  "franchise_num"

@@ -2,6 +2,7 @@
 	<% @forms.each do |form| %>
 		<h3><%=form.name %></h3>
 		<br/><br/>
+		<%= hidden_field_tag("form_id", form.id) %>
 		<% form.fields.each do |field|%>
 			<%= field.field_question %><br/>
 			<%= field.field_helptext %><br/>
