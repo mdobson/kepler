@@ -1,8 +1,9 @@
 require 'uuidtools'
 
 class FormController < ApplicationController
+  layout 'with_links'
   def index
-  	@forms = Form.all(params[:study_id])
+  	@forms = Form.get_forms_by_study_id(params[:study_id])
   end
 
   def show
