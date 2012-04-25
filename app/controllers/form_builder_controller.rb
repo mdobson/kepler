@@ -6,23 +6,12 @@ class FormBuilderController < ApplicationController
   end
 
   def create
-    response = params[:data]
-    @form = Form.new
-    @form.name = params[:name]
-    @form.study_id = params[:study_id]
-    @form.user_id = current_user.id
-
-    if @form.save
-      parsed_json = ActiveSupport::JSON.decode(response)
-      parsed_json.each do |field|
-        Field.create_field(@form.id, field)
-      end
-    end
-    render :json => response
+  	@form = Form.new
+  	response = Form.create(params[:data], params[:study_id])
+  	render :json => response
   end
 
   def new
-    @form = Form.new
   end
 
 end
