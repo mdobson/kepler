@@ -3,6 +3,9 @@
 <br/>
 <br/>
 <div id="explorer" style="width: 600px; height: 500px; overflow-x: hidden; overflow-y: hidden; outline-width: 0px; outline-style: initial; outline-color: initial; position: relative; "></div>
+<% @uuids.each do |uuid| %>
+	<%= uuid.uuid %>
+<% end %>
 <%= stylesheet_link_tag "slick.grid.css" %>
 <%= stylesheet_link_tag "slick-default-theme" %>
 <%= stylesheet_link_tag "jquery-ui" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424021249) do
+ActiveRecord::Schema.define(:version => 20120425025025) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20120424021249) do
     t.string   "data_point"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "data_set_id"
+    t.string   "uuid"
   end
 
   create_table "demosurveys", :force => true do |t|
