@@ -4,7 +4,8 @@ class Studycache.Collections.Forms extends Backbone.Collection
 		window.location
 	save : () ->
 		fields = JSON.stringify @
-		form = new Studycache.Models.Form({data : fields})
-		form.save()
-		alert form.url()
-
+		name = $("#form-name").val()
+		form = new Studycache.Models.Form({name:name,data :fields})
+		form.save({name:name,data:fields},{success: 
+			(model,response)-> alert JSON.stringify response})
+		#alert form.url()
