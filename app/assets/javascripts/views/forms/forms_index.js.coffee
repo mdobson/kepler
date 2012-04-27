@@ -40,11 +40,12 @@ class Studycache.Views.FormsIndex extends Backbone.View
     questionText = $("#question").val()
     helpText = $("#help").val()
     typeText = $("#type").val()
+    name = $("#dp_name").val()
     if $("#nullable").is(":checked")
         nullableText = "checked"
     else
         nullableText = ""
-    @currentField.set({question: questionText, helptext: helpText, datatype: typeText, blank: nullableText})
+    @currentField.set({question: questionText, helptext: helpText, datatype: typeText, blank: nullableText, name:name})
     alert JSON.stringify @currentField
     $("#fields").html(@view.render(@form).el)
 

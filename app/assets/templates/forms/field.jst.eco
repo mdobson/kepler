@@ -1,4 +1,6 @@
 <h5>Here are details about this particular field <%= @field.get("id") %></h5>
+<label for="dp_name">Data Point Name:</label>
+<input type="text" id="dp_name" name="dp_name" value="<%= @field.get("name") %>" />
 <label for="question">Question:</label>
 <input type="text" id="question" name="question" value="<%= @field.get("question") %>" />
 <br/><br/>
