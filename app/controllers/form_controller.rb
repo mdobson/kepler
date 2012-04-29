@@ -4,6 +4,7 @@ class FormController < ApplicationController
   layout 'with_links'
   def index
   	@forms = Form.get_forms_by_study_id(params[:study_id])
+    
   end
 
   def show
@@ -13,15 +14,15 @@ class FormController < ApplicationController
   	logger.debug params
   	@form = Form.get_form_by_form_id(params[:form_id]).first
     uuid = UUIDTools::UUID.random_create().to_s
+    data_hash = {}
+    @hstore_data_set = DataSet.new
   	@form.fields.each do |field|
-  		datum = Datum.new
-  		datum.study_id = params[:study_id]
-  		datum.form_id = params[:form_id]
-  		datum.field_id = field.id
-  		datum.data_point = params[field.field_name].to_s
-      datum.uuid = uuid
-  		datum.save
+  		data_hash[field.field_name] = params[field.field_name]
   	end
+    @hstore_data_set.uuid = uuid
+    @hstore_data_set.form_id = @form.id
+    @hstore_data_set.data_set = data_hash
+    @hstore_data_set.save
   	redirect_to study_form_index_path
   end
 

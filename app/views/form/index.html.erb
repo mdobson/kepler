@@ -4,11 +4,8 @@
 		<h3><%=form.name %></h3>
 		<br/><br/>
 		<%= hidden_field_tag("form_id", form.id) %>
-		<% form.fields.each do |field|%>
-			<%= field.field_question %><br/>
-			<%= field.field_helptext %><br/>
-			<%= convert_form_data_type(field) %><br/>
-			<%= field.field_name %><br/><br/>
+		<% form.meta_data.each do |field|%>
+			<%= field %>
 		<% end %>
 		<%= submit_tag("Submit", :class=>"btn btn-info") %>
 	<% end %>

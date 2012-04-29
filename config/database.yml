@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: rubyonrails
+  database: hstoreproto
   host: localhost
   pool: 5
   timeout: 5000
