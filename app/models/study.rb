@@ -5,6 +5,7 @@ class Study < ActiveRecord::Base
 	has_many :access_controls
 	has_many :example_subjects
 	has_many :announcements
+  has_many :data_sets
 
   def create_admin_of_study
     @acl = AccessControl.new

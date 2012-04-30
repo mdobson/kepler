@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429204738) do
+ActiveRecord::Schema.define(:version => 20120430001601) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20120429204738) do
     t.hstore   "data_set"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "study_id"
   end
 
   create_table "demosurveys", :force => true do |t|

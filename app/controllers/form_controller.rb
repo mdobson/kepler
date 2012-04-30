@@ -21,6 +21,7 @@ class FormController < ApplicationController
   	end
     @hstore_data_set.uuid = uuid
     @hstore_data_set.form_id = @form.id
+    @hstore_data_set.study_id = params[:study_id]
     @hstore_data_set.data_set = data_hash
     @hstore_data_set.save
   	redirect_to study_form_index_path

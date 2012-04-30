@@ -2,10 +2,14 @@
 <h1>Data Explorer</h1>
 <br/>
 <br/>
-<div id="explorer" style="width: 600px; height: 500px; overflow-x: hidden; overflow-y: hidden; outline-width: 0px; outline-style: initial; outline-color: initial; position: relative; "></div>
+<!--<div id="explorer" style="width: 600px; height: 500px; overflow-x: hidden; overflow-y: hidden; outline-width: 0px; outline-style: initial; outline-color: initial; position: relative; "></div>-->
+<% @data_sets.each do |row| %>
+	<% row.data_set.each do |key,value| %>
+		<%= "KEY: #{key} VALUE: #{value}" %><br/>
+	<% end %>
+<% end %>
 <%= stylesheet_link_tag "application" %>
 <%= javascript_include_tag "application" %>
-<!--<%= javascript_include_tag "data_explorer.js" %>-->
 <script>
 	var grid;
 	var columns_text = '<%= get_data_column(@form.fields).html_safe %>';
