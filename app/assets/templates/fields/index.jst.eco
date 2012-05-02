@@ -1,0 +1,35 @@
+<% for field in @fields: %>
+	<div class="alert alert-info">
+		<div class="row">
+			<div class="span6 form-horizontal">
+				<div class="control-group">
+					<fieldset>
+						<label for="q1" class="control-label">Question:</label>
+						<div class="control">
+							<input name="q1" type="text" class="span4"/>
+						</div>
+					</fieldset>
+				</div>
+				<div class="control-group">
+					<fieldset>
+						<label for="h1" class="control-label">Data Point Name:</label>
+						<div class="control">
+							<input name="h1" type="text"/>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="span1">
+				<a href="#" class="btn btn-info">Edit</a>
+				<br/>
+				<br/>
+				<a href="#" class="btn btn-info">Save</a>
+			</div>
+			<div class="span1">
+				<a href="#"><img src="/assets/ic_up.png"/></a>
+				<br/>
+				<a href="#"><img src="/assets/ic_down.png"/></a>
+			</div>
+		</div>
+	</div>
+<% end %>

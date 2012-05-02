@@ -1,0 +1,25 @@
+<h1>Form Builder</h1><br/>
+<div class="row">
+	<div class="well span9">
+		<h4>Fields in your form</h4>
+		<br/>
+		<div id="fieldcontainer">
+			
+		</div>
+		<br/>
+		<input type="button" id="save" value="Save" class="btn btn-info"/>
+	</div>
+	<div class="well span2">
+		<h4>Field Templates</h4>
+		<br/>
+		<div style="margin-left:10px;">
+			<ul class="unstyled">
+				<li style="margin:10px;"><input type="button" value="Text" class="btn btn-info" id="text"/></li>
+				<li style="margin:10px;"><input type="button" value="Numeric" class="btn btn-info"/></li>
+				<li style="margin:10px;"><input type="button" value="Long Response" class="btn btn-info"/></li>
+				<li style="margin:10px;"><input type="button" value="Dropdown" class="btn btn-info"/></li>
+				<li style="margin:10px;"><input type="button" value="True/False" class="btn btn-info"/></li>
+			</ul>
+		</div>
+	</div>
+</div>
