@@ -21,7 +21,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
         field = new Studycache.Views.FieldsIndex(model:model)
         $("#fieldcontainer").append(field.render().el)
       )
-    
+
   saveForm: () ->
     form = new Studycache.Models.Form()
     name = $("#name").val()
