@@ -1,0 +1,11 @@
+<div class="modal">
+	<div class="modal-header">
+		<%= @model.get('datapoint') %>
+	</div>
+	<div class="modal-body">
+		<input name="q1" type="text" class="span4" value="<%= @model.get('question') %>"/>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn btn-primary hide-modal">Close</a>
+	</div>
+</div>
