@@ -1,4 +1,14 @@
 <h1>Form Builder</h1><br/>
+<div class="control-group form-horizontal">
+	<fieldset>
+		<label for="q1" class="control-label">Form Name:</label>
+		<div class="control">
+			<input name="name" type="text" id="name"/>
+		</div>
+	</fieldset>
+</div>
+<br/>
+<br/>
 <div class="row">
 	<div class="well span9">
 		<h4>Fields in your form</h4>
