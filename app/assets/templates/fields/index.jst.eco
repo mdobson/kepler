@@ -1,4 +1,3 @@
-<% for field in @fields: %>
 	<div class="alert alert-info">
 		<div class="row">
 			<div class="span6 form-horizontal">
@@ -6,7 +5,7 @@
 					<fieldset>
 						<label for="q1" class="control-label">Question:</label>
 						<div class="control">
-							<input name="q1" type="text" class="span4"/>
+							<input name="q1" type="text" class="span4 question" value="<%= @model.get('question') %>"/>
 						</div>
 					</fieldset>
 				</div>
@@ -14,16 +13,13 @@
 					<fieldset>
 						<label for="h1" class="control-label">Data Point Name:</label>
 						<div class="control">
-							<input name="h1" type="text"/>
+							<input name="h1" type="text" class="datapoint" value="<%= @model.get('datapoint') %>"/>
 						</div>
 					</fieldset>
 				</div>
 			</div>
 			<div class="span1">
 				<a href="#" class="btn btn-info">Edit</a>
-				<br/>
-				<br/>
-				<a href="#" class="btn btn-info">Save</a>
 			</div>
 			<div class="span1">
 				<a href="#"><img src="/assets/ic_up.png"/></a>
@@ -32,4 +28,3 @@
 			</div>
 		</div>
 	</div>
-<% end %>

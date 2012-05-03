@@ -3,21 +3,26 @@ class Studycache.Views.FormsIndex extends Backbone.View
   template: JST['forms/index']
 
   events:
-  	'click #text' : 'addField'
-  	'click #save' : 'saveForm'
+    'click #text' : 'addField'
+    'click #save' : 'saveForm'
 
   render: ->
-  	$(@el).html(@template())
-  	@
+    $(@el).html(@template())
+    @
 
   initialize: (collection)->
-  	@collection = collection.collection
-  	@fields = new Studycache.Views.FieldsIndex()
-  	
+    @collection = collection.collection
+    
   addField: () ->
-  	text = new Studycache.Models.Field()
-  	@collection.add(text)
-  	$("#fieldcontainer").html(@fields.render(fields:@collection).el)
+    $("#fieldcontainer").html("")
+    text = new Studycache.Models.Field()
+    @collection.add(text)
+    _.each(@collection.models, (model)->
+        field = new Studycache.Views.FieldsIndex(model:model)
+        $("#fieldcontainer").append(field.render().el)
+      )
+
+    
 
   saveForm: () ->
-  	alert JSON.stringify @collection
+    alert JSON.stringify @collection
