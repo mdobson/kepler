@@ -53,4 +53,4 @@ class Studycache.Views.FormsIndex extends Backbone.View
     form = new Studycache.Models.Form()
     name = $("#name").val()
     form.set(fields:@collection, name:name)
-    alert JSON.stringify form
+    alert form.url
