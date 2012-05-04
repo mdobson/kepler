@@ -7,11 +7,17 @@ class Studycache.Views.FieldsIndex extends Backbone.View
     "change input.datapoint" : "datapointChange"
     "click .edit" : "openModal"
     "click .close" : "closeModal"
-
+  
   initialize: (model)->
-  	_.bindAll(this, "questionChange")
-  	_.bindAll(this, "datapointChange")
-  	@model = model
+    _.bindAll(this, "questionChange")
+    _.bindAll(this, "datapointChange")
+    @model = model
+    @model.model.bind("change:question", ()=>
+      $(@el).find(".question").val(@model.model.get("question")))
+    @model.model.bind("change:datapoint", ()=>
+      $(@el).find(".datapoint").val(@model.model.get("datapoint")))
+    @model.model.bind("change:datatype", ()=>
+      $(@el).find(".datatype").html(@model.model.get("datatype")))
 
   render: () -> 
   	$(@el).html(@template(@model))

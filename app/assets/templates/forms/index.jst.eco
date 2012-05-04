@@ -25,10 +25,10 @@
 		<div style="margin-left:10px;">
 			<ul class="unstyled">
 				<li style="margin:10px;"><input type="button" value="Text" class="btn btn-info" id="text"/></li>
-				<li style="margin:10px;"><input type="button" value="Numeric" class="btn btn-info"/></li>
-				<li style="margin:10px;"><input type="button" value="Long Response" class="btn btn-info"/></li>
-				<li style="margin:10px;"><input type="button" value="Dropdown" class="btn btn-info"/></li>
-				<li style="margin:10px;"><input type="button" value="True/False" class="btn btn-info"/></li>
+				<li style="margin:10px;"><input type="button" value="Numeric" class="btn btn-info" id="numeric"/></li>
+				<li style="margin:10px;"><input type="button" value="Long Response" class="btn btn-info" id="long"/></li>
+				<li style="margin:10px;"><input type="button" value="Dropdown" class="btn btn-info" id="drop"/></li>
+				<li style="margin:10px;"><input type="button" value="True/False" class="btn btn-info" id="bool"/></li>
 			</ul>
 		</div>
 	</div>
