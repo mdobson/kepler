@@ -16,9 +16,6 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
   initialize: (collection)->
     @collection = collection.collection
-    @collection.bind("change:pos", ()=>
-        @refresh()
-      )
     @root = @
 
   addText: ->
