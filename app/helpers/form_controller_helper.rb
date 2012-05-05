@@ -11,4 +11,8 @@ module FormControllerHelper
 				return select_tag(field.field_name, options_for_select([[1],[2],[3]]))
 		end
 	end
+
+	def generate_form_builder_link(form_id)
+		return "#{study_form_builder_index_path}##{form_id}"
+	end
 end
