@@ -58,3 +58,27 @@
 </table>
 <br/>
 <br/>
+<h3>Forms</h3>
+<br/>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Form Name</th>
+			<th>Creator</th>
+			<th>Last Modified</th>
+			<th>Publish</th>
+			<th>Enable Mobile</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @forms.each do |form| %>
+			<tr>
+				<td><%= form.name %></td>
+				<td><%= form.user.email %></td>
+				<td><%= form.updated_at %></td>
+				<td></td>
+				<td></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

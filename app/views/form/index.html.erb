@@ -1,3 +1,20 @@
-<%= @forms.each do |form| %>
-	<%= link_to "Form", generate_form_builder_link(form.id) %>
-<% end %>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Form Name</th>
+			<th>Link To Builder</th>
+			<th>Creator</th>
+			<th>Data Entry</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @forms.each do |form| %>
+			<tr>
+				<td><%= form.name %></td>
+				<td><%= link_to "Form Builder", generate_form_builder_link(form.id), :class => "btn btn-info" %></td>
+				<td><%= form.user.email %></td>
+				<td><%= link_to "Entry", "#" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
