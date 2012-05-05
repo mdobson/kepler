@@ -4,6 +4,8 @@ class Studycache.Collections.Fields extends Backbone.Collection
     initialize: ->
         @.bind("change:pos", (e)=>
             elements = []
+            if e.get("pos") > @length
+                e.set("pos", @length)
             movementType = e.get("movement")
             modelPosition = e.get("pos")
             if movementType != undefined
@@ -21,6 +23,7 @@ class Studycache.Collections.Fields extends Backbone.Collection
                             else
                                 position = modelPosition - 1
                                 model.set("pos", position)
+
                              
 
                     $("#fieldcontainer").html("")
@@ -28,6 +31,7 @@ class Studycache.Collections.Fields extends Backbone.Collection
                 _.each @models, (model)->
                     field = new Studycache.Views.FieldsIndex({model:model})
                     $("#fieldcontainer").append(field.render().el)
+                e.unset("movement")
                             
         )
 

@@ -14,7 +14,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
     $(@el).html(@template())
     @
 
-  initialize: (collection)->
+  initialize: (collection, name)->
     @collection = collection.collection
     @root = @
 
@@ -53,4 +53,4 @@ class Studycache.Views.FormsIndex extends Backbone.View
     form = new Studycache.Models.Form()
     name = $("#name").val()
     form.set(fields:@collection, name:name)
-    alert form.url
+    form.save({},{success:(e)->console.log e})
