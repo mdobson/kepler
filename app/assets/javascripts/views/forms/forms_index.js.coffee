@@ -16,6 +16,9 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
   initialize: (collection)->
     @collection = collection.collection
+    @collection.bind("change:pos", ()=>
+        @refresh()
+      )
     @root = @
 
   addText: ->
@@ -35,7 +38,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
   addField: (dataType) ->
     $("#fieldcontainer").html("")
-    text = new Studycache.Models.Field(datatype:dataType)
+    text = new Studycache.Models.Field(datatype:dataType, pos: @collection.length + 1)
     @collection.add(text)
     _.each(@collection.models, (model)->
         field = new Studycache.Views.FieldsIndex({model:model})
