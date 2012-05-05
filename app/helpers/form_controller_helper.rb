@@ -1,14 +1,14 @@
 module FormControllerHelper
 	def convert_form_data_type(field)
-		case field.field_type
+		case field["datatype"]
 			when "Text"
-				return text_field_tag(field.field_name)
-			when "Number"
-				return text_field_tag(field.field_name)
-			when "Check Box"
-				return check_box_tag(field.field_name)
+				return text_field_tag(field["datapoint"])
+			when "Numeric"
+				return text_field_tag(field["datapoint"])
+			when "Checkbox"
+				return check_box_tag(field["datapoint"])
 			when "Select"
-				return select_tag(field.field_name, options_for_select([[1],[2],[3]]))
+				return select_tag(field["datapoint"], options_for_select([[1],[2],[3]]))
 		end
 	end
 

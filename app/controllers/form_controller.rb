@@ -4,10 +4,10 @@ class FormController < ApplicationController
   layout 'with_links'
   def index
   	@forms = Form.get_forms_by_study_id(params[:study_id])
-    
   end
 
   def show
+    @form = Form.get_form_by_form_id(params[:id]).first
   end
 
   def create

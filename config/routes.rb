@@ -10,19 +10,11 @@ Studycache::Application.routes.draw do
     resources :announcements
     resources :dashboard
     resources :access_controls
-    resources :example_subjects do
-      get 'print', :on => :collection
-      get 'print', :on => :member
-      get 'printall', :on => :collection
-    end
     resources :questions
     resources :answers
     resources :form_builder, :only => [:index, :new, :create]
     resources :data_explorer, :only => [:index]
-    resources :form, :only => [:index, :create]
-    resources :demosurvey, :only => [:index, :create, :new] do
-      get 'thankyou', :on => :collection
-    end
+    resources :form, :only => [:index, :create, :show]
   end
 
   # The priority is based upon order of creation:
