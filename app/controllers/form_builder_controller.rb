@@ -6,9 +6,13 @@ class FormBuilderController < ApplicationController
     if(params.has_key?(:id))
       @form = Form.get_form_by_form_id(params[:id]).first
       fields = @form.fields
+      responseFields = []
+      fields.each do |field_data|
+        responseFields.push(field_data.metadata)
+      end
       responseStruct = {}
       responseStruct["name"] = @form.name
-      responseStruct["fields"] = fields.to_json
+      responseStruct["fields"] = responseFields.to_json
       #logger.debug responseStruct
       render :json => responseStruct
     end
