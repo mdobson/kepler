@@ -13,7 +13,11 @@
 				<td><%= form.name %></td>
 				<td><%= link_to "Form Builder", generate_form_builder_link(form.id), :class => "btn btn-info" %></td>
 				<td><%= form.user.email %></td>
-				<td><%= link_to "Entry", study_form_url(form.study,form), :class => "btn btn-info" %></td>
+				<td>
+					<% if form.is_published %>
+						<%= link_to "Entry", study_form_url(form.study,form), :class => "btn btn-info" %>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>

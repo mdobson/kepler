@@ -8,6 +8,15 @@ class FormController < ApplicationController
 
   def show
     @form = Form.get_form_by_form_id(params[:id]).first
+    if @form.is_mobile == true
+      layout = "mobile_partials"
+    else
+      layout = "with_links"
+    end
+
+    respond_to do |format|
+      format.html{ render :layout => layout }
+    end
   end
 
   def create
