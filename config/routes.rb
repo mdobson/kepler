@@ -1,7 +1,5 @@
 Studycache::Application.routes.draw do
 
- 
-
   devise_for :users
 
   root :to => "home#index"
@@ -15,6 +13,7 @@ Studycache::Application.routes.draw do
     resources :form_builder, :only => [:index, :new, :create, :update]
     resources :data_explorer, :only => [:index]
     resources :form, :only => [:index, :create, :show]
+    resources :subjects, :only => [:index, :show]
   end
 
   # The priority is based upon order of creation:

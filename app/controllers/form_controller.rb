@@ -17,7 +17,7 @@ class FormController < ApplicationController
     data_hash = {}
     @hstore_data_set = DataSet.new
   	@form.fields.each do |field|
-  		data_hash[field.field_name] = params[field.field_name]
+  		data_hash[field.metadata["datapoint"]] = params[field.metadata["datapoint"]]
   	end
     @hstore_data_set.uuid = uuid
     @hstore_data_set.form_id = @form.id
