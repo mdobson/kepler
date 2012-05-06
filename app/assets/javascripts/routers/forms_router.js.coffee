@@ -4,7 +4,7 @@ class Studycache.Routers.Forms extends Backbone.Router
 		':id' : 'getform'
 
 	index: ->
-        view = new Studycache.Views.FormsIndex(collection: @collection, name: "")
+        view = new Studycache.Views.FormsIndex(collection: @collection, formid: -1)
         $("#app").html(view.render().el)
         text = new Studycache.Models.Field(datatype: "Text", pos:1)
         @collection.add(text)
@@ -18,10 +18,10 @@ class Studycache.Routers.Forms extends Backbone.Router
 		#alert id
 		form = new Studycache.Models.Form()
 		form.fetch({url:"#{form.url.origin}#{form.url.pathname}.json?id=#{id}", success:(model, response)-> 
-                console.log model.get("name")
                 fields = JSON.parse model.get("fields")
                 collection = new Studycache.Collections.Fields(fields)
-                view = new Studycache.Views.FormsIndex(collection: collection)
+                view = new Studycache.Views.FormsIndex(collection:collection, id)
+                console.log view
                 $("#app").html(view.render().el)
                 $("#name").val(model.get("name"))
                 _.each(collection.models, (model)->

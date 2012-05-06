@@ -12,7 +12,7 @@ Studycache::Application.routes.draw do
     resources :access_controls
     resources :questions
     resources :answers
-    resources :form_builder, :only => [:index, :new, :create]
+    resources :form_builder, :only => [:index, :new, :create, :update]
     resources :data_explorer, :only => [:index]
     resources :form, :only => [:index, :create, :show]
   end

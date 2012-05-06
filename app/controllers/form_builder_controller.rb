@@ -19,19 +19,36 @@ class FormBuilderController < ApplicationController
   end
 
   def create
-    
-    response = params[:form_builder]
-    @form = Form.new
-    @form.name = params[:name]
-    @form.study_id = params[:study_id]
-    @form.user_id = current_user.id
-
-    if @form.save
-      params[:fields].each do |field|
-        Field.create_field(@form.id, field)
+    if(!params.has_key?(:formid))
+      response = params[:form_builder]
+      @form = Form.new
+      @form.name = params[:name]
+      @form.study_id = params[:study_id]
+      @form.user_id = current_user.id
+  
+      if @form.save
+        params[:fields].each do |field|
+          Field.create_field(@form.id, field)
+        end
       end
+      render :json => response
+    else
+      @form = Form.get_form_by_form_id(params[:formid]).first
+      @form.name = params[:name]
+      @form.fields.each do |field|
+        field.destroy
+      end
+      if @form.save
+        params[:fields].each do |field|
+          Field.create_field(@form.id, field)
+        end
+      end
+      render :json => response
     end
-    render :json => response
+  end
+
+  def update
+
   end
 
   def new
