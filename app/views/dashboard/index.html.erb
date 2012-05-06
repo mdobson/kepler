@@ -76,8 +76,30 @@
 				<td><%= form.name %></td>
 				<td><%= form.user.email %></td>
 				<td><%= form.updated_at %></td>
-				<td></td>
-				<td></td>
+				<td>
+					<%= form_for [@study,form] do |f| %>
+						<%= hidden_field_tag "parameter", "publish" %>
+						<% if form.is_published == false %>
+							<%= f.submit "Publish", :class=> "btn btn-danger" %>
+							<%= hidden_field_tag "publish", true %>
+						<% else %>
+							<%= f.submit "Published", :class=> "btn btn-success" %>
+							<%= hidden_field_tag "publish", false %>
+						<% end %>
+					<% end %>
+				</td>
+				<td>
+					<%= form_for [@study,form] do |f| %>
+						<%= hidden_field_tag "parameter", "mobile" %>
+						<% if form.is_mobile == false %>
+							<%= f.submit "Enable", :class=> "btn btn-danger" %>
+							<%= hidden_field_tag "mobile", true %>
+						<% else %>
+							<%= f.submit "Disable", :class=> "btn btn-success" %>
+							<%= hidden_field_tag "mobile", false %>
+						<% end %>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>

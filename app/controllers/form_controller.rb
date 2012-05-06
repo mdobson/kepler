@@ -27,4 +27,18 @@ class FormController < ApplicationController
   	redirect_to study_form_index_path
   end
 
+  def update
+    @form = Form.get_form_by_form_id(params[:id]).first
+    if params[:parameter] == "publish"
+      @form.is_published = params[:publish]
+    else
+      @form.is_mobile = params[:mobile]
+    end
+    @form.save
+
+    respond_to do |format|
+      format.html { redirect_to study_dashboard_index_url }
+    end
+  end
+
 end

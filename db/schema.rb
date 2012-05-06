@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505132354) do
+ActiveRecord::Schema.define(:version => 20120506200534) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -118,6 +118,8 @@ ActiveRecord::Schema.define(:version => 20120505132354) do
     t.datetime "updated_at"
     t.string   "name"
     t.hstore   "meta_data"
+    t.boolean  "is_published"
+    t.boolean  "is_mobile"
   end
 
   add_index "forms", ["study_id", "user_id"], :name => "index_forms_on_study_id_and_user_id"

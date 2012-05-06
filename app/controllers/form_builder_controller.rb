@@ -25,7 +25,8 @@ class FormBuilderController < ApplicationController
       @form.name = params[:name]
       @form.study_id = params[:study_id]
       @form.user_id = current_user.id
-  
+      @form.is_published = false
+      @form.is_mobile = false
       if @form.save
         params[:fields].each do |field|
           Field.create_field(@form.id, field)
