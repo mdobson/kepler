@@ -13,8 +13,4 @@ module FormControllerHelper
 				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
 		end
 	end
-
-	def generate_form_builder_link(form_id)
-		return "#{study_form_builder_index_path}##{form_id}"
-	end
 end

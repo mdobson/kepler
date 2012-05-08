@@ -12,7 +12,7 @@ class FormController < ApplicationController
 
   def show
     @form = Form.get_form_by_form_id(params[:id]).first
-    if @form.is_mobile == true
+    if @form.is_user_agent_mobile(request)
       layout = "mobile_partials"
     else
       layout = "with_links"

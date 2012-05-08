@@ -11,4 +11,13 @@ class Form < ActiveRecord::Base
 	scope :get_form_by_form_id, lambda{|id|
 		where("id = ?", id)
 	}
+
+	def is_user_agent_mobile(request)
+		case request.env['HTTP_USER_AGENT']
+			when /iPhone/ then true
+			when /iPad/ then true
+			when /Android/ then true
+			else false
+		end
+	end
 end

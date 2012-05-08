@@ -1,12 +1,41 @@
 <% content_for(:links) do %>
-		<li><%= link_to "Dashboard", study_dashboard_index_path %></li>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+		      Studies
+		      <b class="caret"></b>
+		    </a>
+		    <ul class="dropdown-menu">
+		      <% get_user_acls.each do |acl| %>
+		      	<li><%= link_to acl.study.title, study_dashboard_index_path(acl.study) %> </li>
+		      <% end %>
+		      <li class="divider"></li>
+		      <li><%= link_to "New Study", new_study_path %></li>
+		    </ul>
+		</li>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+		      Forms
+		      <b class="caret"></b>
+		    </a>
+		    <ul class="dropdown-menu">
+		      <% get_user_forms.each do |form| %>
+		      	<li><%= link_to form.name, study_form_path(form.study_id, form) %> </li>
+		      <% end %>
+		      <li class="divider"></li>
+		      <li><%= link_to "New Form", study_form_builder_index_path %></li>
+		    </ul>
+		</li>
 		<li><%= link_to "Subjects", study_subjects_path %></li>
-		<li><%= link_to "Form Builder", study_form_builder_index_path %></li>
-		<li><%= link_to "Forms", study_form_index_path %></li>
 <% end %>
 
 <% content_for(:logout) do %>
     <li><a href="/users/sign_out">Logout</a></li>
+<% end %>
+
+<% content_for(:relevant_js) do %>
+	<%= javascript_include_tag "jquery" %>
+	<%= javascript_include_tag "bootstrap-dropdown" %>
+	<%= javascript_include_tag "dropdown" %>
 <% end %>
 
 <%= render :file => "layouts/application" %>

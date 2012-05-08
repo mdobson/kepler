@@ -4,12 +4,13 @@
   <title>StudyCache</title>
   <%= stylesheet_link_tag    "application" %>
   <%= csrf_meta_tags %>
+  <%= yield :relevant_js %>
 </head>
 <body>
    <div class="navbar navbar-fixed-top">
        <div class="navbar-inner">
            <div class="container">
-               <a class="brand" href="/"><%= image_tag("SC_blue.png", :width=>"140", :height => "42")%></a>
+               <a class="brand" href="<%= get_root_url %>"><%= image_tag("SC_blue.png", :width=>"140", :height => "42")%></a>
                	<ul class="nav" style="margin-top:3px;">
                    <%= yield :links %>
                    <%= yield :logout %>
