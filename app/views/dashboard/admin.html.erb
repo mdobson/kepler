@@ -83,3 +83,23 @@
 		<% end %>
 	</tbody>
 </table>
+<br/>
+<br/>
+<h3>Forms</h3>
+<br/>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Form Name</th>
+			<th>Number of Subjects</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<% @data_sets.each do |form| %>
+				<td><%= form.form.name %></td>
+				<td><%= form.rec_count %></td>
+			<% end %>
+		</tr>
+	</tbody>
+</table>
