@@ -1,4 +1,5 @@
 <div class="alert alert-info">
+	<a class="close delete" data-dismiss="alert">&times;</a>
 	<div class="row">
 		<div class="span6 form-horizontal">
 			<div class="control-group">

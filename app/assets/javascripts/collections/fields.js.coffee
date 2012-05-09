@@ -38,6 +38,17 @@ class Studycache.Collections.Fields extends Backbone.Collection
                             
         )
 
+        @.bind("change:delete", (e)=>
+            @.remove(e)
+            indice = 0
+            $("#fieldcontainer").html("")
+            _.each @models, (model)->
+                    indice = indice + 1
+                    model.set("pos", indice)
+                    field = new Studycache.Views.FieldsIndex({model:model})
+                    $("#fieldcontainer").append(field.render().el)
+            )
+
 
     comparator:(field)->
         field.get("pos")

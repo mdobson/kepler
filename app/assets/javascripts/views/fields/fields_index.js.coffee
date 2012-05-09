@@ -8,7 +8,7 @@ class Studycache.Views.FieldsIndex extends Backbone.View
     "click .up_vote" : "upvoteQuestionPoint"
     "click .down_vote" : "downvoteQuestionPoint"
     "click .edit" : "openModal"
-    "click .close" : "closeModal"
+    "click .delete" : "deleteField"
   
   initialize: (model)->
     _.bindAll(this, "questionChange")
@@ -55,6 +55,8 @@ class Studycache.Views.FieldsIndex extends Backbone.View
     @model.model.set("movement","up")
     @model.model.set("pos", newPosition)
 
+  deleteField: ->
+    @model.model.set("delete",true)
 
   downvoteQuestionPoint: ->
     currentPosition = @model.model.get("pos")
