@@ -3,9 +3,12 @@ class Studycache.Collections.Fields extends Backbone.Collection
 
     initialize: ->
         @.bind("change:pos", (e)=>
+            console.log @
             elements = []
             if e.get("pos") > @length
                 e.set("pos", @length)
+            if e.get("pos") < 1
+                e.set("pos", 1)
             movementType = e.get("movement")
             modelPosition = e.get("pos")
             if movementType != undefined

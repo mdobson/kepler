@@ -19,17 +19,17 @@
 			</div>
 		</div>
 		<div class="span1">
-			<a href="#" class="btn btn-info edit">Edit</a>
+			<a class="btn btn-info edit">Edit</a>
 			<br/>
 			<br/>
 			<div>Type:<span class="datatype"><%= @model.get("datatype") %></span></div>
 		</div>
 		<div class="span1">
-			<a href="#" class="up_vote"><img src="/assets/ic_up.png"/></a>
+			<a class="up_vote"><img src="/assets/ic_up.png"/></a>
 			<br/>
 			<span style="margin-left:4px;" class="position"><%= @model.get("pos") %></span>
 			<br/>
-			<a href="#" class="down_vote"><img src="/assets/ic_down.png"/></a>
+			<a class="down_vote"><img src="/assets/ic_down.png"/></a>
 		</div>
 	</div>
 	<div id="modal">
