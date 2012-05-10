@@ -32,7 +32,9 @@ class FormBuilderController < ApplicationController
           Field.create_field(@form.id, field)
         end
       end
-      render :json => response
+      flag = {}
+      flag["success"] = true
+      render :json => flag.to_json
     else
       @form = Form.get_form_by_form_id(params[:formid]).first
       @form.name = params[:name]
@@ -44,7 +46,9 @@ class FormBuilderController < ApplicationController
           Field.create_field(@form.id, field)
         end
       end
-      render :json => response
+      flag = {}
+      flag["success"] = true
+      render :json => flag.to_json
     end
   end
 

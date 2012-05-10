@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: hstoreproto
+  database: migrationtest
   host: localhost
   pool: 5
   timeout: 5000

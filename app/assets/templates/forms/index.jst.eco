@@ -1,4 +1,6 @@
 <h1>Form Builder</h1><br/>
+<div class="alert alert-error hide" id="error"><strong>Error:</strong> This form is invalid please go and check the highlighted fields to ensure every field has a question and other parameters set.<a class="close delete" data-dismiss="alert">&times;</a></div>
+<div class="alert alert-success hide" id="success"><strong>Success:</strong> This form is valid. It has been saved.<a class="close delete" data-dismiss="alert">&times;</a></div>
 <div class="control-group form-horizontal">
 	<fieldset>
 		<label for="q1" class="control-label">Form Name:</label>

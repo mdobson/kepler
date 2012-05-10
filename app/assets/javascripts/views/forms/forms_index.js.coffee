@@ -52,7 +52,23 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
   saveForm: () ->
     form = new Studycache.Models.Form()
+    valid = true
     name = $("#name").val()
+    if name == "" || name == undefined
+      valid = false
     form.set(fields:@collection, name:name, formid:@formid)
     #console.log form
-    form.save({},{success:(e)->console.log e})
+    _.each(@collection.models, (model)->
+        if model.has("question") == false
+          valid = false
+          console.log model
+      )
+    if valid 
+      form.save({},{
+        success:(m,r)->
+          console.log r
+          if r.success == true
+            $("#success").show()
+          })
+    else
+      $("#error").show()
