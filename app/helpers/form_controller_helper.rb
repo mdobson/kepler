@@ -6,7 +6,10 @@ module FormControllerHelper
 			when "Numeric"
 				return text_field_tag(field["datapoint"])
 			when "Bool"
-				return check_box_tag(field["datapoint"])
+				return content_tag :div, :class=>"controls" do 
+					content_tag(:label, radio_button_tag(field["datapoint"], true) + "True".html_safe, :class=>"radio",) +
+					content_tag(:label, radio_button_tag(field["datapoint"], false) + "False".html_safe, :class=>"radio",)
+				end
 			when "Dropdown"
 				return select_tag(field["datapoint"], options_for_select([[1],[2],[3]]))
 			when "Long"
