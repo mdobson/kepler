@@ -14,7 +14,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<% @users_in_study.each do |acl| %>
+	<% @study.access_controls.each do |acl| %>
 		<tr>
 			<td><%= acl.user_email %></td>
 			<td><%= acl.is_admin %></td>
@@ -48,7 +48,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @forms.each do |form| %>
+		<% @study.forms.each do |form| %>
 			<tr>
 				<td><%= form.name %></td>
 				<td><%= form.email %></td>

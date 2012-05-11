@@ -24,7 +24,7 @@ class FormController < ApplicationController
 
   def update
     @form = Form.get_form_by_form_id(params[:id]).first
-    Form.update_form(@form, params[:parameter], params[:publish])
+    Form.update_publish_status(@form, params[:parameter], params[:publish])
     respond_to do |format|
       format.html { redirect_to study_dashboard_index_url }
     end

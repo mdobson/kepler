@@ -4,50 +4,17 @@ class FormBuilderController < ApplicationController
 
   def index
     if(params.has_key?(:id))
-      @form = Form.get_form_by_form_id(params[:id]).first
-      fields = @form.fields
-      responseFields = []
-      fields.each do |field_data|
-        responseFields.push(field_data.metadata)
-      end
-      responseStruct = {}
-      responseStruct["name"] = @form.name
-      responseStruct["fields"] = responseFields.to_json
-      #logger.debug responseStruct
+      responseStruct = Form.to_json(params)
       render :json => responseStruct
     end
   end
 
   def create
     if(!params.has_key?(:formid))
-      response = params[:form_builder]
-      @form = Form.new
-      @form.name = params[:name]
-      @form.study_id = params[:study_id]
-      @form.user_id = current_user.id
-      @form.is_published = false
-      @form.is_mobile = false
-      if @form.save
-        params[:fields].each do |field|
-          Field.create_field(@form.id, field)
-        end
-      end
-      flag = {}
-      flag["success"] = true
+      flag = Form.create_new_form(params, current_user.id)
       render :json => flag.to_json
     else
-      @form = Form.get_form_by_form_id(params[:formid]).first
-      @form.name = params[:name]
-      @form.fields.each do |field|
-        field.destroy
-      end
-      if @form.save
-        params[:fields].each do |field|
-          Field.create_field(@form.id, field)
-        end
-      end
-      flag = {}
-      flag["success"] = true
+      flag = Form.update_old_form(params)
       render :json => flag.to_json
     end
   end

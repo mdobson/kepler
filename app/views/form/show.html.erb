@@ -3,7 +3,7 @@
 	<h3><%=@form.name %></h3>
 	<br/><br/>
 	<%= hidden_field_tag("form_id", @form.id) %>
-	<% @form.fields.each do |field|%>
+	<% @form.fields.order("position").each do |field|%>
 		<%= field.metadata["question"] %><br/>
 		<%= convert_form_data_type(field.metadata) %><br/>
 		<%= field.metadata["datapoint"] %><br/><br/>
