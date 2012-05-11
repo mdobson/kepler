@@ -16,7 +16,7 @@
 	<tbody>
 	<% @users_in_study.each do |acl| %>
 		<tr>
-			<td><%= acl.user.email %></td>
+			<td><%= acl.user_email %></td>
 			<td><%= acl.is_admin %></td>
 			<td><%= acl.can_read %></td>
 			<td><%= acl.can_write %></td>
@@ -44,7 +44,6 @@
 			<th>Creator</th>
 			<th>Last Modified</th>
 			<th>Publish</th>
-			<th>Enable Mobile</th>
 			<th>Edit Form Link</th>
 		</tr>
 	</thead>
@@ -52,7 +51,7 @@
 		<% @forms.each do |form| %>
 			<tr>
 				<td><%= form.name %></td>
-				<td><%= form.user.email %></td>
+				<td><%= form.email %></td>
 				<td><%= form.updated_at %></td>
 				<td>
 					<%= form_for [@study,form] do |f| %>
@@ -63,18 +62,6 @@
 						<% else %>
 							<%= f.submit "Published", :class=> "btn btn-success" %>
 							<%= hidden_field_tag "publish", false %>
-						<% end %>
-					<% end %>
-				</td>
-				<td>
-					<%= form_for [@study,form] do |f| %>
-						<%= hidden_field_tag "parameter", "mobile" %>
-						<% if form.is_mobile == false %>
-							<%= f.submit "Enable", :class=> "btn btn-danger" %>
-							<%= hidden_field_tag "mobile", true %>
-						<% else %>
-							<%= f.submit "Disable", :class=> "btn btn-success" %>
-							<%= hidden_field_tag "mobile", false %>
 						<% end %>
 					<% end %>
 				</td>
@@ -97,7 +84,7 @@
 	<tbody>
 		<tr>
 			<% @data_sets.each do |form| %>
-				<td><%= form.form.name %></td>
+				<td><%= form.form_name %></td>
 				<td><%= form.rec_count %></td>
 			<% end %>
 		</tr>

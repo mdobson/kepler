@@ -12,6 +12,8 @@ class Form < ActiveRecord::Base
 		where("id = ?", id)
 	}
 
+	delegate :email, :to => :user
+
 	def is_user_agent_mobile(request)
 		case request.env['HTTP_USER_AGENT']
 			when /iPhone/ then true
@@ -19,5 +21,12 @@ class Form < ActiveRecord::Base
 			when /Android/ then true
 			else false
 		end
+	end
+
+	def self.update_form(form, parameter, published)
+		if parameter == "publish"
+      		form.is_published = published
+    	end
+    	form.save
 	end
 end

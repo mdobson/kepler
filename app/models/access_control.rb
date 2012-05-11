@@ -17,7 +17,7 @@ class AccessControl < ActiveRecord::Base
 	  where("study_id = ?", study_id)
   }
   
-
+  delegate :email, :to => :user, :prefix => true
 
   def notify_user
     Notification.study(self).deliver

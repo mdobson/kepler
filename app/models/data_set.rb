@@ -1,3 +1,5 @@
+require 'uuidtools'
+
 class DataSet < ActiveRecord::Base
 	belongs_to :form
 	belongs_to :study
@@ -13,4 +15,20 @@ class DataSet < ActiveRecord::Base
 	scope :get_ordered_forms_by_study_id, lambda{|study_id|
 		select("form_id, count(*) as rec_count").where("study_id = ?", study_id).group("form_id")
 	}
+
+	delegate :name, :to => :form, :prefix => true
+
+	def self.create_data_set(form, study_id, params)
+		uuid = UUIDTools::UUID.random_create().to_s
+    	data_hash = {}
+    	hstore_data_set = DataSet.new
+  		form.fields.each do |field|
+  			data_hash[field.metadata["datapoint"]] = params[field.metadata["datapoint"]]
+  		end
+  		hstore_data_set.uuid = uuid
+    	hstore_data_set.form_id = form.id
+    	hstore_data_set.study_id = study_id
+    	hstore_data_set.data_set = data_hash
+    	hstore_data_set.save
+	end
 end
