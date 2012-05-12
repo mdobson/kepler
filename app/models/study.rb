@@ -8,6 +8,8 @@ class Study < ActiveRecord::Base
   has_many :data_sets
   has_many :forms
 
+  delegate :email, :to => :user
+
   def create_admin_of_study
     @acl = AccessControl.new
     @acl.study_id = self.id

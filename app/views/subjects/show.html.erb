@@ -1,2 +1,31 @@
-<h1>Subjects#show</h1>
-<p>Find me in app/views/subjects/show.html.erb</p>
+<% content_for(:crumbs) do %>
+	<ul class="breadcrumb">
+		<li>
+    		<%= link_to "All Subjects", study_subjects_path%> <span class="divider">/</span>
+  		</li>
+  		<li class="active">Subjects for <%= @form.name %></li>
+	</ul>
+<% end %>
+
+	<h3><%= @form.name %></h3>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<% @form.fields.each do |field| %>
+					<th><%= field.metadata["datapoint"] %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<% @form.data_sets.each do |data_set| %>
+				<tr>
+					<% @form.fields.each do |field| %>
+						<td><%= data_set.data_set[field.metadata["datapoint"]] %></td>
+					<% end %>
+				</tr>
+			<% end %>
+			
+		</tbody>
+	</table>
+

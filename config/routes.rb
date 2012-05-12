@@ -1,5 +1,7 @@
 Studycache::Application.routes.draw do
 
+  get "profile/index"
+
   devise_for :users
 
   root :to => "home#index"
@@ -16,7 +18,9 @@ Studycache::Application.routes.draw do
       get 'public', :on => :member
       post 'public_create', :on => :member 
     end
-    resources :subjects, :only => [:index, :show]
+    resources :subjects, :only => [:index, :show] do 
+      get 'single', :on => :member
+    end
   end
 
   # The priority is based upon order of creation:

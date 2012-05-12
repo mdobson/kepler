@@ -19,6 +19,10 @@ class AccessControl < ActiveRecord::Base
   
   delegate :email, :to => :user, :prefix => true
 
+  delegate :email, :to => :study, :prefix => true
+
+  delegate :title, :to => :study, :prefix => true
+
   def notify_user
     Notification.study(self).deliver
   end

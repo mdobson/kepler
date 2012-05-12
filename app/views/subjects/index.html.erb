@@ -1,23 +1,23 @@
-<% @forms.each do |form| %>
-	<h3><%= form.name %></h3>
-	<table class="table table-bordered table-striped">
+<% content_for(:crumbs) do %>
+	<ul class="breadcrumb">
+  		<li class="active">Subjects</li>
+	</ul>
+<% end %>
+ 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<% form.fields.each do |field| %>
-					<th><%= field.metadata["datapoint"] %></th>
-				<% end %>
+				<th>Form Name</th>
+				<th>Number of Entries</th>
+				<th>View Subjects</th>
 			</tr>
 		</thead>
 		<tbody>
-			
-			<% form.data_sets.each do |data_set| %>
+			<% @forms.each do |form| %>
 				<tr>
-					<% form.fields.each do |field| %>
-						<td><%= data_set.data_set[field.metadata["datapoint"]] %></td>
-					<% end %>
+					<td><%= form.name %></td>
+					<td><%= form.data_sets.count %></td>
+					<td><%= link_to "View Subjects", study_subject_path(form.study_id,form.id), :class => "btn btn-info" %></td>
 				</tr>
-			<% end %>
-			
+			<% end  %>
 		</tbody>
 	</table>
-<% end %>
