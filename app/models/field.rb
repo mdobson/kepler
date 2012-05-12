@@ -8,4 +8,21 @@ class Field < ActiveRecord::Base
 		field.metadata = json_array
 		field.save
 	end
+
+
+	#expoermental hstore metaprogramming
+	%w[pos datatype question datapoint canblank helptext].each do |key|
+
+		scope "has_#{key}", lambda { |value| where("metadata @> (? => ?)", key, value) }
+
+		define_method(key) do
+      		metadata && metadata[key]
+    	end
+  
+    	define_method("#{key}=") do |value|
+      		self.metadata = (metadata || {}).merge(key => value)
+    	end
+
+	end
+
 end

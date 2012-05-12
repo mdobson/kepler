@@ -4,9 +4,9 @@
 	<br/><br/>
 	<%= hidden_field_tag("form_id", @form.id) %>
 	<% @form.fields.order("position").each do |field|%>
-		<%= field.metadata["question"] %><br/>
+		<%= field.question %><br/>
 		<%= convert_form_data_type(field.metadata) %><br/>
-		<%= field.metadata["datapoint"] %><br/><br/>
+		<%= field.datapoint %><br/><br/>
 	<% end %>
 	<%= submit_tag("Submit", :class=>"btn btn-info") %>
 <% end %>
