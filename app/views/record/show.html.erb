@@ -1,0 +1,14 @@
+<% content_for(:crumbs) do %>
+	<ul class="breadcrumb">
+		<li>
+    		<%= link_to "All Subjects", study_subjects_path%> <span class="divider">/</span>
+  		</li>
+  		<li><%= link_to "Subjects for form #{@record.form_name}", study_subjects_path(@record.study_id, @record.form_id) %>
+  			<span class="divider">/</span>
+  		</li>
+  		<li class="active">Subject: <%= @record.uuid %></li>
+	</ul>
+<% end %>
+<% @record.data_set.each do |key,value|%>
+	<%= key %> : <%= value %>
+<% end %>

@@ -14,6 +14,7 @@
 				<% @form.fields.each do |field| %>
 					<th><%= field.metadata["datapoint"] %></th>
 				<% end %>
+					<th>View Single Record</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,6 +24,7 @@
 					<% @form.fields.each do |field| %>
 						<td><%= data_set.data_set[field.metadata["datapoint"]] %></td>
 					<% end %>
+						<td><%= link_to "View", study_record_path(data_set.study_id, data_set.id) %></td>
 				</tr>
 			<% end %>
 			
