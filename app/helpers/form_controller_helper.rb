@@ -11,7 +11,7 @@ module FormControllerHelper
 					content_tag(:label, radio_button_tag(field["datapoint"], false) + "False".html_safe, :class=>"radio",)
 				end
 			when "Dropdown"
-				return select_tag(field["datapoint"], options_for_select([1,2,3]))
+				return select_tag(field["datapoint"], options_for_select(field["defaults"].split(",")))
 			when "Long"
 				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
 		end

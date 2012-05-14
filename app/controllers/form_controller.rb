@@ -11,6 +11,7 @@ class FormController < ApplicationController
   def show
     @form = Form.get_form_by_form_id(params[:id]).first
     layout = retrieve_template_name("mobile_partials", "with_links", @form)
+    logger.debug @form
     respond_to do |format|
       format.html{ render :layout => layout }
     end

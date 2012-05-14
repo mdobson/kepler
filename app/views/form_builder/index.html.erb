@@ -1,2 +1,12 @@
 <%= javascript_include_tag "application" %>
+<% content_for(:crumbs) do %>
+	<ul class="breadcrumb">
+		<li>
+    		<%= link_to "Dashboard", study_dashboard_index_path %> <span class="divider">/</span>
+  		</li>
+  		<li>
+  			<span class="active">Form Builder</span>
+  		</li>
+	</ul>
+<% end %>
 <div id="app">Loading...</div>
