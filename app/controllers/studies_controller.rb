@@ -14,6 +14,7 @@ class StudiesController < ApplicationController
   def create
       @study = Study.new(params[:study])
       @study.user_id = current_user.id
+      @study.is_active = true
       respond_to do |format|
         if @study.save
           format.html { redirect_to "/studies/#{@study.id}/dashboard", notice: 'Study was successfully created.' }
@@ -21,7 +22,16 @@ class StudiesController < ApplicationController
       end
   end
 
-  def edit
+  def update
+    if params[:parameter] == "activate"
+      @study = Study.find(params[:id])
+      @study.is_active = params[:is_active]
+      respond_to do |format|
+        if @study.save
+          format.html { redirect_to "/studies/#{@study.id}/dashboard", notice: 'Study was successfully updated.' }
+        end
+      end
+    end
   end
 
   def delete

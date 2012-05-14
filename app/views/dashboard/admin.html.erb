@@ -1,5 +1,17 @@
 <br/>
 <h1>Dashboard: <%= @study.title %></h1>
+<br/><h4>Your study is currently:</h4>
+	<%= form_for [@study] do |f| %>
+		<%= hidden_field_tag "parameter", "activate" %>
+		<% if @study.is_active == false %>
+			<%= f.submit "Inactive", :class=> "btn btn-danger" %>
+			<%= hidden_field_tag "is_active", true %>
+		<% else %>
+			<%= f.submit "Active", :class=> "btn btn-success" %>
+			<%= hidden_field_tag "is_active", false %>
+		<% end %>
+	<% end %>
+<br/>
 <br/>
 <h3>Users</h3>
 <%= link_to "Add a User", new_study_access_control_path %>
@@ -11,6 +23,7 @@
 			<th>Can Read?</th>
 			<th>Can Write?</th>
 			<th>Delete</th>
+			<th>Edit</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,6 +40,11 @@
 						<%= f.submit "Delete", :class=> "btn btn-info" %>
 					<% end %>
 				<% end %>
+			</td>
+			<td>
+			<% if current_user.id != acl.user_id %>	
+				<%= link_to "Edit User", edit_study_access_control_path(acl.study_id, acl.id), :class=> "btn btn-info" %>
+			<% end %>
 			</td>
 		</tr>
 	<% end %>
@@ -45,6 +63,7 @@
 			<th>Last Modified</th>
 			<th>Publish</th>
 			<th>Edit Form Link</th>
+			<th>Invite Survey Takers</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -66,6 +85,7 @@
 					<% end %>
 				</td>
 				<td><%= link_to "Edit Form", generate_form_builder_link(form.id), :class=> "btn btn-info" %></td>
+				<td><%= link_to "Invite", invite_study_form_path(form.study_id, form.id), :class => "btn btn-info" %></td>
 			</tr>
 		<% end %>
 	</tbody>

@@ -17,7 +17,8 @@ Studycache::Application.routes.draw do
     resources :data_explorer, :only => [:index]
     resources :form, :only => [:index, :create, :show, :update] do
       get 'public', :on => :member
-      post 'public_create', :on => :member 
+      post 'public_create', :on => :member
+      get 'invite', :on => :member 
     end
     resources :subjects, :only => [:index, :show] do 
       get 'single', :on => :member

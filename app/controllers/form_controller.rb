@@ -45,6 +45,10 @@ class FormController < ApplicationController
     end
   end
 
+  def invite
+
+  end
+
   private 
 
   def retrieve_template_name(mobile_template, browser_template, form)
