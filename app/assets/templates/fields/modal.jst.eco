@@ -26,6 +26,12 @@
 					</div>
 					<br/>
 					<br/>
+					<label for="q6" class="control-label">Default Values:</label>
+					<div class="control">
+						<input name="q6" type="text" class="span4" value="<%= @model.model.get('defaults') %>" id="defaults"/>
+					</div>
+					<br/>
+					<br/>
 					<label for="q3" class="control-label">Type:</label>
 					<div class="control">
 						<select id='datatype' name="q3">
