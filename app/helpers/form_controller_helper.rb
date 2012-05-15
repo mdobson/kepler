@@ -16,4 +16,8 @@ module FormControllerHelper
 				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
 		end
 	end
+
+	def create_embed_tag(vimeo_url)
+		return "<iframe src='#{vimeo_url}' width=500 height=281 frameborder=0></iframe>".html_safe
+	end
 end

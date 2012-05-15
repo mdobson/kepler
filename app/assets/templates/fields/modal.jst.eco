@@ -53,6 +53,12 @@
 							<option>False</option>
 						</select>
 					</div>
+					<br/>
+					<br/>
+					<label for="q7" class="control-label">Embed a video for this question:</label>
+					<div class="control">
+						<input name="q7" type="text" class="span4" value="<%= @model.model.get('video') %>" id="video"/>
+					</div>
 			</div>
 		</div>
 	</div>

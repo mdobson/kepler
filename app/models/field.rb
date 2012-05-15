@@ -11,7 +11,7 @@ class Field < ActiveRecord::Base
 
 
 	#expoermental hstore metaprogramming
-	%w[pos datatype question datapoint canblank helptext defaults].each do |key|
+	%w[pos datatype question datapoint canblank helptext defaults video].each do |key|
 
 		scope "has_#{key}", lambda { |value| where("metadata @> (? => ?)", key, value) }
 
