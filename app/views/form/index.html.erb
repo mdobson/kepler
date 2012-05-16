@@ -4,27 +4,36 @@
 	</ul>
 <% end %>
 
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<th>Form Name</th>
-			<th>Link To Builder</th>
-			<th>Creator</th>
-			<th>Data Entry</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @forms.each do |form| %>
+<% if @forms.count != 0 %>
+	<table class="table table-bordered table-striped">
+		<thead>
 			<tr>
-				<td><%= form.name %></td>
-				<td><%= link_to "Form Builder", generate_form_builder_link(form.id), :class => "btn btn-info" %></td>
-				<td><%= form.user.email %></td>
-				<td>
-					<% if form.is_published %>
-						<%= link_to "Entry", study_form_url(form.study,form), :class => "btn btn-info" %>
-					<% end %>
-				</td>
+				<th>Form Name</th>
+				<th>Link To Builder</th>
+				<th>Creator</th>
+				<th>Data Entry</th>
 			</tr>
-		<% end %>
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			<% @forms.each do |form| %>
+				<tr>
+					<td><%= form.name %></td>
+					<td><%= link_to "Form Builder", generate_form_builder_link(form.id), :class => "btn btn-info" %></td>
+					<td><%= form.user.email %></td>
+					<td>
+						<% if form.is_published %>
+							<%= link_to "Entry", study_form_url(form.study,form), :class => "btn btn-info" %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% else %>
+
+	<h4>There aren't any forms created for your study yet.</h4>
+	<br/>
+	<br/>
+	<p>Please contact your administrator to create one.</p>
+
+<% end %>

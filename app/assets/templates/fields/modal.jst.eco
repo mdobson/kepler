@@ -1,64 +1,48 @@
 <div class="modal-backdrop fade in" id="backdrop"></div>
 <div class="modal">
 	<div class="modal-header">
-		<%= @model.model.get('datapoint') %>
+		<h3>Edit Field</h3>
 	</div>
 	<div class="modal-body">
-		<div class="span6 form-horizontal">
-			<div class="control-group">
-					<br/>
-					<br/>
-					<label for="q1" class="control-label">Question:</label>
-					<div class="control">
-						<input name="q1" type="text" class="span4" value="<%= @model.model.get('question') %>" id="questionval"/>
-					</div>
-					<br/>
-					<br/>
-					<label for="q2" class="control-label">Data Point Name:</label>
-					<div class="control">
-						<input name="q2" type="text" class="span4" value="<%= @model.model.get('datapoint') %>" id="datapointname"/>
-					</div>
-					<br/>
-					<br/>
-					<label for="q5" class="control-label">Help Text:</label>
-					<div class="control">
-						<input name="q5" type="text" class="span4" value="<%= @model.model.get('helptext') %>" id="helptextval"/>
-					</div>
-					<br/>
-					<br/>
-					<label for="q6" class="control-label">Default Values:</label>
-					<div class="control">
-						<input name="q6" type="text" class="span4" value="<%= @model.model.get('defaults') %>" id="defaults"/>
-					</div>
-					<br/>
-					<br/>
-					<label for="q3" class="control-label">Type:</label>
-					<div class="control">
-						<select id='datatype' name="q3">
-							<option><%= @model.model.get('datatype') %></option>
-							<option value="Text">Text</option>
-							<option value="Numeric">Number</option>
-							<option value="Long">Long Response</option>
-							<option value="Dropdown">Drop down</option>
-							<option value="Bool">Checkbox</option>
-						</select>
-					</div>
-					<br/>
-					<br/>
-					<label for="q4" class="control-label">Can be blank?:</label>
-					<div class="control">
-						<select id='canblank' name="q4">
-							<option><%= @model.model.get('canblank') %></option>
-							<option>True</option>
-							<option>False</option>
-						</select>
-					</div>
-					<br/>
-					<br/>
-					<label for="q7" class="control-label">Embed a video for this question:</label>
-					<div class="control">
-						<input name="q7" type="text" class="span4" value="<%= @model.model.get('video') %>" id="video"/>
-					</div>
+		<div class="row">
+			<div class="span6 form-horizontal">
+				<div class="control-group">
+						<br/>
+						<br/>
+						<label for="q1" class="control-label">Question:</label>
+						<div class="control">
+							<input name="q1" type="text" value="<%= @model.model.get('question') %>" id="questionval"/>
+						</div>
+						<br/>
+						<label for="q2" class="control-label">Data Point Name:</label>
+						<div class="control">
+							<input name="q2" type="text" value="<%= @model.model.get('datapoint') %>" id="datapointname"/>
+						</div>
+						<br/>
+						<label for="q5" class="control-label">Help Text:</label>
+						<div class="control">
+							<input name="q5" type="text" value="<%= @model.model.get('helptext') %>" id="helptextval"/>
+						</div>
+						<br/>
+						<label for="q6" class="control-label">Default Values:</label>
+						<div class="control">
+							<input name="q6" type="text" value="<%= @model.model.get('defaults') %>" id="defaults"/>
+						</div>
+						<br/>
+						<label for="q4" class="control-label">Answer Required?:</label>
+						<div class="control">
+							<select id='canblank' name="q4">
+								<option><%= @model.model.get('canblank') %></option>
+								<option value="True">Yes</option>
+								<option value="False">No</option>
+							</select>
+						</div>
+						<br/>
+						<label for="q7" class="control-label">Embed a video for this question:</label>
+						<div class="control">
+							<input name="q7" type="text" value="<%= @model.model.get('video') %>" id="video"/>
+						</div>
+				</div>
 			</div>
 		</div>
 	</div>
