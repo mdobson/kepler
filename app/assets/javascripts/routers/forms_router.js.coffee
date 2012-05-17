@@ -29,5 +29,3 @@ class Studycache.Routers.Forms extends Backbone.Router
                     $("#fieldcontainer").append(field.render().el)
                 )})
 
-
-

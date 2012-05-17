@@ -51,6 +51,8 @@ class Studycache.Views.FormsIndex extends Backbone.View
       )
 
   saveForm: () ->
+    $("#success").hide()
+    $("#error").hide()
     form = new Studycache.Models.Form()
     valid = true
     name = $("#name").val()
@@ -68,6 +70,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
         success:(m,r)->
           console.log r
           if r.success == true
+            window.location.hash = r.formid
             $("#success").show()
           })
     else

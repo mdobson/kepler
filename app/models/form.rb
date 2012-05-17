@@ -43,6 +43,7 @@ class Form < ActiveRecord::Base
           Field.create_field(@form.id, field)
         end
       	flag["success"] = true
+        flag["formid"] = @form.id
       else
       	flag["success"] = false
       end
@@ -61,6 +62,7 @@ class Form < ActiveRecord::Base
           Field.create_field(@form.id, field)
         end
       	flag["success"] = true
+        flag["formid"] = @form.id    
       else
       	flag["success"] = false
       end
