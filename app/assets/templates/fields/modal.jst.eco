@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-		<a class="btn btn-primary okay-modal">Okay</a>
-		<a class="btn btn-primary hide-modal">Close</a>
+		<a class="btn btn-primary okay-modal">Save</a>
+		<a class="btn btn-primary hide-modal">Cancel</a>
 	</div>
 </div>

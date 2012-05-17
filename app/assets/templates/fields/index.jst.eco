@@ -23,7 +23,9 @@
 			<a class="btn btn-info edit">Edit</a>
 			<br/>
 			<br/>
-			<div>Type:<span class="datatype"><%= @model.get("datatype") %></span></div>
+			<div>Type:
+			<% if @model.get("datatype") == "Bool": %><span class="datatype">True/False</span><% else: %><span class="datatype"><%= @model.get("datatype") %></span><% end %>
+			</div>
 		</div>
 		<div class="span1">
 			<a class="up_vote"><img src="/assets/ic_up.png"/></a>
