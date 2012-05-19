@@ -10,14 +10,6 @@
 					</div>
 				</fieldset>
 			</div>
-			<div class="control-group">
-				<fieldset>
-					<label for="h1" class="control-label">Data Point Name:</label>
-					<div class="control">
-						<input name="h1" type="text" class="datapoint" value="<%= @model.get('datapoint') %>"/>
-					</div>
-				</fieldset>
-			</div>
 		</div>
 		<div class="span1">
 			<a class="btn btn-info edit">Edit</a>

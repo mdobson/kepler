@@ -2,6 +2,7 @@ class Field < ActiveRecord::Base
 	belongs_to :form
 
 	def self.create_field(form_id, json_array)
+		json_array["datapoint"] = rand(36**8).to_s(36)
 		field = Field.new
 		field.form_id = form_id
 		field.position = json_array["pos"]

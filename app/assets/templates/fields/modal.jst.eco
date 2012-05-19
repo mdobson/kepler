@@ -14,11 +14,6 @@
 							<input name="q1" type="text" value="<%= @model.model.get('question') %>" id="questionval"/>
 						</div>
 						<br/>
-						<label for="q2" class="control-label">Data Point Name:</label>
-						<div class="control">
-							<input name="q2" type="text" value="<%= @model.model.get('datapoint') %>" id="datapointname"/>
-						</div>
-						<br/>
 						<label for="q5" class="control-label">Help Text:</label>
 						<div class="control">
 							<input name="q5" type="text" value="<%= @model.model.get('helptext') %>" id="helptextval"/>

@@ -4,7 +4,6 @@ class Studycache.Views.FieldsIndex extends Backbone.View
 
   events:
     "change input.question" : "questionChange"
-    "change input.datapoint" : "datapointChange"
     "click .up_vote" : "upvoteQuestionPoint"
     "click .down_vote" : "downvoteQuestionPoint"
     "click .edit" : "openModal"
@@ -12,12 +11,9 @@ class Studycache.Views.FieldsIndex extends Backbone.View
   
   initialize: (model)->
     _.bindAll(this, "questionChange")
-    _.bindAll(this, "datapointChange")
     @model = model
     @model.model.bind("change:question", ()=>
       $(@el).find(".question").val(@model.model.get("question")))
-    @model.model.bind("change:datapoint", ()=>
-      $(@el).find(".datapoint").val(@model.model.get("datapoint")))
     @model.model.bind("change:datatype", ()=>
       $(@el).find(".datatype").html(@model.model.get("datatype")))
     @model.model.bind("change:pos", ()=>
@@ -32,12 +28,6 @@ class Studycache.Views.FieldsIndex extends Backbone.View
   	question = inputElement.find(".question").val()
   	@model.model.set(question:question)
   	
-
-  datapointChange: ->
-  	inputElement = $(@el)
-  	datapointVal = inputElement.find(".datapoint").val()
-  	@model.model.set(datapoint:datapointVal)
-
   openModal: ->
     inputElement = $(@el)
     modalElement = inputElement.find("#modal")

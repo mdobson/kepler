@@ -9,6 +9,10 @@
   		<li class="active">Subject: <%= @record.uuid %></li>
 	</ul>
 <% end %>
-<% @record.data_set.each do |key,value|%>
-	<%= key %> : <%= value %>
+<% @record.form.fields.order("position").each do |field| %>
+  <h4><%= field.question %>:</h4>
+  <br/>
+  <%= @record.data_set[field.datapoint] %>
+  <br/>
+  <br/>
 <% end %>
