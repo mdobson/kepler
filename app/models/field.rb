@@ -10,8 +10,9 @@ class Field < ActiveRecord::Base
 		field.save
 	end
 
+	scope :first_datapoint_in_form, lambda {|form_id| where("position = 1 and form_id = ?", form_id)}
 
-	#expoermental hstore metaprogramming
+	#experimental hstore metaprogramming
 	%w[pos datatype question datapoint canblank helptext defaults video].each do |key|
 
 		scope "has_#{key}", lambda { |value| where("metadata @> (? => ?)", key, value) }

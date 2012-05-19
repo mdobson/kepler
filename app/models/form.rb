@@ -23,6 +23,10 @@ class Form < ActiveRecord::Base
 		end
 	end
 
+  def first_field_datapoint
+    fields.first_datapoint_in_form(self.id).first.datapoint
+  end
+
 	def self.update_publish_status(form, parameter, published)
 		if parameter == "publish"
       		form.is_published = published

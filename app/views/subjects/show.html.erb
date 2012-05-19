@@ -1,7 +1,7 @@
 <% content_for(:crumbs) do %>
 	<ul class="breadcrumb">
 		<li>
-    		<%= link_to "All Subjects", study_subjects_path%> <span class="divider">/</span>
+    		<%= link_to "All Subjects", study_subjects_path %> <span class="divider">/</span>
   		</li>
   		<li class="active">Subjects for <%= @form.name %></li>
 	</ul>
@@ -11,20 +11,16 @@
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<% @form.fields.each do |field| %>
-					<th><%= field.metadata["datapoint"] %></th>
-				<% end %>
-					<th>View Single Record</th>
+				<th>Record ID:</th>
+				<th>View Single Record</th>
 			</tr>
 		</thead>
 		<tbody>
 			
 			<% @form.data_sets.each do |data_set| %>
 				<tr>
-					<% @form.fields.each do |field| %>
-						<td><%= data_set.data_set[field.metadata["datapoint"]] %></td>
-					<% end %>
-						<td><%= link_to "View", study_record_path(data_set.study_id, data_set.id) %></td>
+					<td><%= data_set.data_set[@form.first_field_datapoint] %></td>	
+					<td><%= link_to "View", study_record_path(data_set.study_id, data_set.id) %></td>
 				</tr>
 			<% end %>
 			
