@@ -53,7 +53,11 @@ class FormController < ApplicationController
         contacts.each do |contact|
           all_contacts = all_contacts | contact.split(",")
         end
-        logger.debug all_contacts
+        all_contacts.each do |contact_email|
+          #logger.debug contact_email
+          #logger.debug public_study_form_path(params[:study_id], params[:published_forms])
+          Notification.invite(public_study_form_url(params[:study_id], params[:published_forms]), contact_email).deliver
+        end
       end
   end
 

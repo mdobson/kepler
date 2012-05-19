@@ -15,4 +15,9 @@ class Notification < ActionMailer::Base
     mail(:to => user.email, :subject =>"Thanks for registering at StudyCache!")
   end
 
+  def invite(study_link, email)
+    @study_link = study_link
+    mail(:to => email, :subject =>"You've been invited to a StudyCache survey!")
+  end
+
 end
