@@ -12,6 +12,10 @@ class Form < ActiveRecord::Base
 		where("id = ?", id)
 	}
 
+  scope :get_published_forms_for_study, lambda{|study_id| 
+    where("study_id = ? and is_published = TRUE", study_id)
+  }
+
 	delegate :email, :to => :user
 
 	def is_user_agent_mobile(request)

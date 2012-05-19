@@ -1,1 +1,11 @@
 <h1>Invite users to take this survey</h1>
+<h5>Please enter in the email addresses of everyone you'd like to contact along, and select the published form you'd like to send them a link to.</h5>
+<br/>
+<%= form_tag(invite_study_form_path, :method => "post") do %>
+	<%= publish_forms_dropdown_tag(@published_forms) %>
+	<br/>
+	<br/>
+	<%= text_area_tag("contacts", nil, :size => "400x8", :style=>"width:461px;") %>
+	<br/>
+	<%= submit_tag("Submit", :class=>"btn btn-info") %>
+<% end %>

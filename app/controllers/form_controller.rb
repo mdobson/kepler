@@ -46,7 +46,15 @@ class FormController < ApplicationController
   end
 
   def invite
-
+      @published_forms = Form.get_published_forms_for_study(params[:study_id])
+      if(params.has_key?(:contacts))
+        contacts = params[:contacts].split(" ")
+        all_contacts = []
+        contacts.each do |contact|
+          all_contacts = all_contacts | contact.split(",")
+        end
+        logger.debug all_contacts
+      end
   end
 
   private 
