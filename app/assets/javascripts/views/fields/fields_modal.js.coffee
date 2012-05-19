@@ -20,13 +20,12 @@ class Studycache.Views.FieldsModal extends Backbone.View
 
   saveData:->
     input =$(@el)
-    datatype = input.find("#datatype").val()
     canblank = input.find("#canblank").val()
     question = input.find("#questionval").val()
     helptext = input.find("#helptextval").val()
     datapoint = input.find("#datapointname").val()
     defaults = input.find("#defaults").val()
     video = input.find("#video").val()
-    @model.model.model.set(datatype:datatype, canblank:canblank, question:question, helptext:helptext, datapoint:datapoint, defaults:defaults, video:video)
+    @model.model.model.set(canblank:canblank, question:question, helptext:helptext, datapoint:datapoint, defaults:defaults, video:video)
     input.find(".modal").addClass("hide")
     input.find("#backdrop").remove()
