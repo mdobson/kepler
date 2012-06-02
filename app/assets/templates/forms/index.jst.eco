@@ -30,6 +30,7 @@
 				<li style="margin:10px;"><input type="button" value="Long Response" class="btn btn-info" id="long"/></li>
 				<li style="margin:10px;"><input type="button" value="Dropdown" class="btn btn-info" id="drop"/></li>
 				<li style="margin:10px;"><input type="button" value="True/False" class="btn btn-info" id="bool"/></li>
+				<li style="margin:10px;"><input type="button" value="Scale" class="btn btn-info" id="scale"/></li>
 			</ul>
 		</div>
 	</div>

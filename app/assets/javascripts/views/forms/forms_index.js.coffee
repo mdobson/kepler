@@ -8,6 +8,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
     'click #long' : 'addLong'
     'click #drop' : 'addDrop'
     'click #bool' : 'addBool'
+    'click #scale' : 'addScale'
     'click #save' : 'saveForm'
 
   render: ->
@@ -33,6 +34,9 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
   addBool: ->
     @addField("Bool")
+
+  addScale: ->
+    @addField("Scale")
 
   addField: (dataType) ->
     $("#fieldcontainer").html("")
