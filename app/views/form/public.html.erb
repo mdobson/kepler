@@ -1,16 +1,5 @@
 <% if @form.is_published %>
-	<%= form_tag(public_create_study_form_path, :method => "post") do %>
-		<h3><%=@form.name %></h3>
-		<br/><br/>
-		<%= hidden_field_tag("form_id", @form.id) %>
-		<% @form.fields.order("position").each do |field|%>
-			<%= field.metadata["question"] %><br/>
-			<%= convert_form_data_type(field.metadata) %><br/>
-			<%= field.metadata["datapoint"] %><br/><br/>
-		<% end %>
-		<%= submit_tag("Submit", :class=>"btn btn-info") %>
-	<% end %>
-	<br/>
+	<%= render :partial => "scform", :locals => {:form => @form} %>
 <% else %>
 
 <h3>There doesn't seem to be anything here!</h3>

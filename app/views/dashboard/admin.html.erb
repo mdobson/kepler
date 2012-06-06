@@ -63,6 +63,7 @@
 			<th>Last Modified</th>
 			<th>Publish</th>
 			<th>Edit Form Link</th>
+			<th>Embed Form Link</th>
 			<th>Invite Survey Takers</th>
 		</tr>
 	</thead>
@@ -85,6 +86,7 @@
 					<% end %>
 				</td>
 				<td><%= link_to "Edit Form", generate_form_builder_link(form.id), :class=> "btn btn-info" %></td>
+				<td><%= link_to "Embed", embed_study_form_path(form.study_id, form.id),:class=> "btn btn-info" %></td>
 				<td><%= link_to "Invite", invite_study_form_path(form.study_id, form.id), :class => "btn btn-info" %></td>
 			</tr>
 		<% end %>

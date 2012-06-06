@@ -19,7 +19,11 @@ Studycache::Application.routes.draw do
       get 'public', :on => :member
       post 'public_create', :on => :member
       get 'invite', :on => :member
-      post 'invite', :on => :member 
+      post 'invite', :on => :member
+      get 'embed', :on => :member
+      get 'thanks', :on => :member
+      get 'public_thanks', :on => :member
+      post 'embed_create', :on => :member 
     end
     resources :subjects, :only => [:index, :show] do 
       get 'single', :on => :member

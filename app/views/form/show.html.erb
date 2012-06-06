@@ -6,20 +6,5 @@
   	<li class="active"><%= @form.name %></li>
   </ul>
 <% end %>
-<%= form_tag(study_form_index_path, :method => "post") do %>
-	<h3><%=@form.name %></h3>
-	<br/><br/>
-	<%= hidden_field_tag("form_id", @form.id) %>
-	<% @form.fields.order("position").each do |field|%>
-		<% if field.video %>
-			<%= create_embed_tag(field.video) %>
-		<% end %>
-		<br/>
-		<br/>
-		<%= field.question %><br/>
-		<%= convert_form_data_type(field.metadata) %><br/>
-		<%= field.datapoint %><br/><br/>
-	<% end %>
-	<%= submit_tag("Submit", :class=>"btn btn-info") %>
-<% end %>
+<%= render :partial => "scform", :locals => {:form => @form} %>
 <br/>
