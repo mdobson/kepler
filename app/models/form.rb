@@ -47,6 +47,7 @@ class Form < ActiveRecord::Base
       @form.is_mobile = false
       flag = {}
       if @form.save
+        logger.debug "FORM ID : => #{@form.id}"
         params[:fields].each do |field|
           Field.create_field(@form.id, field)
         end

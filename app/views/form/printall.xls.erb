@@ -7,7 +7,7 @@
 	<% @form.data_sets.each do |data_set| %>
 		<tr>
 			<% @form.fields.order("position").each do |field| %>
-				<td><%= data_set.data_set[field.metadata["datapoint"]] %></td>
+				<td><%= convert_to_string(data_set.data_set[field.metadata["datapoint"]]) %></td>
 			<% end %>
 		</tr>
 	<% end %>

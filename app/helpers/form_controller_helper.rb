@@ -30,4 +30,16 @@ module FormControllerHelper
 	def create_embed_tag(vimeo_url)
 		return "<iframe src='#{vimeo_url}' width=500 height=281 frameborder=0></iframe>".html_safe
 	end
+
+	def convert_to_string(data)
+		if data == "true" 
+			return 1
+		end
+
+		if data == "false"
+			return 0
+		end
+
+		return data
+	end
 end
