@@ -1,6 +1,6 @@
 class FormController < ApplicationController
   
-  layout 'with_links'
+  layout 'with_links', :except => [:print, :print_all]
 
   before_filter :authenticate_user!, :except => [:public, :public_create, :embed]
 
@@ -92,7 +92,41 @@ class FormController < ApplicationController
     end
   end
 
-  private 
+  def print
+    @form = Form.get_form_by_form_id(params[:id]).first
+    respond_to do |format|
+      format.html {render :layout => "printout"}
+      format.pdf { doc_raptor_send }
+    end
+  end
+
+  def printall
+    @form = Form.get_form_by_form_id(params[:id]).first
+    respond_to do |format|
+      format.html{ render :layout => "printout" }
+      format.xls { doc_raptor_send }
+    end
+  end
+
+  def doc_raptor_send(options = {})
+    default_options ={
+      :name => controller_name,
+      :document_type => request.format.to_sym,
+      :test => true
+    }
+
+    options = default_options.merge(options)
+    options[:document_content] ||= render_to_string
+    ext = options[:document_type].to_sym
+    
+    response = DocRaptor.create(options)
+    if response.code == 200
+      send_data response, :filename => "#{options[:name]}.#{ext}", :type => ext
+    else
+      render :inline => response.body, :status => response.code
+    end
+  end
+
 
   def retrieve_template_name(mobile_template, browser_template, form)
     if form.is_user_agent_mobile(request)

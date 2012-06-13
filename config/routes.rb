@@ -23,10 +23,13 @@ Studycache::Application.routes.draw do
       get 'embed', :on => :member
       get 'thanks', :on => :member
       get 'public_thanks', :on => :member
-      post 'embed_create', :on => :member 
+      post 'embed_create', :on => :member
+      get 'print', :on => :member 
+      get 'printall', :on => :member
     end
     resources :subjects, :only => [:index, :show] do 
       get 'single', :on => :member
+      get 'print', :on => :collection
     end
   end
 

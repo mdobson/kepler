@@ -61,10 +61,12 @@
 			<th>Form Name</th>
 			<th>Creator</th>
 			<th>Last Modified</th>
+			<th>Print Form</th>
 			<th>Publish</th>
 			<th>Edit Form Link</th>
 			<th>Embed Form Link</th>
 			<th>Invite Survey Takers</th>
+			<th>Print all data</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -73,6 +75,7 @@
 				<td><%= form.name %></td>
 				<td><%= form.email %></td>
 				<td><%= form.updated_at %></td>
+				<td><%= link_to "Print a blank form", print_study_form_path(@study, form, :format => :pdf), :class => "btn btn-info" %></td>
 				<td>
 					<%= form_for [@study,form] do |f| %>
 						<%= hidden_field_tag "parameter", "publish" %>
@@ -88,6 +91,7 @@
 				<td><%= link_to "Edit Form", generate_form_builder_link(form.id), :class=> "btn btn-info" %></td>
 				<td><%= link_to "Embed", embed_study_form_path(form.study_id, form.id),:class=> "btn btn-info" %></td>
 				<td><%= link_to "Invite", invite_study_form_path(form.study_id, form.id), :class => "btn btn-info" %></td>
+				<td><%= link_to "Print all data", printall_study_form_path(@study.id, form.id, :format => :xls), :class => "btn btn-info" %></td>
 			</tr>
 		<% end %>
 	</tbody>
