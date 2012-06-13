@@ -1,0 +1,10 @@
+<h3><%=@form.name %></h3>
+<br/><br/>
+<table>
+	<% @form.fields.order("position").each do |field|%>
+		<tr>
+			<td><%= field.question %></td>
+			<td><%= convert_form_data_type(field.metadata) %></td>
+		</tr>
+	<% end %>
+</table>

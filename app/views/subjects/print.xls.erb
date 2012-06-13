@@ -1,0 +1,15 @@
+<table>
+		<tr>
+			<% @form.fields.each do |field| %>
+				<th><%= field.metadata["datapoint"] %></th>
+			<% end %>
+		</tr>
+	<% @form.data_sets.each do |data_set| %>
+		<tr>
+			<% @form.fields.each do |field| %>
+				<td><%= data_set.data_set[field.metadata["datapoint"]] %></td>
+			<% end %>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
