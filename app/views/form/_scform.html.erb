@@ -1,6 +1,5 @@
 <%= form_tag(@path, :method => "post") do %>
 	<h3><%=@form.name %></h3>
-	<br/><br/>
 	<%= hidden_field_tag("form_id", @form.id) %>
 	<% @form.fields.order("position").each do |field|%>
 		<% if field.video %>
@@ -8,9 +7,8 @@
 		<% end %>
 		<br/>
 		<br/>
-		<%= field.question %><br/>
+		<h4><%= field.position %>). <%= field.question %></h4><br/>
 		<%= convert_form_data_type(field.metadata) %><br/>
-		<%= field.datapoint %><br/><br/>
 	<% end %>
 	<%= submit_tag("Submit", :class=>"btn btn-info") %>
 <% end %>
