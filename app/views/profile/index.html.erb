@@ -9,11 +9,16 @@
 	<thead>
 	<tbody>
 		<% @acls.each do |acl| %>
-			<tr>
+			<% if acl.study_is_active || acl.user_id == acl.study_user_id %>
 				<td><%= acl.study_title %></td>
-				<td><%= acl.study_email %></td>
+				<% if acl.user_id != acl.study_user_id %>
+					<td><%= acl.study_email %></td>
+				<% else %>
+					<td>You</td>
+				<% end %>
 				<td></td>
 			</tr>
+			<% end %>
 		<% end %>
 	</tbody>
 </table>		

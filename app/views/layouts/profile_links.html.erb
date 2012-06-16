@@ -6,7 +6,9 @@
 		    </a>
 		    <ul class="dropdown-menu">
 		      <% get_user_acls.each do |acl| %>
-		      	<li><%= link_to acl.study.title, study_dashboard_index_path(acl.study) %> </li>
+				<% if acl.study_is_active || acl.user_id == acl.study_user_id %>
+	      			<li><%= link_to acl.study.title, study_dashboard_index_path(acl.study) %> </li>
+	      		<% end %>
 		      <% end %>
 		      <li class="divider"></li>
 		      <li><%= link_to "New Study", new_study_path %></li>
