@@ -1,3 +1,6 @@
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "twitterModal" %>
+<%= javascript_include_tag "dashboard" %>
 <br/>
 <h1>Dashboard: <%= @study.title %></h1>
 <br/><h4>Your study is currently:</h4>
@@ -61,12 +64,9 @@
 			<th>Form Name</th>
 			<th>Creator</th>
 			<th>Last Modified</th>
-			<th>Print Form</th>
 			<th>Publish</th>
-			<th>Edit Form Link</th>
-			<th>Embed Form Link</th>
-			<th>Invite Survey Takers</th>
-			<th>Print all data</th>
+			<th>Open other options</th>
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -75,9 +75,7 @@
 				<td><%= form.name %></td>
 				<td><%= form.email %></td>
 				<td><%= form.updated_at %></td>
-				<td><%= link_to "Print a blank form", print_study_form_path(@study, form, :format => :pdf), :class => "btn btn-info" %></td>
-				<td>
-					<%= form_for [@study,form] do |f| %>
+				<td><%= form_for [@study,form] do |f| %>
 						<%= hidden_field_tag "parameter", "publish" %>
 						<% if form.is_published == false %>
 							<%= f.submit "Publish", :class=> "btn btn-danger" %>
@@ -86,16 +84,35 @@
 							<%= f.submit "Published", :class=> "btn btn-success" %>
 							<%= hidden_field_tag "publish", false %>
 						<% end %>
-					<% end %>
-				</td>
-				<td><%= link_to "Edit Form", generate_form_builder_link(form.id), :class=> "btn btn-info" %></td>
-				<td><%= link_to "Embed", embed_study_form_path(form.study_id, form.id),:class=> "btn btn-info" %></td>
-				<td><%= link_to "Invite", invite_study_form_path(form.study_id, form.id), :class => "btn btn-info" %></td>
-				<td><%= link_to "Print all data", printall_study_form_path(@study.id, form.id, :format => :xls), :class => "btn btn-info" %></td>
+					<% end %></td>
+				<td><input type="button" class="btn btn-info modal-btn" value="Open Form Options" id="<%= form.id %>"/>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
+<% @study.forms.each do |form| %>
+	<div class="modal hide <%= form.id %>">
+		<div class="modal-header">
+			<%= form.name %> : Options
+		</div>
+		<div class="modal-body">
+			<h4>Below are some options for interacting with this form and it's data.</h4>
+			<ul class="unstyled">
+				<li style="margin:5px;"><%= link_to "Print a blank form", print_study_form_path(@study, form, :format => :pdf), :class => "btn btn-info" %></li>				
+				<li style="margin:5px;"><%= link_to "Edit Form", generate_form_builder_link(form.id), :class=> "btn btn-info" %></li>
+				<li style="margin:5px;"><%= link_to "Embed", embed_study_form_path(form.study_id, form.id),:class=> "btn btn-info" %></li>
+				<li style="margin:5px;"><%= link_to "Invite", invite_study_form_path(form.study_id, form.id), :class => "btn btn-info" %></li>
+				<li style="margin:5px;"><%= link_to "Print all data", printall_study_form_path(@study.id, form.id, :format => :xls), :class => "btn btn-info" %></li>
+				<li style="margin:5px;">
+					
+				</li>
+			</ul>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Close</a>
+		</div>
+	</div>
+<% end %>
 <br/>
 <br/>
 <h3>Forms</h3>
