@@ -4,6 +4,8 @@ class FormController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:public, :public_create, :embed]
 
+  respond_to :json
+
   def index
   	@forms = Form.get_forms_by_study_id(params[:study_id])
   end
@@ -15,6 +17,8 @@ class FormController < ApplicationController
     logger.debug @form
     respond_to do |format|
       format.html{ render :layout => layout }
+      #format.json{ render :json => { :form => @form.to_json, :fields => @form.fields.to_json } }
+      format.json{render :json=>@form.to_json}
     end
   end
 
