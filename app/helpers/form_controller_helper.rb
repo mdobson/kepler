@@ -15,14 +15,28 @@ module FormControllerHelper
 			when "Long"
 				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
 			when "Scale"
-				return content_tag :div, :class => "control-group" do
-					content_tag :div, :class => "controls" do
-						content_tag(:label, radio_button_tag(field["datapoint"], 1) + "1".html_safe, :class=>"checkbox inline")+
-						content_tag(:label, radio_button_tag(field["datapoint"], 2) + "2".html_safe, :class=>"checkbox inline")+
-						content_tag(:label, radio_button_tag(field["datapoint"], 3) + "3".html_safe, :class=>"checkbox inline")+
-						content_tag(:label, radio_button_tag(field["datapoint"], 4) + "4".html_safe, :class=>"checkbox inline")+
-						content_tag(:label, radio_button_tag(field["datapoint"], 5) + "5".html_safe, :class=>"checkbox inline")
+				thead = content_tag :thead do
+					content_tag :tr do
+						content_tag(:th, "1".html_safe)+
+						content_tag(:th, "".html_safe)+
+						content_tag(:th, "".html_safe)+
+						content_tag(:th, "".html_safe)+
+						content_tag(:th, "5".html_safe)
 					end
+				end
+
+				tbody = content_tag :tbody do
+					content_tag :tr, :class => "" do
+						content_tag(:td, radio_button_tag(field["datapoint"], 1))+
+						content_tag(:td, radio_button_tag(field["datapoint"], 2))+
+						content_tag(:td, radio_button_tag(field["datapoint"], 3))+
+						content_tag(:td, radio_button_tag(field["datapoint"], 4))+
+						content_tag(:td, radio_button_tag(field["datapoint"], 5))
+					end
+				end
+
+				return content_tag :table, :class => "table table-bordered table-striped" do
+					thead + tbody
 				end
 		end
 	end
