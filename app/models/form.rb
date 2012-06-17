@@ -37,7 +37,7 @@ class Form < ActiveRecord::Base
     	end
     	form.save
 	end
-
+  #create_new_form and update_old_form both have common code and common bug. Refactor!
 	def self.create_new_form(params, user_id)
       @form = Form.new
       @form.name = params[:name]
