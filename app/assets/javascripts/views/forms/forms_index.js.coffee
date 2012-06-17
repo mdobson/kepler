@@ -76,6 +76,8 @@ class Studycache.Views.FormsIndex extends Backbone.View
           if r.success == true
             window.location.hash = r.formid
             $("#success").show()
+          else
+            $("#error").show()
           })
     else
       $("#error").show()

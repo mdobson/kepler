@@ -47,6 +47,13 @@ class Form < ActiveRecord::Base
       @form.is_mobile = false
       flag = {}
       if @form.save
+        params[:fields].each do |field|
+          if field[:datatype] == "Dropdown" && field[:defaults].blank?
+            @form.delete
+            flag["success"] = false
+            return flag
+          end
+        end
         logger.debug "FORM ID : => #{@form.id}"
         params[:fields].each do |field|
           Field.create_field(@form.id, field)
