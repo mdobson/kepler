@@ -54,6 +54,7 @@ class FormController < ApplicationController
     layout = retrieve_template_name("mobile_partials", "application", @form)
     respond_to do |format|
       format.html{ render :layout => layout }
+      format.json{ render :json => @form.fields.order("position").to_json }
     end
   end
 

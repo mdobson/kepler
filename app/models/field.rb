@@ -6,6 +6,11 @@ class Field < ActiveRecord::Base
 		field = Field.new
 		field.form_id = form_id
 		field.position = json_array["pos"]
+		json_array.each do |key, value|
+			if value.blank?
+				json_array.delete(key)
+			end
+		end
 		field.metadata = json_array
 		field.save
 	end

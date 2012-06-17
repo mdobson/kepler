@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticate_user!
-  before_filter :authorize_user
+  #before_filter :authorize_user
   
   helper_method :get_user_acls
   helper_method :get_user_forms
