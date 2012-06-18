@@ -9,7 +9,7 @@
 		<br/>
 		<br/>
 		<h4><%= field.position %>). <%= field.question %></h4><br/>
-		<%= convert_form_data_type(field.metadata,@dataSet.data_set[field.datapoint]) %><br/>
+		<%= convert_form_data_type_with_value(field.metadata,@dataSet.data_set[field.datapoint]) %><br/>
 	<% end %>
 	<%= submit_tag("Submit", :class=>"btn btn-info") %>
 <% end %>

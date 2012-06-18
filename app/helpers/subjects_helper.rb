@@ -1,5 +1,5 @@
 module SubjectsHelper
-def convert_form_data_type(field, value)
+def convert_form_data_type_with_value(field, value)
 		case field["datatype"]
 			when "Text"
 				return text_field_tag(field["datapoint"], value)

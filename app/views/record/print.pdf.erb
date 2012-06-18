@@ -4,7 +4,7 @@
 	<% @form.fields.order("position").each do |field|%>
 		<tr>
 			<td><%= field.question %></td>
-			<td><%= convert_form_data_type(field.metadata,@dataSet.data_set[field.datapoint]) %></td>
+			<td><%= convert_form_data_type_with_value(field.metadata,@dataSet.data_set[field.datapoint]) %></td>
 		</tr>
 	<% end %>
 </table>
