@@ -8,17 +8,18 @@ class RecordController < ApplicationController
   def edit
   	@dataSet = DataSet.find(params[:id])
   	@form = @dataSet.form
-  	@path = study_subject_path
+  	@path = study_record_path
   end
 
   def update
-
+  	logger.debug "Hello"
+  	
   end
 
   def print
   	@dataSet = DataSet.find(params[:id])
   	@form = @dataSet.form
-  	@path = study_subject_path 
+  	@path = study_record_path
   	respond_to do |format|
       format.html {render :layout => "printout"}
       format.pdf { doc_raptor_send }

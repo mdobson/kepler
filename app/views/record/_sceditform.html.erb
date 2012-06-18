@@ -1,5 +1,5 @@
 <h1>Edit</h1>
-<%= form_tag(@path, :method => "put") do %>
+<%= form_tag(@path, :method => "PUT") do %>
 	<h3><%=@form.name %></h3>
 	<%= hidden_field_tag("form_id", @form.id) %>
 	<% @form.fields.order("position").each do |field|%>
