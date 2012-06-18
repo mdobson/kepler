@@ -25,7 +25,9 @@ gem 'jquery-ui-rails'
 
 gem 'backbone-on-rails'
 
-gem 'newrelic_rpm'
+group :production do
+	gem 'newrelic_rpm'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
