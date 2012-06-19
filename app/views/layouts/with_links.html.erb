@@ -25,7 +25,9 @@
 		      <% end %>
 		      <li class="divider"></li>
 		      <li><%= link_to "All Forms", study_form_index_path %></li>
-		      <li><%= link_to "New Form", study_form_builder_index_path %></li>
+		      <% if AccessControl.for_user_in_study(current_user.id, params[:study_id]).first.is_admin %>
+		      	<li><%= link_to "New Form", study_form_builder_index_path %></li>
+		      <% end %>
 		    </ul>
 		</li>
 		<li><%= link_to "All Subjects", study_subjects_path %></li>
