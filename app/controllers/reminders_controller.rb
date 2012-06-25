@@ -1,4 +1,6 @@
-class ReminderController < ApplicationController
+class RemindersController < ApplicationController
+  layout 'with_links'
+
   def index
   end
 

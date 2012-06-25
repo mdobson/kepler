@@ -1,15 +1,5 @@
 Studycache::Application.routes.draw do
 
-  get "reminder/index"
-
-  get "reminder/create"
-
-  get "reminder/destroy"
-
-  get "reminder/edit"
-
-  get "reminder/new"
-
   get "profile/index"
 
   devise_for :users
@@ -28,6 +18,7 @@ Studycache::Application.routes.draw do
     resources :form_builder, :only => [:index, :new, :create, :update]
     resources :data_explorer, :only => [:index]
     resources :form, :only => [:index, :create, :show, :update] do
+      resources :reminders
       get 'public', :on => :member
       post 'public_create', :on => :member
       get 'invite', :on => :member
