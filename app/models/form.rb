@@ -37,7 +37,7 @@ class Form < ActiveRecord::Base
     	end
     	form.save
 	end
-
+  #create_new_form and update_old_form both have common code and common bug. Refactor!
 	def self.create_new_form(params, user_id)
       @form = Form.new
       @form.name = params[:name]
@@ -47,6 +47,13 @@ class Form < ActiveRecord::Base
       @form.is_mobile = false
       flag = {}
       if @form.save
+        params[:fields].each do |field|
+          if field[:datatype] == "Dropdown" && field[:defaults].blank?
+            @form.delete
+            flag["success"] = false
+            return flag
+          end
+        end
         logger.debug "FORM ID : => #{@form.id}"
         params[:fields].each do |field|
           Field.create_field(@form.id, field)

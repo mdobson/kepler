@@ -19,10 +19,21 @@
 							<input name="q5" type="text" value="<%= @model.model.get('helptext') %>" id="helptextval"/>
 						</div>
 						<br/>
-						<label for="q6" class="control-label">Default Values:</label>
-						<div class="control">
-							<input name="q6" type="text" value="<%= @model.model.get('defaults') %>" id="defaults"/>
-						</div>
+						<% if @model.model.get('datatype') == "Dropdown": %>
+							<label for="q6" class="control-label">Default Values:</label>
+							<div class="control">
+								<input name="q6" type="text" value="<%= @model.model.get('defaults') %>" id="defaults"/>
+							</div>
+						<% end %>
+						<% if @model.model.get('datatype') == "Scale": %>
+							<label for="q6" class="control-label">On a scale from 1 to :</label>
+							<div class="control">
+								<select id="numberscale">
+									<option>5</option>
+									<option>10</option>
+								</select>
+							</div>
+						<% end %>
 						<br/>
 						<label for="q4" class="control-label">Answer Required?:</label>
 						<div class="control">

@@ -1,0 +1,15 @@
+<h1>Edit</h1>
+<%= form_tag(@path, :method => "PUT") do %>
+	<h3><%=@form.name %></h3>
+	<%= hidden_field_tag("form_id", @form.id) %>
+	<% @form.fields.order("position").each do |field|%>
+		<% if field.video %>
+			<%= create_embed_tag(field.video) %>
+		<% end %>
+		<br/>
+		<br/>
+		<h4><%= field.position %>). <%= field.question %></h4><br/>
+		<%= convert_form_data_type_with_value(field.metadata,@dataSet.data_set[field.datapoint]) %><br/>
+	<% end %>
+	<%= submit_tag("Submit", :class=>"btn btn-info") %>
+<% end %>

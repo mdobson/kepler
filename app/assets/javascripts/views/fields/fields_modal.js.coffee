@@ -26,6 +26,7 @@ class Studycache.Views.FieldsModal extends Backbone.View
     datapoint = input.find("#datapointname").val()
     defaults = input.find("#defaults").val()
     video = input.find("#video").val()
-    @model.model.model.set(canblank:canblank, question:question, helptext:helptext, datapoint:datapoint, defaults:defaults, video:video)
+    numberscale = input.find("#numberscale").val()
+    @model.model.model.set(canblank:canblank, question:question, helptext:helptext, datapoint:datapoint, defaults:defaults, video:video, numberscale:numberscale)
     input.find(".modal").addClass("hide")
     input.find("#backdrop").remove()

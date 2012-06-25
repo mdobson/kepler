@@ -2,7 +2,9 @@ class FormController < ApplicationController
   
   layout 'with_links', :except => [:print, :print_all]
 
-  before_filter :authenticate_user!, :except => [:public, :public_create, :embed]
+  skip_before_filter :authenticate_user!, :only => [:public, :public_create, :embed, :public_thanks, :thanks]
+
+  skip_before_filter :authorize_user, :only => [:public, :public_create, :embed, :public_thanks, :thanks]
 
   respond_to :json
 
@@ -54,6 +56,7 @@ class FormController < ApplicationController
     layout = retrieve_template_name("mobile_partials", "application", @form)
     respond_to do |format|
       format.html{ render :layout => layout }
+      format.json{ render :json => @form.fields.order("position").to_json }
     end
   end
 

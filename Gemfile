@@ -21,7 +21,13 @@ gem 'activerecord-postgres-hstore'
 
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
+
 gem 'backbone-on-rails'
+
+group :production do
+	gem 'newrelic_rpm'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
