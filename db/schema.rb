@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514234057) do
+ActiveRecord::Schema.define(:version => 20120625005352) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -135,6 +135,18 @@ ActiveRecord::Schema.define(:version => 20120514234057) do
   end
 
   add_index "questions", ["study_id", "user_id"], :name => "index_questions_on_study_id_and_user_id"
+
+  create_table "reminders", :force => true do |t|
+    t.integer  "study_id"
+    t.integer  "user_id"
+    t.datetime "last_reminded_date"
+    t.integer  "interval"
+    t.string   "contact_method"
+    t.text     "contact_information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "form_id"
+  end
 
   create_table "studies", :force => true do |t|
     t.string   "title"

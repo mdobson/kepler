@@ -1,5 +1,15 @@
 Studycache::Application.routes.draw do
 
+  get "reminder/index"
+
+  get "reminder/create"
+
+  get "reminder/destroy"
+
+  get "reminder/edit"
+
+  get "reminder/new"
+
   get "profile/index"
 
   devise_for :users
