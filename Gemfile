@@ -25,6 +25,10 @@ gem 'jquery-ui-rails'
 
 gem 'backbone-on-rails'
 
+gem 'sqlite3'
+
+gem 'minitest'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
