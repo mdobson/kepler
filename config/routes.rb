@@ -16,7 +16,6 @@ Studycache::Application.routes.draw do
       get 'print', :on => :member      
     end
     resources :form_builder, :only => [:index, :new, :create, :update]
-    resources :data_explorer, :only => [:index]
     resources :form, :only => [:index, :create, :show, :update] do
       resources :reminders
       get 'public', :on => :member
@@ -29,6 +28,7 @@ Studycache::Application.routes.draw do
       post 'embed_create', :on => :member
       get 'print', :on => :member 
       get 'printall', :on => :member
+      get 'explorer', :on => :member
     end
     resources :subjects, :only => [:index, :show] do 
       get 'single', :on => :member

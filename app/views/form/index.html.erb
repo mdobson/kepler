@@ -12,6 +12,7 @@
 				<th>Edit Form Link</th>
 				<th>Creator</th>
 				<th>Data Entry</th>
+				<th>Explorer</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,6 +26,7 @@
 							<%= link_to "Entry", study_form_url(form.study,form), :class => "btn btn-info" %>
 						<% end %>
 					</td>
+					<td><%= link_to "Data Explorer", explorer_study_form_path(form.study, form), :class => "btn btn-info"%></td>
 				</tr>
 			<% end %>
 		</tbody>
