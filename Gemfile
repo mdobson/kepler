@@ -25,9 +25,15 @@ gem 'jquery-ui-rails'
 
 gem 'backbone-on-rails'
 
+<<<<<<< HEAD
 gem 'sqlite3'
 
 gem 'minitest'
+=======
+group :production do
+	gem 'newrelic_rpm'
+end
+>>>>>>> 516aec847f25873f751f9ade5a83bad1c77410ea
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -2,6 +2,19 @@ class FormBuilderController < ApplicationController
   layout 'with_links'
   respond_to :json
 
+  before_filter :authorize_dashboard
+
+  def authorize_dashboard
+    if params.has_key?(:study_id)
+      acl = AccessControl.for_user_in_study(current_user.id, params[:study_id]).first
+      if acl.is_admin == false
+        respond_to do |format|
+          format.html { redirect_to study_form_index_path, notice: "Welcome. These are the forms for #{acl.study_title}" }        
+        end
+      end
+    end
+  end
+
   def index
     if(params.has_key?(:id))
       responseStruct = Form.to_json(params)

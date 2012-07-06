@@ -12,10 +12,13 @@ Studycache::Application.routes.draw do
     resources :access_controls
     resources :questions
     resources :answers
-    resources :record, :only => [:show]
+    resources :record, :only => [:show, :edit, :update] do
+      get 'print', :on => :member      
+    end
     resources :form_builder, :only => [:index, :new, :create, :update]
     resources :data_explorer, :only => [:index]
     resources :form, :only => [:index, :create, :show, :update] do
+      resources :reminders
       get 'public', :on => :member
       post 'public_create', :on => :member
       get 'invite', :on => :member
