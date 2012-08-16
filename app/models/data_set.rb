@@ -31,4 +31,15 @@ class DataSet < ActiveRecord::Base
     	hstore_data_set.data_set = data_hash
     	hstore_data_set.save
 	end
+
+	def self.update_data_entered(data_set_id, form_id, params)
+		data_set = DataSet.find(data_set_id)
+		form = Form.find(form_id)
+		data_hash = {}
+		form.fields.each do |field|
+  			data_hash[field.metadata["datapoint"]] = params[field.metadata["datapoint"]]
+  		end
+  		data_set.data_set = data_hash
+  		data_set.save
+	end
 end

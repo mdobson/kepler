@@ -16,7 +16,6 @@ class FormController < ApplicationController
     @form = Form.get_form_by_form_id(params[:id]).first
     @path = study_form_index_path
     layout = retrieve_template_name("mobile_partials", "with_links", @form)
-    logger.debug @form
     respond_to do |format|
       format.html{ render :layout => layout }
       #format.json{ render :json => { :form => @form.to_json, :fields => @form.fields.to_json } }
@@ -69,8 +68,6 @@ class FormController < ApplicationController
           all_contacts = all_contacts | contact.split(",")
         end
         all_contacts.each do |contact_email|
-          #logger.debug contact_email
-          #logger.debug public_study_form_path(params[:study_id], params[:published_forms])
           Notification.invite(public_study_form_url(params[:study_id], params[:published_forms]), contact_email).deliver
         end
       end

@@ -12,8 +12,8 @@ class RecordController < ApplicationController
   end
 
   def update
-  	logger.debug "Hello"
-  	
+  	DataSet.update_data_entered(params[:set_id], params[:form_id], params)
+  	redirect_to study_subject_path(params[:study_id], params[:form_id])
   end
 
   def print
