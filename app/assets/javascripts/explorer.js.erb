@@ -1,0 +1,18 @@
+jQuery(function(){
+	//alert($("#data").text());
+	if($("#data").text()){
+		$.getJSON($("#data").text(), function(data){
+			var dataset = new recline.Model.Dataset({
+		  		records: data
+			});
+
+			var $el = $('#explorer');
+			var grid = new recline.View.SlickGrid({
+			  model: dataset,
+			  el: $el
+			});
+			grid.visible = true;
+			grid.render();
+		});
+	}	
+});
