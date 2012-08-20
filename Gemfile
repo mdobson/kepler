@@ -25,8 +25,6 @@ gem 'jquery-ui-rails'
 
 gem 'backbone-on-rails'
 
-gem 'sqlite3'
-
 gem 'minitest'
 
 group :production do
