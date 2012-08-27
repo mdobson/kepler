@@ -134,8 +134,10 @@ class FormController < ApplicationController
 
   def retrieve_template_name(mobile_template, browser_template, form)
     if form.is_user_agent_mobile(request)
+      @isMobile = true
       layout = mobile_template
     else
+      @isMobile = false
       layout = browser_template
     end
     return layout

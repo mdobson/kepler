@@ -1,4 +1,37 @@
 module FormControllerHelper
+	def convert_form_data_type_for_mobile(field)
+		case field["datatype"]
+			when "Text"
+				return text_field_tag(field["datapoint"])
+			when "Numeric"
+				return text_field_tag(field["datapoint"])
+			when "Bool"
+				return content_tag :fieldset, :data=> {:role => "controlgroup"} do 
+					"<input type='radio' name='".html_safe+field["datapoint"]+"' id='radio-choice-1' value='true' />
+     				<label for='radio-choice-1'>True</label><input type='radio' name='".html_safe+field["datapoint"]+"' id='radio-choice-2' value='false' />
+     				<label for='radio-choice-2'>False</label>".html_safe
+     				#"<legend>Answer:</legend><input type='radio' name='".html_safe+ field["datapoint"] +"' id='radio-choice-1' value='true' />
+     				#<label for='".html_safe+ field["datapoint"] +"'>True</label><input type='radio' name='".html_safe+ field["datapoint"] +"' id='radio-choice-1' value='false+' />
+     				#<label for='".html_safe+ field["datapoint"] +"'>false</label>".html_safe
+					#radio_button_tag(field["datapoint"], true) +
+					#content_tag(:label,  "True".html_safe, :class=>"radio") +
+					#radio_button_tag(field["datapoint"], false) + 
+					#content_tag(:label, "False".html_safe, :class=>"radio") 
+				end
+			when "Dropdown"
+				##TODO Validate this form type when we do not have data in this.
+				return select_tag(field["datapoint"], options_for_select(field["defaults"].split(",")))
+			when "Long"
+				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
+			when "Scale"
+				if field["numberscale"] == "10"
+					return create_ten_scale(field)
+				else
+					return create_five_scale(field)
+				end
+		end
+	end
+
 	def convert_form_data_type(field)
 		case field["datatype"]
 			when "Text"

@@ -8,7 +8,11 @@
 		<br/>
 		<br/>
 		<h4><%= field.position %>). <%= field.question %></h4><br/>
-		<%= convert_form_data_type(field.metadata) %><br/>
+		<% if @isMobile %>
+			<%= convert_form_data_type_for_mobile(field.metadata) %><br/>
+		<% else %>
+			<%= convert_form_data_type(field.metadata) %><br/>
+		<% end %>
 	<% end %>
 	<%= submit_tag("Submit", :class=>"btn btn-info") %>
 <% end %>
