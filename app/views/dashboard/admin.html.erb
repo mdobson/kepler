@@ -66,7 +66,7 @@
 			<th>Last Modified</th>
 			<th>Publish</th>
 			<th>Open other options</th>
-			
+			<th>Public Form Link</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -85,7 +85,12 @@
 							<%= hidden_field_tag "publish", false %>
 						<% end %>
 					<% end %></td>
-				<td><input type="button" class="btn btn-info modal-btn" value="Open Form Options" id="<%= form.id %>"/>
+				<td><input type="button" class="btn btn-info modal-btn" value="Open Form Options" id="<%= form.id %>"/></td>
+				<td>
+					<% if form.is_published %>
+						<%= link_to "Public Form Location", public_study_form_path(@study, form), :class => "btn btn-info" %>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>
