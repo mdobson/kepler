@@ -40,7 +40,7 @@ class FormController < ApplicationController
   def public_create
     @form = Form.get_form_by_form_id(params[:id]).first
     DataSet.create_data_set(@form, params[:study_id], params)
-    redirect_to thanks_study_form_path(@form)
+    redirect_to public_thanks_study_form_path(@form)
   end
 
   def embed_create
