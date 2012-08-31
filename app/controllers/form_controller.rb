@@ -13,6 +13,7 @@ class FormController < ApplicationController
   end
 
   def show
+    @invalid_fields = []
     @form = Form.get_form_by_form_id(params[:id]).first
     @path = study_form_index_path
     layout = retrieve_template_name("mobile_partials", "with_links", @form)
@@ -44,7 +45,7 @@ class FormController < ApplicationController
       redirect_to public_thanks_study_form_path(@form)
     else
       respond_to do |format|
-          format.html { redirect_to public_study_form_path(@form), notice: "There were errors in your form please fill out all fields!" }        
+          format.html { redirect_to public_study_form_path(@form), notice: "There were errors in your form please fill out all required fields!" }        
       end
     end
   end
