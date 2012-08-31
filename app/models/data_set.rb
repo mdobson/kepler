@@ -21,15 +21,27 @@ class DataSet < ActiveRecord::Base
 	def self.create_data_set(form, study_id, params)
 		uuid = UUIDTools::UUID.random_create().to_s
     	data_hash = {}
+    	invalid_fields = []
     	hstore_data_set = DataSet.new
   		form.fields.each do |field|
-  			data_hash[field.metadata["datapoint"]] = params[field.metadata["datapoint"]]
+  			if field.metadata["canblank"] == "True"
+  				if params[field.metadata["datapoint"]].empty?
+  					invalid_fields.push(field.metadata["datapoint"])
+  				else
+  					data_hash[field.metadata["datapoint"]] = params[field.metadata["datapoint"]]
+  				end
+  			else
+  				data_hash[field.metadata["datapoint"]] = params[field.metadata["datapoint"]]
+  			end
   		end
   		hstore_data_set.uuid = uuid
     	hstore_data_set.form_id = form.id
     	hstore_data_set.study_id = study_id
     	hstore_data_set.data_set = data_hash
-    	hstore_data_set.save
+    	if invalid_fields.length == 0
+    		hstore_data_set.save
+    	end
+    	return invalid_fields
 	end
 
 	def self.update_data_entered(data_set_id, form_id, params)

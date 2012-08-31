@@ -39,19 +39,25 @@ class FormController < ApplicationController
 
   def public_create
     @form = Form.get_form_by_form_id(params[:id]).first
-    DataSet.create_data_set(@form, params[:study_id], params)
-    redirect_to public_thanks_study_form_path(@form)
+    @invalid_fields = DataSet.create_data_set(@form, params[:study_id], params)
+    if @invalid_fields.length == 0 
+      redirect_to public_thanks_study_form_path(@form)
+    else
+      respond_to do |format|
+          format.html { redirect_to public_study_form_path(@form), notice: "There were errors in your form please fill out all fields!" }        
+      end
+    end
   end
 
   def embed_create
     @form = Form.get_form_by_form_id(params[:id]).first
     DataSet.create_data_set(@form, params[:study_id], params)
-    redirect_to thanks_study_form_path(@form)
   end
 
   def public
     @form = Form.get_form_by_form_id(params[:id]).first
     @path = public_create_study_form_path
+    @invalid_fields = []
     layout = retrieve_template_name("mobile_partials", "application", @form)
     respond_to do |format|
       format.html{ render :layout => layout }

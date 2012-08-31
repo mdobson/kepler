@@ -24,7 +24,7 @@
   <br/>
  	<% flash.each do |key,msg| %>
 		<div>
-			<div class="alert alert-success"><%= msg %></div>
+			<div class="alert alert-error"><%= msg %></div>
 		</div>
 	<% end %>
   <%= yield :crumbs %>

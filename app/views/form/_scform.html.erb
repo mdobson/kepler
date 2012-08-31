@@ -8,6 +8,14 @@
 		<br/>
 		<br/>
 		<h4><%= field.position %>). <%= field.question %></h4><br/>
+		<% if field.metadata["canblank"]== "True" %>
+		    <%if @invalid_fields.include? field.metadata['datapoint'] %>
+		    	<h5 style="color:red;">This field wasn't filled out!</h5><br/>
+		    <% else %>
+				<h5 style="color:red;">This field is required!</h5><br/>
+			<% end %>
+		<% end %>
+
 		<% if @isMobile %>
 			<%= convert_form_data_type_for_mobile(field.metadata) %><br/>
 		<% else %>
