@@ -107,7 +107,7 @@
 				<li style="margin:5px;"><%= link_to "Edit Form", generate_form_builder_link(form.id), :class=> "btn btn-info" %></li>
 				<li style="margin:5px;"><%= link_to "Embed", embed_study_form_path(form.study_id, form.id),:class=> "btn btn-info" %></li>
 				<li style="margin:5px;"><%= link_to "Invite", invite_study_form_path(form.study_id, form.id), :class => "btn btn-info" %></li>
-				<li style="margin:5px;"><%= link_to "Print all data", printall_study_form_path(@study.id, form.id, :format => :xls), :class => "btn btn-info" %></li>
+				<li style="margin:5px;"><%= link_to "Print all data", printall_study_form_path(@study.id, form.id), :class => "btn btn-info" %></li>
 				<li style="margin:5px;">
 					<%= link_to "Create A Reminder", study_form_reminders_path(@study.id, form.id), :class => "btn btn-info" %>
 				</li>
