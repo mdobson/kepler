@@ -122,8 +122,7 @@ class FormController < ApplicationController
   def doc_raptor_send(options = {})
     default_options ={
       :name => controller_name,
-      :document_type => request.format.to_sym,
-      :test => true
+      :document_type => request.format.to_sym
     }
 
     options = default_options.merge(options)
