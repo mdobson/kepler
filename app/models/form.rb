@@ -43,6 +43,7 @@ class Form < ActiveRecord::Base
       @form.name = params[:name]
       @form.study_id = params[:study_id]
       @form.user_id = user_id
+      @form.required_form_id = params[:required_id]
       @form.is_published = false
       @form.is_mobile = false
       flag = {}
@@ -95,6 +96,7 @@ class Form < ActiveRecord::Base
       responseStruct = {}
       responseStruct["name"] = @form.name
       responseStruct["fields"] = responseFields.to_json
+      responseStruct["required_form_id"] = @form.required_form_id
       return responseStruct
 	end
 end

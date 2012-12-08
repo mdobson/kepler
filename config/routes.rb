@@ -15,7 +15,9 @@ Studycache::Application.routes.draw do
     resources :record, :only => [:show, :edit, :update] do
       get 'print', :on => :member      
     end
-    resources :form_builder, :only => [:index, :new, :create, :update]
+    resources :form_builder, :only => [:index, :new, :create, :update] do
+        get 'names', :on => :collection
+    end
     resources :form, :only => [:index, :create, :show, :update] do
       resources :reminders
       get 'public', :on => :member

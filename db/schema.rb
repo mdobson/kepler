@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625005352) do
+ActiveRecord::Schema.define(:version => 20121208194151) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -121,6 +121,10 @@ ActiveRecord::Schema.define(:version => 20120625005352) do
     t.hstore   "meta_data"
     t.boolean  "is_published"
     t.boolean  "is_mobile"
+    t.integer  "required_form_id"
+    t.boolean  "can_be_used_multiple_times"
+    t.string   "subject_auto_complete_field"
+    t.integer  "subject_auto_complete_form"
   end
 
   add_index "forms", ["study_id", "user_id"], :name => "index_forms_on_study_id_and_user_id"

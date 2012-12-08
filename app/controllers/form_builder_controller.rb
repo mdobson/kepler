@@ -32,6 +32,19 @@ class FormBuilderController < ApplicationController
     end
   end
 
+  def names
+    @selected_id = params[:selected_id]
+
+    @form_names_and_ids = Form.get_forms_by_study_id(params[:study_id]).collect{|form| [ form.name, form.id]}
+
+    respond_to do |format|
+      format.html{ render :layout => false}
+    end
+  end
+
+
+
+
   def update
 
   end
