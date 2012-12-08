@@ -15,13 +15,13 @@ class Studycache.Views.FormsIndex extends Backbone.View
     $(@el).html(@template())
     #note to self #{window.location.origin}#{window.location.pathname} is the magic needed to splice together routes needed to form builder metadata
     #console.log("#{window.location.origin}#{window.location.pathname}/names")
-    console.log @required_form_id.required_id
-    $.ajax({url: "#{window.location.origin}#{window.location.pathname}/names?selected_id=#{@required_form_id.required_id}", success:(response)-> 
+    #console.log @collection.required_id
+    $.ajax({url: "#{window.location.origin}#{window.location.pathname}/names?selected_id=#{@required_form_id}", success:(response)-> 
                                                                                   $("#forms").html(response)})
     @
 
   initialize: (required_form_id, collection, formid)->
-    @collection = collection.collection
+    @collection = collection
     @root = @
     @required_form_id = required_form_id
     @formid = formid
