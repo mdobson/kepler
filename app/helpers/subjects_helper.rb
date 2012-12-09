@@ -24,6 +24,15 @@ def convert_form_data_type_with_value(field, value)
 		end
 	end
 
+	def convert_subject_id_field(field, value)
+		subject_id_field = Field.subject_id_in_form(field.form.required_form_id).first
+		required_form_datasets = Form.find(field.form.required_form_id).data_sets
+		subject_ids = required_form_datasets.collect{|dataset| dataset.data_set[subject_id_field.metadata["datapoint"]]}
+		logger.debug "SUBJECT IDs #{subject_ids} selected #{value}"
+		padding = [" "]
+		return select_tag(field.metadata["datapoint"], options_for_select(padding + subject_ids, value))
+	end
+
 	def create_five_scale(field)
 		thead = content_tag :thead do
 			content_tag :tr do

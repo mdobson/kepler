@@ -10,7 +10,12 @@
 		<br/>
 		<br/>
 		<h4><%= field.position %>). <%= field.question %></h4><br/>
-		<%= convert_form_data_type_with_value(field.metadata,@dataSet.data_set[field.datapoint]) %><br/>
+		<% if field.is_subject_id != nil and field.is_subject_id == true and field.form.required_form_id != nil %>
+			<h5>Please note this value comes from <%= field.form.required_form.name %> subject id field</h5>
+			<%= convert_subject_id_field(field, @dataSet.data_set[field.datapoint]) %>
+		<% else %>
+			<%= convert_form_data_type_with_value(field.metadata,@dataSet.data_set[field.datapoint]) %><br/>
+		<% end %>
 	<% end %>
 	<%= submit_tag("Submit", :class=>"btn btn-info") %>
 <% end %>

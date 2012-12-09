@@ -3,7 +3,7 @@
   		<li class="active">Subjects</li>
 	</ul>
 <% end %>
- 	<table class="table table-bordered table-striped">
+ <!--	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
 				<th>Form Name</th>
@@ -17,6 +17,23 @@
 					<td><%= form.name %></td>
 					<td><%= form.data_sets.count %></td>
 					<td><%= link_to "View Subjects", study_subject_path(form.study_id,form.id), :class => "btn btn-info" %></td>
+				</tr>
+			<% end  %>
+		</tbody>
+	</table>-->
+
+<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Subject Id</th>
+				<th>Number of Entries</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @unique_forms.each do |form| %>
+				<tr>
+					<td><%= form %></td>
+					<td><%= link_to "View", study_subject_path(params[:study_id], form) %></td>
 				</tr>
 			<% end  %>
 		</tbody>

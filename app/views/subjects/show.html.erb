@@ -3,26 +3,24 @@
 		<li>
     		<%= link_to "All Subjects", study_subjects_path %> <span class="divider">/</span>
   		</li>
-  		<li class="active">Subjects for <%= @form.name %></li>
+  		<li class="active">Subject <%= params[:id] %></li>
 	</ul>
 <% end %>
 
-	<h3><%= @form.name %></h3>
-	<table class="table table-bordered table-striped">
+
+<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<th>Record ID:</th>
-				<th>View Single Record</th>
+				<th>Form Name</th>
 				<th>Edit Record</th>
 				<th>Print Record</th>
 			</tr>
 		</thead>
 		<tbody>
 			
-			<% @form.data_sets.each do |data_set| %>
+			<% @data_sets.each do |data_set| %>
 				<tr>
-					<td><%= data_set.data_set[@form.first_field_datapoint] %></td>	
-					<td><%= link_to "View", study_record_path(data_set.study_id, data_set.id) %></td>
+					<td><%= link_to "View #{data_set.form.name}", study_record_path(data_set.study_id, data_set.id) %></td>
 					<td><%= link_to "Edit", edit_study_record_path(data_set.study_id, data_set.id) %></td>
 					<td><%= link_to "Print", print_study_record_path(data_set.study_id, data_set.id, :format => :pdf) %></td>
 				</tr>
@@ -30,4 +28,6 @@
 			
 		</tbody>
 	</table>
+
+
 
