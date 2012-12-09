@@ -1,0 +1,23 @@
+<!-- 	<h3><%= @form.name %></h3>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Record ID:</th>
+				<th>View Single Record</th>
+				<th>Edit Record</th>
+				<th>Print Record</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<% @form.data_sets.each do |data_set| %>
+				<tr>
+					<td><%= data_set.data_set[@form.first_field_datapoint] %></td>	
+					<td><%= link_to "View", study_record_path(data_set.study_id, data_set.id) %></td>
+					<td><%= link_to "Edit", edit_study_record_path(data_set.study_id, data_set.id) %></td>
+					<td><%= link_to "Print", print_study_record_path(data_set.study_id, data_set.id, :format => :pdf) %></td>
+				</tr>
+			<% end %>
+			
+		</tbody>
+	</table> -->
