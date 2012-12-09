@@ -6,6 +6,7 @@ class Field < ActiveRecord::Base
 		field = Field.new
 		field.form_id = form_id
 		field.position = json_array["pos"]
+		field.is_subject_id = json_array["is_subject_id"]
 		json_array.each do |key, value|
 			if value.blank?
 				json_array.delete(key)
@@ -16,6 +17,8 @@ class Field < ActiveRecord::Base
 	end
 
 	scope :first_datapoint_in_form, lambda {|form_id| where("position = 1 and form_id = ?", form_id)}
+
+	scope :subject_id_in_form, lambda{|form_id| where("is_subject_id = 't' and form_id = ?", form_id)}
 
 	#experimental hstore metaprogramming
 	%w[pos datatype question datapoint canblank helptext defaults video numberscale].each do |key|

@@ -136,4 +136,11 @@ module FormControllerHelper
 
 		return data
 	end
+
+	def convert_subject_id_field(field)
+		subject_id_field = Field.subject_id_in_form(field.form.id).first
+		required_form_datasets = Form.find(field.form.required_form_id).data_sets
+		subject_ids = required_form_datasets.collect{|dataset| dataset.data_set[subject_id_field.metadata["datapoint"]]}
+		return select_tag(subject_id_field.metadata["datapoint"], subject_ids)
+	end
 end

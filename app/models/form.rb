@@ -18,6 +18,10 @@ class Form < ActiveRecord::Base
 
 	delegate :email, :to => :user
 
+  def required_form
+    return Form.get_form_by_form_id(self.required_form_id).first
+  end
+
 	def is_user_agent_mobile(request)
 		case request.env['HTTP_USER_AGENT']
 			when /iPhone/ then true

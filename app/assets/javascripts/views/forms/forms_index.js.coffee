@@ -46,7 +46,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
   addField: (dataType) ->
     $("#fieldcontainer").html("")
-    text = new Studycache.Models.Field(datatype:dataType, pos: @collection.length + 1)
+    text = new Studycache.Models.Field(datatype:dataType, pos: @collection.length + 1, is_subject_id: false)
     @collection.add(text)
     _.each(@collection.models, (model)->
         field = new Studycache.Views.FieldsIndex({model:model})
@@ -72,7 +72,10 @@ class Studycache.Views.FormsIndex extends Backbone.View
 
     if required_form
       form.set(required_id:required_form)
-    form.set(fields:@collection, name:name, formid:@formid)
+
+    if @formid
+      form.set(formid:@formid.formid)
+    form.set(fields:@collection, name:name)
     #console.log form
     _.each(@collection.models, (model)->
         if model.has("question") == false

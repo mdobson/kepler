@@ -4,7 +4,7 @@ class Studycache.Routers.Forms extends Backbone.Router
 		':id' : 'getform'
 
 	index: ->
-        view = new Studycache.Views.FormsIndex(0, @collection, formid: -1)
+        view = new Studycache.Views.FormsIndex(0, @collection)
         $("#app").html(view.render().el)
         text = new Studycache.Models.Field(datatype: "Text", pos:1, question:"Subject ID", is_subject_id: true)
         @collection.add(text)
