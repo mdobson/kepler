@@ -27,7 +27,7 @@ class FormController < ApplicationController
   def create
   	@form = Form.get_form_by_form_id(params[:form_id]).first
     DataSet.create_data_set(@form, params[:study_id], params)
-  	redirect_to study_form_index_path
+  	redirect_to study_subjects_path
   end
 
   def update
