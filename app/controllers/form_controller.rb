@@ -56,6 +56,7 @@ class FormController < ApplicationController
   end
 
   def public
+
     @form = Form.get_form_by_form_id(params[:id]).first
     @path = public_create_study_form_path
     @invalid_fields = []

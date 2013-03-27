@@ -3,6 +3,7 @@ require 'uuidtools'
 class DataSet < ActiveRecord::Base
 	belongs_to :form
 	belongs_to :study
+  serialize :data_set, ActiveRecord::Coders::Hstore
 
 	scope :get_data_sets_by_study_id, lambda{|study_id|
 		where("study_id = ?", study_id)

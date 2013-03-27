@@ -1,5 +1,6 @@
 class Field < ActiveRecord::Base
 	belongs_to :form
+	serialize :metadata, ActiveRecord::Coders::Hstore
 
 	def self.create_field(form_id, json_array)
 		json_array["datapoint"] = rand(36**8).to_s(36)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209190632) do
+ActiveRecord::Schema.define(:version => 20130327021548) do
 
   create_table "access_controls", :force => true do |t|
     t.integer  "study_id"
@@ -99,13 +99,13 @@ ActiveRecord::Schema.define(:version => 20121209190632) do
 
   create_table "fields", :force => true do |t|
     t.integer  "form_id"
-    t.string   "field_name"
-    t.string   "field_type"
-    t.string   "field_helptext"
-    t.boolean  "field_isnull"
+    t.string   "name"
+    t.string   "type"
+    t.string   "helptext"
+    t.boolean  "isnull"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "field_question"
+    t.string   "question"
     t.hstore   "metadata"
     t.integer  "position"
     t.boolean  "is_subject_id"
