@@ -130,11 +130,11 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<% @data_sets.each do |form| %>
+		<% @data_sets.each do |form| %>
+			<tr>
 				<td><%= form.form_name %></td>
 				<td><%= form.rec_count %></td>
-			<% end %>
-		</tr>
+			</tr>
+		<% end %>
 	</tbody>
 </table>
