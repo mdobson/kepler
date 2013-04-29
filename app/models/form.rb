@@ -56,6 +56,7 @@ class Form < ActiveRecord::Base
           if field[:datatype] == "Dropdown" && field[:defaults].blank?
             @form.delete
             flag["success"] = false
+            flag["issue"] = field[:position]
             return flag
           end
         end

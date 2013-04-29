@@ -91,6 +91,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
             $("#success").show()
           else
             $("#error").show()
+
           })
     else
       $("#error").show()

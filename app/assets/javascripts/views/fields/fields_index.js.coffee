@@ -23,6 +23,10 @@ class Studycache.Views.FieldsIndex extends Backbone.View
   	$(@el).html(@template(@model))
   	@
 
+  error: () ->
+    $(@el).removeClass("alert-info")
+    $(@el).addClass("alert-error")
+
   questionChange: ->
   	inputElement = $(@el)
   	question = inputElement.find(".question").val()
