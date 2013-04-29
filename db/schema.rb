@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.boolean  "is_admin"
     t.boolean  "can_read"
     t.boolean  "can_write"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "access_controls", ["study_id", "user_id"], :name => "index_access_controls_on_study_id_and_user_id"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.text     "content"
     t.integer  "study_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "announcements", ["study_id", "user_id"], :name => "index_announcements_on_study_id_and_user_id"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.integer  "study_id"
     t.integer  "user_id"
     t.boolean  "correct"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "question_id"
   end
 
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.integer  "form_id"
     t.integer  "field_id"
     t.string   "data_point"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "data_set_id"
     t.string   "uuid"
   end
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.integer  "form_id"
     t.string   "uuid"
     t.hstore   "data_set"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "study_id"
   end
 
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.boolean  "new_system"
     t.string   "greatest_benefit"
     t.text     "commentary"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "example_subjects", :force => true do |t|
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.integer  "blood_pressure_diastolic"
     t.integer  "blood_pressure_systolic"
     t.integer  "pulse_ox"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.integer  "user_id"
   end
 
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.string   "type"
     t.string   "helptext"
     t.boolean  "isnull"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "question"
     t.hstore   "metadata"
     t.integer  "position"
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
   create_table "forms", :force => true do |t|
     t.integer  "study_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "name"
     t.hstore   "meta_data"
     t.boolean  "is_published"
@@ -135,8 +135,8 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.integer  "study_id"
     t.integer  "user_id"
     t.boolean  "correct"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "questions", ["study_id", "user_id"], :name => "index_questions_on_study_id_and_user_id"
@@ -148,16 +148,16 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
     t.integer  "interval"
     t.string   "contact_method"
     t.text     "contact_information"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "form_id"
   end
 
   create_table "studies", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
     t.boolean  "is_active"
   end
@@ -165,18 +165,18 @@ ActiveRecord::Schema.define(:version => 20130327021548) do
   add_index "studies", ["id"], :name => "index_studies_on_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
