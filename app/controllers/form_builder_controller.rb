@@ -24,9 +24,11 @@ class FormBuilderController < ApplicationController
 
   def create
     if(!params.has_key?(:formid))
+      logger.debug "Got here1"
       flag = Form.create_new_form(params, current_user.id)
       render :json => flag.to_json
     else
+      logger.debug "Got here2"
       flag = Form.update_old_form(params)
       render :json => flag.to_json
     end

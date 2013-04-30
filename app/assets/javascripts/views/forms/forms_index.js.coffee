@@ -74,7 +74,7 @@ class Studycache.Views.FormsIndex extends Backbone.View
       form.set(required_id:required_form)
 
     if @formid
-      form.set(formid:@formid.formid)
+      form.set(formid:@formid)
     form.set(fields:@collection, name:name)
     #console.log form
     _.each(@collection.models, (model)->
@@ -91,7 +91,6 @@ class Studycache.Views.FormsIndex extends Backbone.View
             $("#success").show()
           else
             $("#error").show()
-
           })
     else
       $("#error").show()
