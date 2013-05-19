@@ -56,6 +56,23 @@ module FormControllerHelper
 				else
 					return create_five_scale(field)
 				end
+			when "Grid"
+				html = "<table class='table table-bordered table-striped'>"
+				html += "<tr><th></th>"
+				field["columns"].split(',').each do |col|
+					html += "<th>"+col+"</th>"
+				end
+				html += "</tr>"
+				field["rows"].split(',').each do |row|
+					html += "<tr><td>"+row+"</td>"
+
+					field["columns"].split(',').each do |col|
+						html += "<td><input type='radio' name='["+field["datapoint"]+"]["+row+"]' value='"+col+"'/></td>"
+					end
+					html += "</tr>"
+				end
+				html += "</table>"
+				return html.html_safe
 		end
 	end
 

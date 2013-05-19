@@ -34,6 +34,16 @@
 								</select>
 							</div>
 						<% end %>
+						<% if @model.model.get('datatype') == "Grid": %>
+							<label for="cols" class="control-label">Columns:</label>
+							<div class="control">
+								<input name="q6" type="text" value="<%= @model.model.get('columns') %>" id="cols"/>
+							</div>
+							<label for="rows" class="control-label">Rows:</label>
+							<div class="control">
+								<input name="q6" type="text" value="<%= @model.model.get('rows') %>" id="rows"/>
+							</div>
+						<% end %>
 						<br/>
 						<label for="q4" class="control-label">Answer Required?:</label>
 						<div class="control">

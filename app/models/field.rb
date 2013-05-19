@@ -22,7 +22,7 @@ class Field < ActiveRecord::Base
 	scope :subject_id_in_form, lambda{|form_id| where("is_subject_id = TRUE and form_id = ?", form_id)}
 
 	#experimental hstore metaprogramming
-	%w[pos datatype question datapoint canblank helptext defaults video numberscale].each do |key|
+	%w[pos datatype question datapoint canblank helptext defaults video numberscale columns rows].each do |key|
 
 		scope "has_#{key}", lambda { |value| where("metadata @> (? => ?)", key, value) }
 
