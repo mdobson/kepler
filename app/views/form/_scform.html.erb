@@ -7,24 +7,27 @@
 		<% end %>
 		<br/>
 		<br/>
-		<h4><%= field.position %>). <%= field.question %></h4><br/>
-		<% if field.metadata["canblank"]== "True" %>
-		    <%if @invalid_fields.include? field.metadata['datapoint'] %>
-		    	<h5 style="color:red;">This field wasn't filled out!</h5><br/>
-		    <% else %>
-				<h5 style="color:red;">This field is required!</h5><br/>
+		<div class="field-box">
+			<label><%= field.position %>). <%= field.question %></label>
+			<% if field.metadata["canblank"]== "True" %>
+			    <%if @invalid_fields.include? field.metadata['datapoint'] %>
+			    	<h5 style="color:red;">This field wasn't filled out!</h5><br/>
+			    <% else %>
+					<h5 style="color:red;">This field is required!</h5><br/>
+				<% end %>
 			<% end %>
-		<% end %>
-		<% if field.is_subject_id != nil and field.is_subject_id == true and field.form.required_form_id != nil %>
-			<h5>Please note this value comes from <%= field.form.required_form.name %> subject id field</h5>
-			<%= convert_subject_id_field(field) %>
-		<% else %>
-			<% if @isMobile %>
-				<%= convert_form_data_type_for_mobile(field.metadata) %><br/>
+			<% if field.is_subject_id != nil and field.is_subject_id == true and field.form.required_form_id != nil %>
+				<h5>Please note this value comes from <%= field.form.required_form.name %> subject id field</h5>
+				<%= convert_subject_id_field(field) %>
 			<% else %>
-				<%= convert_form_data_type(field.metadata) %><br/>
+				<% if @isMobile %>
+					<%= convert_form_data_type_for_mobile(field.metadata) %><br/>
+				<% else %>
+					<%= convert_form_data_type(field.metadata) %><br/>
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
+		
 	<% end %>
 	<%= submit_tag("Submit", :class=>"btn btn-info") %>
 <% end %>
