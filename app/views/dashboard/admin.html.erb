@@ -3,22 +3,24 @@
 <%= javascript_include_tag "dashboard" %>
 <br/>
 <h1>Dashboard: <%= @study.title %></h1>
-<br/><h4>Your study is currently:</h4>
-	<%= form_for [@study] do |f| %>
-		<%= hidden_field_tag "parameter", "activate" %>
-		<% if @study.is_active == false %>
-			<%= f.submit "Inactive", :class=> "btn btn-danger" %>
-			<%= hidden_field_tag "is_active", true %>
-		<% else %>
-			<%= f.submit "Active", :class=> "btn btn-success" %>
-			<%= hidden_field_tag "is_active", false %>
-		<% end %>
+<br/>
+<%= form_for [@study] do |f| %>
+	<%= hidden_field_tag "parameter", "activate" %>
+	<% if @study.is_active == false %>
+		<%= f.submit "Inactive", :class=> "btn btn-danger" %>
+		<%= hidden_field_tag "is_active", true %>
+	<% else %>
+		<%= f.submit "Active", :class=> "btn btn-success" %>
+		<%= hidden_field_tag "is_active", false %>
+		<span>Active means it's ready to collect data!</span>
 	<% end %>
+<% end %>
 <br/>
 <br/>
 <h3>Users</h3>
+<br/>
 <%= link_to "Add a User", new_study_access_control_path %>
-<table class="table table-bordered table-striped">
+<table class="table">
 	<thead>
 		<tr>
 			<th>Email</th>
@@ -58,7 +60,9 @@
 <br/>
 <h3>Forms</h3>
 <br/>
-<table class="table table-bordered table-striped">
+<%= link_to "New Form", study_form_builder_index_path %>
+<br/>
+<table class="table">
 	<thead>
 		<tr>
 			<th>Form Name</th>
@@ -72,7 +76,7 @@
 	<tbody>
 		<% @study.forms.each do |form| %>
 			<tr>
-				<td><%= form.name %></td>
+				<td><%= link_to form.name, study_form_path(form.study_id, form.id)  %></td>
 				<td><%= form.email %></td>
 				<td><%= form.updated_at %></td>
 				<td><%= form_for [@study,form] do |f| %>
@@ -122,7 +126,7 @@
 <br/>
 <h3>Forms</h3>
 <br/>
-<table class="table table-bordered table-striped">
+<table class="table">
 	<thead>
 		<tr>
 			<th>Form Name</th>

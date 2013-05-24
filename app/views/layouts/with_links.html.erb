@@ -1,37 +1,13 @@
 <% content_for(:links) do %>
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-		      Studies
-		      <b class="caret"></b>
-		    </a>
-		    <ul class="dropdown-menu">
-		      <% get_user_acls.each do |acl| %>
-				<% if acl.study_is_active || acl.user_id == acl.study_user_id %>
-	      			<li><%= link_to acl.study.title, study_dashboard_index_path(acl.study) %> </li>
-	      		<% end %>
-		      <% end %>
-		      <li class="divider"></li>
-		      <li><%= link_to "New Study", new_study_path %></li>
-		    </ul>
-		</li>
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-		      Forms
-		      <b class="caret"></b>
-		    </a>
-		    <ul class="dropdown-menu">
-		      <% get_user_forms.each do |form| %>
-		      	<li><%= link_to form.name, study_form_path(form.study_id, form) %> </li>
-		      <% end %>
-		      <li class="divider"></li>
-		      <li><%= link_to "All Forms", study_form_index_path %></li>
-		      <% if AccessControl.for_user_in_study(current_user.id, params[:study_id]).first.is_admin %>
-		      	<li><%= link_to "New Form", study_form_builder_index_path %></li>
-		      <% end %>
-		    </ul>
-		</li>
-		<li><%= link_to "All Subjects", study_subjects_path %></li>
-		<li><%= link_to "My Profile", profile_index_path %></li>
+		
+	<li><%= link_to "<i class='sidebar-home'></i><span>Dashboard</span>".html_safe, study_dashboard_index_path, :class=>"tab1" %></li>	    
+	
+	<li><%= link_to "<i class='icon-group'></i><span>All Subjects</span>".html_safe, study_subjects_path, :class=>"tab2" %></li>
+
+	<li><%= link_to "<i class='sidebar-charts'></i><span>Analysis</span>".html_safe, "#", :class=>"tab4" %></li>
+
+	<li><%= link_to "<i class='sidebar-gear'></i><span>My Profile</span>".html_safe, profile_index_path, :class=>"tab3" %></li>
+
 <% end %>
 
 <% content_for(:logout) do %>
@@ -42,6 +18,40 @@
 	<%= javascript_include_tag "jquery" %>
 	<%= javascript_include_tag "bootstrap-dropdown" %>
 	<%= javascript_include_tag "dropdown" %>
+<% end %>
+
+<% content_for(:css_scripts) do %>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <!-- bootstrap -->
+    <link href="/css/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet">
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/elements.css">
+    <link rel="stylesheet" type="text/css" href="/css/icons.css">
+
+    <!-- libraries -->
+    <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.css">
+    
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="/css/compiled/tables.css" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<% end %>
+
+<% content_for(:bottom_scripts) do %>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/theme.js"></script>
 <% end %>
 
 <%= render :file => "layouts/application" %>

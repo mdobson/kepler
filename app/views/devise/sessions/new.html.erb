@@ -1,32 +1,6 @@
-<fieldset class="span7">
-	<legend>Sign In</legend>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html=>{:class=>"form-horizontal well"}) do |f| %>
-  <div class="control-group">
-  <%= f.label :email, :class=>"control-label" %>
-  <div class="controls">
-  	<%= f.email_field :email %>
-  </div>
-</div>
-
-  <div class="control-group">
-  <%= f.label :password, :class=>"control-label" %>
-  <div class="controls">
-  	<%= f.password_field :password %>
-  </div>
-</div>
-<div class="control-group">
-  <% if devise_mapping.rememberable? -%>
-    <%= f.label :remember_me, :class=>"control-label" %>
-    <div class="controls">
-    <%= f.check_box :remember_me %>
-    </div>
-  <% end -%>
-</div>
-<div class="form-actions">
-  <%= f.submit "Sign in", :class => "btn btn-info" %>
-</div>
+<h6>Sign In</h6>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  	<%= f.text_field :email, :placeholder => "Email Address", :class => "span12" %>
+  	<%= f.password_field :password, :placeholder => "Password", :class => "span12" %>
+    <%= f.submit "Sign in", :class => "btn-glow primary signup" %>
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>
-</fieldset>

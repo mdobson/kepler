@@ -1,5 +1,6 @@
-<h1>Profile</h1>
-<table class="table table-bordered table-striped">
+<h3>Profile</h3>
+<br/>
+<table class="table">
 	<thead>
 		<tr>
 			<th>Study Name</th>
@@ -10,7 +11,7 @@
 	<tbody>
 		<% @acls.each do |acl| %>
 			<% if acl.study_is_active || acl.user_id == acl.study_user_id %>
-				<td><%= acl.study_title %></td>
+				<td><%= link_to acl.study_title, study_dashboard_index_path(acl.study.id) %></td>
 				<% if acl.user_id != acl.study_user_id %>
 					<td><%= acl.study_email %></td>
 				<% else %>
