@@ -13,7 +13,7 @@
 			    <%if @invalid_fields.include? field.metadata['datapoint'] %>
 			    	<h5 style="color:red;">This field wasn't filled out!</h5><br/>
 			    <% else %>
-					<h5 style="color:red;">This field is required!</h5><br/>
+					<h5>(required)</h5><br/>
 				<% end %>
 			<% end %>
 			<% if field.is_subject_id != nil and field.is_subject_id == true and field.form.required_form_id != nil %>
