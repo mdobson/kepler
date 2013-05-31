@@ -21,7 +21,9 @@ module FormControllerHelper
 			when "Dropdown"
 				##TODO Validate this form type when we do not have data in this.
 				fields = [" "]
-				return select_tag(field["datapoint"], options_for_select(fields + field["defaults"].split(",")))
+				return content_tab :div, :class=>"ui-select" do
+					select_tag(field["datapoint"], options_for_select(field["defaults"].split(",")))
+				end
 			when "Long"
 				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
 			when "Scale"

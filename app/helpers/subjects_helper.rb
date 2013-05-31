@@ -2,9 +2,9 @@ module SubjectsHelper
 def convert_form_data_type_with_value(field, value)
 		case field["datatype"]
 			when "Text"
-				return text_field_tag(field["datapoint"], value)
+				return text_field_tag(field["datapoint"], value, :class=>"span6 inline-input")
 			when "Numeric"
-				return text_field_tag(field["datapoint"], value)
+				return text_field_tag(field["datapoint"], value, :class=>"span6 inline-input")
 			when "Bool"
 				return content_tag :div, :class=>"controls" do 
 					content_tag(:label, radio_button_tag(field["datapoint"], true) + "True".html_safe, :class=>"radio") +
@@ -12,7 +12,9 @@ def convert_form_data_type_with_value(field, value)
 				end
 			when "Dropdown"
 				##TODO Validate this form type when we do not have data in this.
-				return select_tag(field["datapoint"], options_for_select(field["defaults"].split(",")))
+				return content_tab :div, :class=>"ui-select" do
+					select_tag(field["datapoint"], options_for_select(field["defaults"].split(",")))
+				end
 			when "Long"
 				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
 			when "Scale"
