@@ -6,7 +6,7 @@
 		<input name="name" type="text" id="name" class="span6"/>
 	</div>
 	<div class="field-box">
-		<label>Required Form:</label>
+		<label>Previously Required Form:</label>
 		<div class="ui-select" id="forms">
 			
 		</div>
