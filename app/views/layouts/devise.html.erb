@@ -30,7 +30,7 @@
 </head>
 <body>
     <div class="header">
-        <img src="/img/logo.png" class="logo" />
+        <img src="/img/SC_blue.png" height="21" width="171" class="logo" />
     </div>
     <div class="row-fluid login-wrapper">
         <!-- <img class="logo" src="img/logo-white.png"> -->
@@ -40,7 +40,7 @@
                 <%= yield %>               
             </div>
         </div>
-
+        <%= render :partial => "devise/shared/links" %>
         <!-- <div class="span4 already">
             <p>Already have an account?</p>
             <a href="signin.html">Sign in</a>
