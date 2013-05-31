@@ -10,11 +10,7 @@
 					</div>
 				</fieldset>
 			</div>
-		</div>
-		<div class="span1">
 			<a class="btn btn-info edit">Edit</a>
-			<br/>
-			<br/>
 			<div>Type:
 			<% if @model.get("datatype") == "Bool": %><span class="datatype">True/False</span><% else: %><span class="datatype"><%= @model.get("datatype") %></span><% end %>
 			</div>
