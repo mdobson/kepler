@@ -9,10 +9,21 @@
   		<li class="active">Subject: <%= @record.uuid %></li>
 	</ul>
 <% end %>
-<% @record.form.fields.order("position").each do |field| %>
-  <h4><%= field.question %>:</h4>
-  <br/>
-  <%= @record.data_set[field.datapoint] %>
-  <br/>
-  <br/>
-<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @record.form.fields.order("position").each do |field| %>
+        <tr>
+          <td><%= field.question %></td>
+          <td><%= @record.data_set[field.datapoint] %></td>
+        </tr>
+      <% end %>
+    
+  </tbody>
+</table>
