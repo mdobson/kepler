@@ -28,5 +28,7 @@ Studycache::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.serve_static_assets = true
+
   config.api_uri = "http://0.0.0.0:2999/"
 end

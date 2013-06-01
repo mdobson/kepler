@@ -2,33 +2,45 @@
 <html>
 <head>
   <title>StudyCache</title>
-  <%= stylesheet_link_tag    "application" %>
+  
+  <%= yield :css_scripts %>
   <%= csrf_meta_tags %>
-  <%= yield :relevant_js %>
+  
 </head>
 <body>
-   <div class="navbar navbar-fixed-top">
+   <div class="navbar navbar-inverse">
        <div class="navbar-inner">
-           <div class="container">
-               <a class="brand" href="<%= get_root_url %>"><%= image_tag("SC_blue.png", :width=>"140", :height => "42")%></a>
-               	<ul class="nav" style="margin-top:3px;">
-                   <%= yield :links %>
-                   <%= yield :logout %>
-               	</ul>
-           </div>
+          <a class="brand" href="<%= get_root_url %>">StudyCache?</a>
+
+          <ul class="nav pull-right">
+                <li id="fat-menu" class="dropdown">
+                    <a href="/users/sign_out" role="button" class="logout">
+                        <span class="navbar_icon"></span>
+                    </a>
+                </li>
+            </ul>
        </div>
-    </div>        
- <div class="container">
- 	<br/>
-  <br/>
-  <br/>
+    </div>       
+ <div id="sidebar-nav">
+  <ul id="dashboard-menu">
+    <%= yield :links %>
+  </ul>
+ </div> 
+ <div class="content">
+
  	<% flash.each do |key,msg| %>
 		<div>
 			<div class="alert alert-error"><%= msg %></div>
 		</div>
 	<% end %>
-  <%= yield :crumbs %>
- 	<%= yield %>
+  <div class="container-fluid">
+
+    <div id="pad-wrapper">
+      <%= yield :crumbs %>
+ 	    <%= yield %>
+    </div>
+  </div>
+  <%= yield :bottom_scripts %>
  </div>
 
 </body>

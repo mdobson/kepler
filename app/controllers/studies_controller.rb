@@ -1,4 +1,6 @@
 class StudiesController < ApplicationController
+  layout 'profile_links'
+
   def new
     @study = Study.new
     respond_to do |format|

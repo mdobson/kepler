@@ -1,25 +1,37 @@
 <h1>Form Builder</h1><br/>
 <div class="alert alert-error hide" id="error"><strong>Error:</strong> This form is invalid please go and check the highlighted fields to ensure every field has a question and other parameters set.<a class="close delete" data-dismiss="alert">&times;</a></div>
-<div class="control-group form-horizontal">
-	<fieldset>
-		<label for="q1" class="control-label">Form Name:</label>
-		<div class="control">
-			<input name="name" type="text" id="name"/>
-		</div>
-	</fieldset>
-	<br/>
-	<br/>
-	<fieldset>
-		<label for="q2" class="control-label">Required Form:</label>
-		<div class="control" id="forms">
+<div class="row-fluid form-wrapper">
+	<div class="field-box">
+		<label>Form Name:</label>
+		<input name="name" type="text" id="name" class="span6"/>
+	</div>
+	<div class="field-box">
+		<label>Previously Required Form:</label>
+		<div class="ui-select" id="forms">
 			
 		</div>
-	</fieldset>
+	</div>
+</div>
+
 </div>
 <br/>
 <br/>
 <div class="row">
-	<div class="well span9">
+	<div class="span2">
+
+		<h4 class="affix">Field Types</h4>
+		<br/>	
+		<ul class="unstyled affix">
+			<li style="margin:10px;"><input type="button" value="Text" class="btn btn-info" id="text"/></li>
+			<li style="margin:10px;"><input type="button" value="Numeric" class="btn btn-info" id="numeric"/></li>
+			<li style="margin:10px;"><input type="button" value="Long Response" class="btn btn-info" id="long"/></li>
+			<li style="margin:10px;"><input type="button" value="Dropdown" class="btn btn-info" id="drop"/></li>
+			<li style="margin:10px;"><input type="button" value="True/False" class="btn btn-info" id="bool"/></li>
+			<li style="margin:10px;"><input type="button" value="Scale" class="btn btn-info" id="scale"/></li>
+			<li style="margin:10px;"><input type="button" value="Grid" class="btn btn-info" id="grid"/></li>
+		</ul>
+	</div>
+	<div class="span8">
 		<h4>Fields in your form</h4>
 		<br/>
 		<div id="fieldcontainer">
@@ -27,20 +39,5 @@
 		</div>
 		<br/>
 		<input type="button" id="save" value="Save" class="btn btn-info"/>
-	</div>
-	<div class="well span2">
-		<h4>Field Templates</h4>
-		<br/>
-		<div style="margin-left:10px;">
-			<ul class="unstyled">
-				<li style="margin:10px;"><input type="button" value="Text" class="btn btn-info" id="text"/></li>
-				<li style="margin:10px;"><input type="button" value="Numeric" class="btn btn-info" id="numeric"/></li>
-				<li style="margin:10px;"><input type="button" value="Long Response" class="btn btn-info" id="long"/></li>
-				<li style="margin:10px;"><input type="button" value="Dropdown" class="btn btn-info" id="drop"/></li>
-				<li style="margin:10px;"><input type="button" value="True/False" class="btn btn-info" id="bool"/></li>
-				<li style="margin:10px;"><input type="button" value="Scale" class="btn btn-info" id="scale"/></li>
-				<li style="margin:10px;"><input type="button" value="Grid" class="btn btn-info" id="grid"/></li>
-			</ul>
-		</div>
 	</div>
 </div>

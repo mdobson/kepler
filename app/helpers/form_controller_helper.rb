@@ -2,9 +2,9 @@ module FormControllerHelper
 	def convert_form_data_type_for_mobile(field)
 		case field["datatype"]
 			when "Text"
-				return text_field_tag(field["datapoint"])
+				return text_field_tag(field["datapoint"], :class=>"span8 inline-input")
 			when "Numeric"
-				return text_field_tag(field["datapoint"])
+				return text_field_tag(field["datapoint"], :class=>"span8 inline-input")
 			when "Bool"
 				return content_tag :fieldset, :data=> {:role => "controlgroup"} do 
 					"<input type='radio' name='".html_safe+field["datapoint"]+"' id='radio-choice-1' value='true' />
@@ -21,7 +21,9 @@ module FormControllerHelper
 			when "Dropdown"
 				##TODO Validate this form type when we do not have data in this.
 				fields = [" "]
-				return select_tag(field["datapoint"], options_for_select(fields + field["defaults"].split(",")))
+				return content_tab :div, :class=>"ui-select" do
+					select_tag(field["datapoint"], options_for_select(field["defaults"].split(",")))
+				end
 			when "Long"
 				return text_area_tag(field["datapoint"], nil, :size => "400x8", :style=>"width:461px;")
 			when "Scale"
@@ -36,9 +38,9 @@ module FormControllerHelper
 	def convert_form_data_type(field)
 		case field["datatype"]
 			when "Text"
-				return text_field_tag(field["datapoint"])
+				return text_field_tag(field["datapoint"], nil, :class=>"span5 inline-input")
 			when "Numeric"
-				return text_field_tag(field["datapoint"])
+				return text_field_tag(field["datapoint"], nil, :class=>"span5 inline-input")
 			when "Bool"
 				return content_tag :div, :class=>"controls" do 
 					content_tag(:label, radio_button_tag(field["datapoint"], true) + "True".html_safe, :class=>"radio") +

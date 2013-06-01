@@ -1,21 +1,24 @@
-<h1>Edit</h1>
 <%= form_tag(@path, :method => "PUT") do %>
-	<h3><%=@form.name %></h3>
+	<h3>Edit: <%=@form.name %></h3>
+	<br/>
 	<%= hidden_field_tag("form_id", @form.id) %>
 	<%= hidden_field_tag("set_id", @dataSet.id) %>
 	<% @form.fields.order("position").each do |field|%>
 		<% if field.video %>
 			<%= create_embed_tag(field.video) %>
 		<% end %>
-		<br/>
-		<br/>
-		<h4><%= field.position %>). <%= field.question %></h4><br/>
-		<% if field.is_subject_id != nil and field.is_subject_id == true and field.form.required_form_id != nil %>
-			<h5>Please note this value comes from <%= field.form.required_form.name %> subject id field</h5>
-			<%= convert_subject_id_field_with_value(field, @dataSet.data_set[field.datapoint]) %>
-		<% else %>
-			<%= convert_form_data_type_with_value(field.metadata,@dataSet.data_set[field.datapoint]) %><br/>
-		<% end %>
+		<div class="field-box">
+			<label><%= field.position %>). <%= field.question %></label><br/>
+			<% if field.is_subject_id != nil and field.is_subject_id == true and field.form.required_form_id != nil %>
+				<h5>Please note this value comes from <%= field.form.required_form.name %> subject id field</h5>
+				<div class="ui-select">
+					<%= convert_subject_id_field_with_value(field, @dataSet.data_set[field.datapoint]) %>
+				</div>
+			<% else %>
+				<%= convert_form_data_type_with_value(field.metadata,@dataSet.data_set[field.datapoint]) %><br/>
+			<% end %>
+		</div>
 	<% end %>
+	<br/><br/>
 	<%= submit_tag("Submit", :class=>"btn btn-info") %>
 <% end %>
