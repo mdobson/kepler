@@ -26,14 +26,14 @@
 		<thead>
 			<tr>
 				<th>Subject Id</th>
-				<th>Number of Entries</th>
+				<th>Completed Forms</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @unique_forms.each do |form| %>
 				<tr>
 					<td><%= form %></td>
-					<td><%= link_to "View", study_subject_path(params[:study_id], form) %></td>
+					<td><%= link_to "View #{@unique_forms.count} form(s)", study_subject_path(params[:study_id], form) %></td>
 				</tr>
 			<% end  %>
 		</tbody>
