@@ -41,6 +41,8 @@ module FormControllerHelper
 				return text_field_tag(field["datapoint"], nil, :class=>"span5 inline-input")
 			when "Numeric"
 				return text_field_tag(field["datapoint"], nil, :class=>"span5 inline-input")
+			when "Date"
+				return text_field_tag(field["datapoint"], nil, :class=>"span5 datepicker")
 			when "Bool"
 				return content_tag :div, :class=>"controls" do 
 					content_tag(:label, radio_button_tag(field["datapoint"], true) + "True".html_safe, :class=>"radio") +

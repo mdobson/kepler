@@ -28,6 +28,7 @@
     <link href="/css/bootstrap/bootstrap.css" rel="stylesheet">
     <link href="/css/bootstrap/bootstrap-responsive.css" rel="stylesheet">
     <link href="/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet">
+    <link href="/css/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet">
 
     <!-- global styles -->
     <link rel="stylesheet" type="text/css" href="/css/layout.css">
@@ -51,7 +52,14 @@
 <% content_for(:bottom_scripts) do %>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.datepicker.js"></script>
     <script src="/js/theme.js"></script>
+    <script>
+         // datepicker plugin
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    </script>
 <% end %>
 
 <%= render :file => "layouts/application" %>
