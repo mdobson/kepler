@@ -11,7 +11,7 @@ class Studycache.Collections.Fields extends Backbone.Collection
                 e.set("pos", 1)
             movementType = e.get("movement")
             modelPosition = e.get("pos")
-            if movementType != undefined
+            if movementType != undefined and movementType != "manual"
                 _.each @.models, (model)->
                         if model.get("pos") == e.get("pos")
                             elements.push(model)
@@ -23,10 +23,12 @@ class Studycache.Collections.Fields extends Backbone.Collection
                             if movementType == "up"
                                 position = modelPosition + 1
                                 model.set("pos", position)
-                            else
+                            else if movementType == "down"
                                 position = modelPosition - 1
                                 model.set("pos", position)
-
+                            else
+                                position = modelPosition
+                                model.set("pos", position)
                              
 
                     $("#fieldcontainer").html("")
@@ -35,6 +37,13 @@ class Studycache.Collections.Fields extends Backbone.Collection
                     field = new Studycache.Views.FieldsIndex({model:model})
                     $("#fieldcontainer").append(field.render().el)
                 e.unset("movement")
+            else if movementType == "manual"
+                console.log "manual"
+                $("#fieldcontainer").html("")
+                @sort()
+                _.each @models, (model)->
+                    field = new Studycache.Views.FieldsIndex({model:model})
+                    $("#fieldcontainer").append(field.render().el)
                             
         )
 

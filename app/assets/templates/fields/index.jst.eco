@@ -18,7 +18,7 @@
 		<div class="span1">
 			<a class="up_vote"><img src="/assets/ic_up.png"/></a>
 			<br/>
-			<span style="margin-left:4px;" class="position"><%= @model.get("pos") %></span>
+			<span style="margin-left:4px;"><input type="text" class="span1 position" value="<%= @model.get("pos") %>"/></span>
 			<br/>
 			<a class="down_vote"><img src="/assets/ic_down.png"/></a>
 		</div>
