@@ -60,7 +60,7 @@ class FormController < ApplicationController
     @form = Form.get_form_by_form_id(params[:id]).first
     @path = public_create_study_form_path
     @invalid_fields = []
-    layout = retrieve_template_name("mobile_partials", "application", @form)
+    layout = retrieve_template_name("mobile_partials", "with_links", @form)
     respond_to do |format|
       format.html{ render :layout => layout }
       format.json{ render :json => @form.fields.order("position").to_json }
