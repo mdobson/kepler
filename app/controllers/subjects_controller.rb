@@ -11,11 +11,13 @@ class SubjectsController < ApplicationController
         form.data_sets.each do |data_set|
           subject_ids.push(data_set.data_set[subject_meta_id.datapoint])
         end
+      else
+        form.data_sets.each do |data_set|
+          subject_ids.push(data_set.id)
+        end
       end
-      
     end
     @unique_forms = subject_ids.uniq.compact
-    logger.debug "Subject ids #{@unique_forms}"
   end
 
   def show
@@ -29,6 +31,9 @@ class SubjectsController < ApplicationController
             data_sets.push(data_set)
           end
         end
+      else
+        logger.debug "No subject id!"
+        data_sets.push(form.data_sets.get_data_set_by_id(params[:id]).first)
       end
     end
     @data_sets = data_sets

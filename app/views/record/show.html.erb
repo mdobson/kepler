@@ -19,10 +19,20 @@
   </thead>
   <tbody>
       <% @record.form.fields.order("position").each do |field| %>
-        <tr>
-          <td><%= field.question %></td>
-          <td><%= @record.data_set[field.datapoint] %></td>
-        </tr>
+          <% if field.metadata["datatype"] == "Grid" %>
+            <% eval(@record.data_set[field.datapoint]).each do |grid_key, grid_val| %>
+              <tr>
+                <td><%= grid_key %></td>
+                <td><%= grid_val %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td><%= field.question %></td>
+              <td><%= @record.data_set[field.datapoint] %></td>
+            </tr>
+          <% end %>
+        
       <% end %>
     
   </tbody>

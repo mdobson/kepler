@@ -17,6 +17,10 @@ class DataSet < ActiveRecord::Base
 		select("form_id, count(*) as rec_count").where("study_id = ?", study_id).group("form_id")
 	}
 
+  scope :get_data_set_by_id, lambda { |id|
+    where("id = ?", id)
+  }
+
 	delegate :name, :to => :form, :prefix => true
 
 	def self.create_data_set(form, study_id, params)
