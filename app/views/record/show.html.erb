@@ -20,11 +20,18 @@
   <tbody>
       <% @record.form.fields.order("position").each do |field| %>
           <% if field.metadata["datatype"] == "Grid" %>
-            <% eval(@record.data_set[field.datapoint]).each do |grid_key, grid_val| %>
-              <tr>
-                <td><%= grid_key %></td>
-                <td><%= grid_val %></td>
-              </tr>
+            <% if  @record.data_set[field.datapoint] != nil %>
+              <% eval(@record.data_set[field.datapoint]).each do |grid_key, grid_val| %>
+                <tr>
+                  <td><%= grid_key %></td>
+                  <td><%= grid_val %></td>
+                </tr>
+              <% end %>
+            <% else %>
+                <tr>
+                  <td><%= field.question %></td>
+                  <td>No Answers</td>
+                </tr>
             <% end %>
           <% else %>
             <tr>
